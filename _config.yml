@@ -75,4 +75,4 @@ deploy:
 backup:
     type: git
     repo: 
-      github:git@github.com:qq527382125/qq527382125.github.io.git
+      github: git@github.com:qq527382125/qq527382125.github.io.git
