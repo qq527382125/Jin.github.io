@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="hexo中中模块和文件一一对应,这个文件可能是JavaScript代码、JSON或者编译过的C/C++扩展。">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="血液逆流">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="hexo所使用的模块"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="乾"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>hexo所使用的模块 - 乾</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    首页
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    记录概念
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="https://www.baidu.com">
+                    baidu
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-github-square" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2017/05/05/hexo使用的模块/">
+                hexo所使用的模块
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017-05-05</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/hexo/">hexo</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>hexo中中模块和文件一一对应,这个文件可能是JavaScript代码、JSON或者编译过的C/C++扩展。<br><a id="more"></a></p>
+<p>#hexo使用到的node.js原生模块(核心模块)</p>
+<blockquote>
+<p>核心模块部分在node源码的编译过程中,编译进了二进制执行文件,在Node进程启动时,部分核心模块就被直接加载进内存中,所以这部分核心模块引入时,文件定位和编译执行这两个步骤可以省略,并且在路径分析中优先判断,所以它的<strong>加载速度是最快的</strong>.</p>
+</blockquote>
+<p>##1. events<br>Hexo 继承了 EventEmitter，您可以用 on 方法监听 Hexo 所发布的事件，也可以使用 emit 方法对 Hexo 发布事件.EventEmitter 类由 events 模块定义和开放的.<br>大多数 Node.js 核心 API 都是采用惯用的异步事件驱动架构，其中某些类型的对象（称为触发器）会周期性地触发命名事件来调用函数对象（监听器）。<br>例如，一个 net.Server 对象会在每次有新连接时触发一个事件；一个 fs.ReadStream 会在文件被打开时触发一个事件；一个 stream 会在数据可读时触发事件。<br>所有能触发事件的对象都是 EventEmitter 类的实例。 这些对象开放了一个 eventEmitter.on() 函数，允许将一个或多个函数附加到会被对象触发的命名事件上。 事件名称通常是驼峰式的字符串，但也可以使用任何有效的 JavaScript 属性名。<br>当 EventEmitter 对象触发一个事件时，所有附加在特定事件上的函数都被同步地调用。 被调用的监听器返回的值都会被忽略并丢弃。</p>
+<p>##2. http<br>要使用 HTTP 服务器与客户端，需要require(‘http’)。<br>Node.js 中的 HTTP 接口被设计成支持协议的多种特性，这些特性以往都较难使用。 比如，大块编码的消息。 这些接口从不缓存整个请求或响应，用户能够以流的形式处理数据。</p>
+<p>##3. util<br>模块主要用于支持 Node.js 内部 API 的需求。 大部分实用工具也可用于应用程序与模块开发者。</p>
+<p>##4.module<br>Node.js 有一个简单的模块加载系统。 在 Node.js 中，文件和模块是一一对应的（每个文件被视为一个独立的模块）。</p>
+<p>##5. vm (虚拟机)</p>
+<p>vm 模块提供了一系列 API 用于在 V8 虚拟机环境中编译和运行代码。 它可以通过以下方式使用</p>
+<hr>
+<p>#hexo 使用的文件模块</p>
+<blockquote>
+<p>其中如hexo-fs其实是Promise化的Node.js自带模块中的fs的api.NodeJS的Promise的用法,Javascript的特点是异步，Javascript不能等待，如果你实现某件需要等待的事情，你不能停在那里一直等待结果回来，相反，底线是使用回调callback：你定义一个函数，这个函数只有等到结果可用时才能被调用。<br>这种回调模型对于好的代码组织是没有问题的，但是也可以通过从原始回调切换到promise解决很多问题，将promise看成是一个标准的数据容器，这样会简化你的代码组织，可以成为基于promise的架构。</p>
+<p>##hexo-fs<br>和原生模块fs类似,被promise化.</p>
+<p>##warehouse<br>Hexo引入了json数据库warehouse，也是作者自己开发的一个数据库驱动，API用法与Mongoose相差无几，在架构中的角色是充当一个中介者，存储临时数据，或者持久化数据存储，如博客的发表时间等，还可以作为缓存层，比对文件的修改时间，跳过无修改文件的编译过程，减少二次编译的时间</p>
+<p>##box<br>是 Hexo 用来处理特定文件夹中的文件的容器，在 Hexo 中有两个 Box，分别是 hexo.source 和 hexo.theme，前者用于处理 source 文件夹，而后者用于处理主题文件夹。</p>
+<p>##bluebird<br> bluebird号称速度是所有 Promise 库里最快的<br>node.js被称为回调地狱,多个回调形成了嵌套回调，或者称为回调陷阱。使用bluebird便是简化代码组织.</p>
+<p>##minimist<br>minimist是命令行处理的组件，比如下面这个命令：<br>$ init blog –verbose –cwd /usr/local/<br>会处理成：<br>{ _: [ ‘init’, ‘blog’ ], verbose: true, cwd: ‘/usr/local/‘ }<br>以–开头的参数，会处理成key/value；其他的参数会以数组的形式放到里。后续可以很容易地从中按顺序取出参数，或者判断某参数是否存在</p>
+<p>##abbrev<br>abbrev也是个命令行处理组件：<br>var commands = [“generate”, “init”, “help”];<br>var shorthands = abbrev(commands);<br>会得到：<br>{ g: ‘generate’,<br>  ge: ‘generate’,<br>  gen: ‘generate’,<br>  gene: ‘generate’,<br>  gener: ‘generate’,<br>  genera: ‘generate’,<br>  generat: ‘generate’,<br>  generate: ‘generate’,<br>  h: ‘help’,<br>  he: ‘help’,<br>  hel: ‘help’,<br>  help: ‘help’,<br>  i: ‘init’,<br>  in: ‘init’,<br>  ini: ‘init’,<br>  init: ‘init’ }<br>可以方便用户输入命令</p>
+<p>##tildify<br>tildify可以把用户的目录处理成~<br>var path = “/Users/apple/git_local/“;<br>var short = tildify(path);// ~/git_local/</p>
+<p>##chalk<br>chalk可以给stdout增加文字特效，比如改变文字颜色，增加下划线等</p>
+</blockquote>
+<hr>
+<p>hexo目录下的package.json中列出了基本的第三方模块,在执行npm install的时候,会联网安装.如果代码较复杂，在 node_modules 文件夹中建立文件夹，文件夹名称开头必须为 hexo-，如此一来 Hexo 才会在启动时载入否则Hexo将会忽略它。<br>文件夹内至少要包含 2 个文件：一个是主程序，另一个是 package.json，描述插件的用途和所依赖的插件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── index.js</div><div class="line">└── package.json</div></pre></td></tr></table></figure></p>
+<p>package.json 中至少要包含 name, version, main 属性，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">package.json</div><div class="line">&#123;</div><div class="line">  &quot;name&quot;: &quot;hexo-my-plugin&quot;,</div><div class="line">  &quot;version&quot;: &quot;0.0.1&quot;,</div><div class="line">  &quot;main&quot;: &quot;index&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">&quot;dependencies&quot;: &#123;</div><div class="line">    &quot;abbrev&quot;: &quot;^1.0.7&quot;,</div><div class="line">    &quot;archy&quot;: &quot;^1.0.0&quot;,</div><div class="line">    &quot;bluebird&quot;: &quot;^3.4.0&quot;,</div><div class="line">    &quot;chalk&quot;: &quot;^1.1.3&quot;,</div><div class="line">    &quot;cheerio&quot;: &quot;^0.20.0&quot;,</div><div class="line">    &quot;deep-assign&quot;: &quot;^2.0.0&quot;,</div><div class="line">    &quot;hexo-cli&quot;: &quot;^1.0.2&quot;,</div><div class="line">    &quot;hexo-front-matter&quot;: &quot;^0.2.2&quot;,</div><div class="line">    &quot;hexo-fs&quot;: &quot;^0.1.5&quot;,</div><div class="line">    &quot;hexo-i18n&quot;: &quot;^0.2.1&quot;,</div><div class="line">    &quot;hexo-log&quot;: &quot;^0.1.2&quot;,</div><div class="line">    &quot;hexo-util&quot;: &quot;^0.6.0&quot;,</div><div class="line">    &quot;js-yaml&quot;: &quot;^3.6.1&quot;,</div><div class="line">    &quot;lodash&quot;: &quot;^4.13.1&quot;,</div><div class="line">    &quot;minimatch&quot;: &quot;^3.0.0&quot;,</div><div class="line">    &quot;moment&quot;: &quot;~2.13.0&quot;,</div><div class="line">    &quot;moment-timezone&quot;: &quot;^0.5.4&quot;,</div><div class="line">    &quot;nunjucks&quot;: &quot;^2.4.2&quot;,</div><div class="line">    &quot;pretty-hrtime&quot;: &quot;^1.0.2&quot;,</div><div class="line">    &quot;strip-indent&quot;: &quot;^1.0.1&quot;,</div><div class="line">    &quot;swig&quot;: &quot;1.4.2&quot;,</div><div class="line">    &quot;swig-extras&quot;: &quot;0.0.1&quot;,</div><div class="line">    &quot;text-table&quot;: &quot;^0.2.0&quot;,</div><div class="line">    &quot;tildify&quot;: &quot;^1.2.0&quot;,</div><div class="line">    &quot;titlecase&quot;: &quot;^1.1.2&quot;,</div><div class="line">    &quot;warehouse&quot;: &quot;^2.2.0&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;devDependencies&quot;: &#123;</div><div class="line">    &quot;chai&quot;: &quot;^3.5.0&quot;,</div><div class="line">    &quot;chai-as-promised&quot;: &quot;^5.3.0&quot;,</div><div class="line">    &quot;eslint&quot;: &quot;^2.12.0&quot;,</div><div class="line">    &quot;eslint-config-hexo&quot;: &quot;^1.0.4&quot;,</div><div class="line">    &quot;babel-eslint&quot;: &quot;^7.2.1&quot;,</div><div class="line">    &quot;hexo-renderer-marked&quot;: &quot;^0.2.10&quot;,</div><div class="line">    &quot;istanbul&quot;: &quot;^0.4.3&quot;,</div><div class="line">    &quot;jscs&quot;: &quot;^3.0.4&quot;,</div><div class="line">    &quot;jscs-preset-hexo&quot;: &quot;^1.0.1&quot;,</div><div class="line">    &quot;mocha&quot;: &quot;^2.5.3&quot;,</div><div class="line">    &quot;rewire&quot;: &quot;^2.5.1&quot;,</div><div class="line">    &quot;sinon&quot;: &quot;^1.17.4&quot;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>#hexo常用指令对应的模块<br>hexo init //加载 ‘hexo’模块,加载插件和配置文件.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Hexo = <span class="built_in">require</span>(<span class="string">'hexo'</span>);</div><div class="line"><span class="keyword">var</span> hexo = <span class="keyword">new</span> Hexo(process.cwd(), &#123;&#125;);</div><div class="line"></div><div class="line">hexo.init().then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>hexo generate//Hexo编译模块首先往Hexo扩展对象Console中注册generate函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.register(<span class="string">'generate'</span>, <span class="string">'Generate static files.'</span>, &#123;</div><div class="line">  <span class="attr">options</span>: [</div><div class="line">    &#123;<span class="attr">name</span>: <span class="string">'-d, --deploy'</span>, <span class="attr">desc</span>: <span class="string">'Deploy after generated'</span>&#125;,</div><div class="line">    &#123;<span class="attr">name</span>: <span class="string">'-f, --force'</span>, <span class="attr">desc</span>: <span class="string">'Force regenerate'</span>&#125;,</div><div class="line">    &#123;<span class="attr">name</span>: <span class="string">'-w, --watch'</span>, <span class="attr">desc</span>: <span class="string">'Watch file changes'</span>&#125;</div><div class="line">  ]</div><div class="line">&#125;, <span class="built_in">require</span>(<span class="string">'./generate'</span>));</div></pre></td></tr></table></figure></p>
+<p>generate函数用于生成目标文件夹，从Hexo的路由模块中取得所有需要生成目标文件的路径，调用fs输出文件，在此之前，首先得对源文件进行预处理，把路径写入路由。由于Hexo本身设计的特点，源文件又分为内容和主题两部分，分别存放在source和theme文件夹中，所以得调用process函数分别对它们进行预处理。</p>
+
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2017/05/06/ss/">ss</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2017/05/05/hexo使用的模块/">hexo所使用的模块</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2017/05/05/硬盘/">硬盘</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2017/05/03/热拔插/">热拔插</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/hexo/">hexo</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/编程概念理解/">编程概念理解</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/编程概念理解/硬件/">硬件</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://plus.google.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
