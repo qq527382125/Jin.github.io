@@ -1,0 +1,4 @@
+options:
+  askImageFilename: true
+  overwriteImages: true
+  imagePath: 'C:\\Users\\Administrator\\Desktop\\markdown\\'
