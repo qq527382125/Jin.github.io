@@ -70,9 +70,9 @@ theme: alpha-dust
 
 deploy:
   type: git
-  repo: git@github.com:qq527382125/xueyeniliu.github.io.git
+  repo: https://github.com/qq527382125/xueyeniliu.github.io.git
   branch: master
 backup:
     type: git
     repo: 
-      github: git@github.com:qq527382125/xueyeniliu.github.io.git,master
+      github: https://github.com/qq527382125/xueyeniliu.github.io.git,master
