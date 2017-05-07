@@ -10,6 +10,8 @@
 
     <!--Description-->
     
+        <meta name="description" content="1.页面文件（pagefile.sys）也称虚拟内存，就是在硬盘上拿出（设定出）一部分空间作为暂不被调用程序或叫“惰性”程序及相关数据的临时存放空间。">
+    
 
     <!--Author-->
     
@@ -18,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="乾"/>
+        <meta property="og:title" content="虚拟内存（页面文件）"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +31,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +42,7 @@
 
     <!-- Title -->
     
-    <title>乾</title>
+    <title>虚拟内存（页面文件） - 乾</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -129,71 +131,14 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-github-square" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">乾</h1>
-        
     </div>
 </header>
 
         <section class="main">
             
-                
 <div class="post">
 
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2017/05/07/热拔插/">
-                热拔插
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2017-05-07</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>热插拔（hot-plugging或Hot Swap）即带电插拔，热插拔功能就是允许用户在不关闭系统，不切断电源的情况下取出和更换损坏的硬盘、电源或板卡等部件，从而提高了系统对灾难的及时恢复能力、扩展性和灵活性等。因为热插拔可以节省时间，减少操作步骤，还可以降低开关机时启动电流过大对计算机硬件的冲击（还有一个主要原因是符合人的惰性），所以被一些电脑玩家频繁使用。</p>
-        </div>
-        <a href="/2017/05/07/热拔插/" class="read-more">Read More</a>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2017/05/05/硬盘/">
-                硬盘
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2017-05-05</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>硬盘不是内存。<br>硬盘是电脑主要的存储媒介之一，由一个或者多个铝制或者玻璃制的碟片组成。碟片外覆盖有铁磁性材料。<br>
-        </div>
-        <a href="/2017/05/05/硬盘/" class="read-more">Read More</a>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
+    <div class="post-header">
         <h1 class="title">
             <a href="/2017/05/03/虚拟内存/">
                 虚拟内存（页面文件）
@@ -208,36 +153,36 @@
         </div>
     </div>
 
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>1.页面文件（pagefile.sys）也称虚拟内存，就是在硬盘上拿出（设定出）一部分空间作为暂不被调用程序或叫“惰性”程序及相关数据的临时存放空间。</p>
+<a id="more"></a>
+<p>因内存容量总是有限,而实际运行的程序会很多，若都塞在内存中会大量占用有限的内存资源，不利于系统正常、快速、流畅地调用、运行急需的程序及数据。于是系统就开辟出一部分硬盘空间将惰性程序及相关数据暂时存放于此，而让即将被调用的程序或称“活性”程序及数据存留在内存中方便马上调用；而页面文件中暂存的“惰性程序”及数据待CPU需要调用时再与内存交互，如此即为页面文件的工作原理。页面文件像内存一样起到中间暂存、交换作用又是硬盘空间的一部分，所以又叫虚拟内存。</p>
+<p>2。</p>
+<p>页面文件如同文件夹中常见文件一样，是实实在在存在的文件，只是为安全起见系统将其默认为隐藏文件，显示后一般可在系统盘根目录中见到名为pagefile.sys的文件，它就是页面文件。</p>
+<p>3。</p>
+<p>要修改页面文件（虚拟内存）的存放位置及大小，对XP而言：可在“我的电脑”上右击选“属性”—“高级”选项卡里的“性能”选项框中—“设置”—“高级”—“虚拟内存”框中—“更改”即来到虚拟内存设置窗口（WIN2000进入类似）。要先确定你的页面文件在哪个驱动器盘符，然后将别的盘符驱动器的页面文件全部禁用，可保留一个页面文件。微软的默认设置是，页面文件最小值应为物理内存的1.5倍，最大值为2-3倍。我的设置建议是同意微软的默认设置，不需要另设它值。若物理内存为1G又觉得1.5倍的最小值设置占硬盘空间较大，最小值可设为1G即物理内存的1倍，以后若出现问题则改回默认设置；最大值默认即可。因页面文件的使用是由小至大、逐渐增加的过程，若最小值范围内可正常运行、交互，系统就不会再增大到最大值的程度。</p>
+<p>4。</p>
+<p>页面文件最好单独设置在一个盘符里（我的机器就设置到了F盘中），如此能使系统调用虚拟内存中的程序及数据时能更快速、更流畅。还有，变更页面文件的位置之前最好能对相应盘符进行磁盘碎片整理，以使页面文件连续、规律地存放利于快速读取。</p>
+
+    </div>
+
     
-        <div class="content">
-            <p>1.页面文件（pagefile.sys）也称虚拟内存，就是在硬盘上拿出（设定出）一部分空间作为暂不被调用程序或叫“惰性”程序及相关数据的临时存放空间。</p>
-        </div>
-        <a href="/2017/05/03/虚拟内存/" class="read-more">Read More</a>
+
+    
+
+    <!-- Comments -->
     
 
 </div>
-            
         </section>
+
     </div>
 </div>
-
-
-
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="wrap-pagination">
-                <a class="disabled" href="/">
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                </a>
-                <a class="" href="/page/2/">
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-
-
-
 
 </div>
 
