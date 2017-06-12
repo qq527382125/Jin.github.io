@@ -10,6 +10,8 @@
 
     <!--Description-->
     
+        <meta name="description" content="数据结构是指互相之间存在一种或多种特定关系的数据元素的集合">
+    
 
     <!--Author-->
     
@@ -18,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="乾"/>
+        <meta property="og:title" content="数据结构队列(C++)"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +31,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +42,7 @@
 
     <!-- Title -->
     
-    <title>Archiv: 2017/5 - 乾</title>
+    <title>数据结构队列(C++) - 乾</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -121,9 +123,7 @@
 <div class="container">
 
     <!-- Main Content -->
-    
-
-<div class="row">
+    <div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -131,77 +131,59 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-github-square" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">2017/5</h1>
-        
     </div>
 </header>
 
-        <section class="main archive-container">
+        <section class="main">
             
-                <div class="archive-post">
-    <a href="/2017/05/17/hello-world/">
-        <span class="archive-date">
-            May 2017
-        </span>
-        Hello World
-    </a>
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2017/06/11/数据结构队列篇/">
+                数据结构队列(C++)
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017-06-11</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h2 id="数据结构是指互相之间存在一种或多种特定关系的数据元素的集合"><a href="#数据结构是指互相之间存在一种或多种特定关系的数据元素的集合" class="headerlink" title="数据结构是指互相之间存在一种或多种特定关系的数据元素的集合"></a>数据结构是指互相之间存在一种或多种特定关系的数据元素的集合</h2><a id="more"></a>
+<h1 id="什么是数据结构"><a href="#什么是数据结构" class="headerlink" title="什么是数据结构?"></a>什么是数据结构?</h1><p>数据结构是指互相之间存在一种或多种<strong>特定关系</strong>的数据元素的<strong>集合</strong></p>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><h2 id="先进先出-FIFO-first-in-first-out"><a href="#先进先出-FIFO-first-in-first-out" class="headerlink" title="先进先出  FIFO:first in first out"></a><strong>先进先出</strong>  FIFO:first in first out</h2><p>普通队列:有两种情况<br>第一种:售票员不动,第一个人买到票走后,后面一个人向前走,变成队列头,但是效率低<br>第二种:售票员一直向后走,但是前面的内存空间就被浪费了<img src="http://oocfz31zv.bkt.clouddn.com/20170611172928.png" alt="20170611172928"><br>环形队列<br>元素空间可以重复利用:因为一般的环形队列都是一个元素数固定的一个闭环，可以在环形队列初始化的时候分配好确定的内存空间，当进队或出队时只需要返回指定元素内存空间的地址即可，这些内存空间可以重复利用，避免频繁内存分配和释放的开销。</p>
+<p><img src="http://oocfz31zv.bkt.clouddn.com/20170611173419.png" alt="20170611173419"></p>
+<p><img src="http://oocfz31zv.bkt.clouddn.com/20170611173926.png" alt="20170611173926"></p>
+<h2 id="环形队列C-实现"><a href="#环形队列C-实现" class="headerlink" title="环形队列C++实现"></a>环形队列C++实现</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyQueue</span></span></div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	MyQueue(<span class="keyword">int</span> queueCapacity);<span class="comment">//创建队列</span></div><div class="line">	<span class="keyword">virtual</span> ~MyQueue();<span class="comment">//销毁队列,析构函数</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">ClearQueue</span><span class="params">()</span></span>;<span class="comment">//清空队列</span></div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">QueueEmpty</span><span class="params">()</span> <span class="keyword">const</span></span>;<span class="comment">//判空队列</span></div><div class="line">	<span class="function"><span class="keyword">int</span> <span class="title">QueueLength</span><span class="params">()</span> <span class="keyword">const</span></span>;<span class="comment">//队列长度</span></div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">Enqueue</span><span class="params">(<span class="keyword">int</span> element)</span></span>;<span class="comment">//新元素入队</span></div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">DeQueue</span><span class="params">(<span class="keyword">int</span> &amp;element)</span></span>;<span class="comment">//首元素出队</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">QueueTraverse</span><span class="params">()</span></span>;<span class="comment">//遍历队列                                       </span></div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">	<span class="keyword">int</span> *m_pQueue;<span class="comment">//队列数组指针</span></div><div class="line">	<span class="keyword">int</span> m_iQueueLen;<span class="comment">//队列元素个数</span></div><div class="line">	<span class="keyword">int</span> m_iQueueCapacity;<span class="comment">//队列数组容量</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://oocfz31zv.bkt.clouddn.com/20170612193022.png" alt="20170612193022"></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/数据结构/">#数据结构</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
 </div>
-            
-                <div class="archive-post">
-    <a href="/2017/05/05/硬盘/">
-        <span class="archive-date">
-            May 2017
-        </span>
-        硬盘
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2017/05/17/ssh/">
-        <span class="archive-date">
-            May 2017
-        </span>
-        ssh
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2017/06/11/数据结构队列篇/">
-        <span class="archive-date">
-            Jun 2017
-        </span>
-        数据结构队列(C++)
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2017/05/03/虚拟内存/">
-        <span class="archive-date">
-            May 2017
-        </span>
-        虚拟内存（页面文件）
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2017/05/03/回调函数/">
-        <span class="archive-date">
-            May 2017
-        </span>
-        回调函数
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2017/05/07/热拔插/">
-        <span class="archive-date">
-            May 2017
-        </span>
-        热拔插
-    </a>
-</div>
-            
         </section>
+
     </div>
 </div>
 
