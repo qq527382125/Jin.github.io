@@ -1,228 +1,152 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="null">
 <head>
-  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>阅读习惯 | 乾</title>
-  <meta name="description" content="" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="MobileOptimized" content="320" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" href="/css/component.css" />
-  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
-  <meta name="generator" content="乾">
-  <script src="http://static.duoshuo.com/embed.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  
+  <meta name="keywords" content="网站关键字">
+  <meta name="description" content="网站简介">
+  
+  <title>乾</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/materialize.min.css">
+    
+      <link rel="stylesheet" href="/css/main.min.css">
+    
   
   
-  
-
-  
-
-</head>
+    <style type="text/css">
+        html{
+            font-family: sans-serif;
+            font-weight: 300;
+        }
+        @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src: url(/fonts/MaterialIcons-Regular.eot);
+            src: url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+            url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+            url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
+        }
+    </style>
+<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 <body>
-<div class="container">
-    <div class="mp-pusher" id="mp-pusher">
-        <i id="scroll-up" class="fa fa-angle-up"></i>
-        <nav id="mp-menu" class="mp-menu">
-            <div class="mp-level">
-                <a data-pjax class="back-home" style="font-size: 20px" href="/"><h2 ><i class="fa fa-home"></i>
-                        Home</h2></a>
-                <ul class="first-level">
-                    <li>
-                        <a class="fa fa-archive" href="#"><i class="fa fa-angle-left">
-                            </i>&nbsp;&nbsp;Archive</a>
-                        <div class="mp-level page-list">
-                            <h2 ><i class="fa fa-archive"></i>
-                                Archive</h2>
-                            <a class="mp-back" href="#">back</a>
-                            <form id="search-form" action="">
-                                <input type="text" class="search search-archive" placeholder="Search.."/>
-                            </form>
-                            <ul>
-                                <div class="mp-scroll">
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2017/06/21/阅读习惯/">阅读习惯</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2017/06/21/13个学习技巧/">阅读习惯</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2017/06/11/数据结构队列篇/">数据结构队列(C++)</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2017/05/17/ssh/">ssh</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2017/05/07/热拔插/">热拔插</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2017/05/05/硬盘/">硬盘</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2017/05/03/回调函数/">回调函数</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2017/05/03/虚拟内存/">虚拟内存（页面文件）</a>
-                                </li>
-                                
-                                </div>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="fa fa-copy" href="#"><i class="fa fa-angle-left">
-                            </i>&nbsp;&nbsp;Categories</a>
+<div id="menu-box"><a href="javascript:void(0)" id="menu" data-activates="slide-out" class="button-collapse menu" data-home="http://yoursite.com"><span class="nav-btn"></span></a></div>
+<div id="menu-outer">
+  <div id="menu-inner">
+      <ul id="slide-out" class="side-nav" >
+    <div class="nav-header"  style="background-image: url(/images/header-bg.png);background-color:#26A69A">
+    <div class="header-box"><img src="/images/header.png" ondragstart="return false;"></div>
+    <p>血液逆流</p>
+    <div class="nav-link">
+        
+        <a href="http://example.com" target="_blank"> <div class="link-box twitter"></div></a>
+        
+        
+        <a  href="https://github.com/qq527382125/qq527382125.github.io" target="_blank"><div class="link-box github"></div></a>
+        
+        
+        <a href="mailto:qq527382125@gmail.com"><div class="link-box email"></div></a>
+        
+        
+        <a href="http://example.com" target="_blank"><div class="link-box weibo"></div></a>
+        
+        
+        <a href="https://www.zhihu.com/people/xueyeniliu/activities" target="_blank"> <div class="link-box zhihu"></div></a>
+        
+    </div>
+    <div class="nav-search">
+        <form id="search-form"> <!-- 搜索框相关 -->
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." class="search form-control" autocomplete="off" autocorrect="off"/>
+            <div class="nav-search-img"><i class="material-icons">search</i></div>
+        </form>
+        <div id="local-search-result"></div> <!-- 搜索结果区 -->
+        <p class='no-result'>无搜索结果</p>
+    </div>
+</div>
+    <!--Homepage-->
 
-                        <div class="mp-level page-list">
-                            <h2 ><i class="fa fa-copy"></i>
-                                Categories</h2>
-                            <a class="mp-back" href="#">back</a>
-                            <form id="search-form" action="">
-                                <input type="text" class="search search-category" placeholder="Search.."/>
-                            </form>
-                            <ul>
-                                <div class="mp-scroll">
-                                
-                                <li class="search-category-li mp-pjax">
-                                    <a href="/categories/编程概念理解/硬件/">&nbsp;&nbsp;&nbsp;硬件</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-category-li mp-pjax">
-                                    <a href="/categories/编程概念理解/">&nbsp;&nbsp;&nbsp;编程概念理解</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                </div>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="fa fa-tags" href="#"><i class="fa fa-angle-left">
-                            </i>&nbsp;&nbsp;Tags</a>
-                        <div class="mp-level page-list">
-                            <h2 ><i class="fa fa-tags"></i>
-                                Tags</h2>
-                            <a class="mp-back" href="#">back</a>
-                            <form id="search-form" action="">
-                                <input type="text" class="search search-tag" placeholder="Search.."/>
-                            </form>
-                            <ul>
-                                <div class="mp-scroll">
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/数据结构/">&nbsp;&nbsp;&nbsp;数据结构</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                </div>
-                            </ul>
-                        </div>
-                    </li>
-                    
-                    <li class="mp-pjax"><a class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a></li>
-                    <li><a class="fa fa-github" href="#">&nbsp;&nbsp;&nbsp;Github</a></li>
+<li class="nav-list">
+    <a href="/" target="_self">
+        <div class="nav-ico"><i class="material-icons">home</i> </div><p>主页</p>
+    </a>
+</li>
 
-                </ul>
+<!--archives-->
 
-            </div>
-        </nav>
-        <div id="pjax">
-            <div class="pjax-hidden" style="display: none">
-                
-                    <a  data-pjax href="/2017/06/21/阅读习惯/">阅读习惯</a>
-                
-                    <a  data-pjax href="/2017/06/21/13个学习技巧/">阅读习惯</a>
-                
-                    <a  data-pjax href="/2017/06/11/数据结构队列篇/">数据结构队列(C++)</a>
-                
-                    <a  data-pjax href="/2017/05/17/ssh/">ssh</a>
-                
-                    <a  data-pjax href="/2017/05/07/热拔插/">热拔插</a>
-                
-                    <a  data-pjax href="/2017/05/05/硬盘/">硬盘</a>
-                
-                    <a  data-pjax href="/2017/05/03/回调函数/">回调函数</a>
-                
-                    <a  data-pjax href="/2017/05/03/虚拟内存/">虚拟内存（页面文件）</a>
-                
-                
-                    <a data-pjax href="/categories/编程概念理解/硬件/">&nbsp;&nbsp;硬件</a>
-                
-                    <a data-pjax href="/categories/编程概念理解/">&nbsp;&nbsp;编程概念理解</a>
-                
-                
-                    <a data-pjax href="/tags/数据结构/">&nbsp;&nbsp;数据结构</a>
-                
-                <a data-pjax class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a>
-            </div>
-            <nav class="nexus">
-                <li  style="border-left: 1px solid #c6d0da;">
-                    <a id="trigger" href="#"><i class="fa fa-bars"></i></a>
-                </li>
-                <li ><a id="nexus-back" data-pjax href="/">乾</a></li>
-                
-                <div id="nav-container">
-                    <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">阅读习惯</a></li>
-                        <li id="navbar-toc" style="border-left: none">
-                            <a style="padding-right: 15px">
-                                <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
-                            </a>
-                            <div class="hidden-box">
-                                <ul id="toc"></ul>
-                            </div>
-                        </li>
-                    </div>
-                </div>
-                
-            </nav>
+<li class="nav-list dropdown-btn">
+    <a  class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">assignment</i></div><p>归档</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
 
-            <div class="scroller">
-            <div class="scroller-inner">
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="archive-link" href="/archives/2017/06/">June 2017<span class="archive-count">3</span></a></li><li class="nav-dropdown-list"><a class="archive-link" href="/archives/2017/05/">May 2017<span class="archive-count">5</span></a>
+    </li>
+</ul>
+<!--categories-->
+
+<li class="nav-list dropdown-btn">
+    <a   class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">dashboard</i></div><p>分类</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="category-link" href="/categories/编程概念理解/">编程概念理解<span class="category-count">1</span></a></li><li class="nav-dropdown-list"><a class="category-link" href="/categories/编程概念理解/硬件/">硬件<span class="category-count">1</span></a>
+    </li>
+</ul>
+<!--tags-->
+
+<li class="nav-list">
+    <a href="/archives" target="_self">
+        <div class="nav-ico"><i class="material-icons">bookmark</i> </div><p>标签</p>
+    </a>
+</li>
+
+<!--photo-->
+
+<!--friends-->
+
+<!--about-->
 
 
-<!-- -->
-<!--<body class="post-template">-->
-<!---->
-  
+</ul>
 
-<main class="content" role="main">
-    <article class="post" >
-    <span class="post-meta">
-                  <div class="tag-tile">
-                      
-                  </div>
-                <h1 class="post-title" style="margin: 14px 0;color:#50585D">阅读习惯</h1>
+  </div>
+</div>
 
-                    <div class="post-meta">
-                        Post on<span class="fa fa-clock-o"></span>
-                        <time datetime="2017-06-21T05:57:55.857Z"
-                              itemprop="datePublished">2017-06-21</time>
-                    </div>
-    </span>
-
-        <section class="post-content">
-            <h2 id="数据结构是指互相之间存在一种或多种特定关系的数据元素的集合"><a href="#数据结构是指互相之间存在一种或多种特定关系的数据元素的集合" class="headerlink" title="数据结构是指互相之间存在一种或多种特定关系的数据元素的集合"></a>数据结构是指互相之间存在一种或多种特定关系的数据元素的集合</h2><a id="more"></a>
-<p>#怎么阅读</p>
-<ol>
+<div id="content-outer">
+  <div id="content-inner">
+    
+<article id="post">
+  <div class="post-page-title"  style="background-color:#26A69A;background-image:url(/images/random/vateral-18.png)" >
+  <h2>阅读</h2>
+    
+  <p>作者:血液逆流 &nbsp&nbsp 发布于:<time datetime="2017-06-21T05:57:55.857Z">
+          2017-06-21
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <p>怎么阅读</p>
+<a id="more"></a>
+<p>[TOC]</p>
+<h2 id="怎么阅读"><a href="#怎么阅读" class="headerlink" title="怎么阅读"></a>怎么阅读</h2><ol>
 <li>早晨阅读</li>
 <li>阅读前运动</li>
 <li>阅读动机指定奖励</li>
 <li>预期与移开尽可能多的障碍,确保早晨起来时一起都可以直接进行不会分心</li>
 <li>公开记录每天的进度</li>
 </ol>
-<p>#如何更聪明的学习 </p>
-<ol>
+<h2 id="如何更聪明的学习"><a href="#如何更聪明的学习" class="headerlink" title="如何更聪明的学习"></a>如何更聪明的学习</h2><ol>
 <li>让学习时间分成一部分一部分的组块,因为注意力集中的时间平均为25分钟到30分钟</li>
 <li>创造一个专注学习的空间,理由所身处的环境很大程度上决定着我们行为,更容易投入</li>
 <li>学习积极性,在学习之前先问自己,我要学习的是什么,学习内容归结为两类,概念和事实,概念比事实更重要</li>
@@ -239,71 +163,75 @@
 <p>纵览 提问 阅读 诵读 回顾</p>
 </blockquote>
 
-        </section>
-        <hr/>
-        <nav class="pagination" style="width:auto" role="pagination">
-            
-            <a style="cursor:default" class="newer-posts" href="#">This is the First Post</a>
-            
-            <a class="share-button" data-original-title title>Share this Post</a>
-            
-            <a data-pjax class="older-posts" href="/2017/06/21/13个学习技巧/">Next Post →</a>
-            
-        </nav>
-        <br/>
-        <br/>
-        <section id="comment">
-            <div id="comment-box"></div>
-        </section>
-
-
-    </article>
-</main>
-
-
-  
-<footer class="site-footer">
+  </div>
+  <!--评论块-->
     
-    <div class="inner">
-        <section class="copyright"><a href="/"></a> &copy; 乾 2014</section>
-        <section class="poweredby">Published with <a target="_blank" href="http://hexo.io/">Hexo   </a> and Theme by <a target="_blank" href="https://github.com/yuche/hexo-theme-kael">Kael</a></section>
-    </div>
-</footer>
-</div>
-</div><!-- /scroller -->
 
-</div><!-- /pusher -->
-</div><!-- /container -->
-</div>
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
 
-<!-- Easter eggs -->
 
-<div class="egg animated">
-    <a id="close-button" href="#">X</a>
-    <div class="block">
-        <div class="loading">
-            <span class="ball1"></span>
-            <span class="ball2"></span>
-        </div>
-    </div>
+  <!-- Next Nav -->
+    
+  <a href="/2017/06/21/13个学习技巧/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
+</nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#怎么阅读"><span class="post-toc-number">1.</span> <span class="post-toc-text">怎么阅读</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何更聪明的学习"><span class="post-toc-number">2.</span> <span class="post-toc-text">如何更聪明的学习</span></a></li></ol>
 </div>
-  
-<script src="//cdn.staticfile.org/jquery/1.11.0/jquery.min.js"></script>
-<script>
-    if (!window.jQuery) {
-        var script = document.createElement('script');
-        script.src = "/js/jquery.min.js";
-        document.body.appendChild(script);
-    }
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
 </script>
-<script type="text/javascript" src="/js/lib.js"></script>
-<script type="text/javascript" src="/js/main.js"></script>
+  </div>
+</div>
+<div id="bottom-outer">
+  <div id="bottom-inner">
+    <a  id="top-button" onfocus="this.blur();"><div class="up upinbody" style="background-color:#26A69A"><i class="material-icons material-up">vertical_align_top</i></div></a>
+
+
+<p style="line-height: 45px">Copyright ©  2017  乾</p>
+<p style="line-height: 45px">Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> && Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
+
+  </div>
+</div>
+
+<!--影集界面需要的资源-->
 
 
 
+<!-- scripts list from theme config.yml -->
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+<script src="/js/materialize.min.js"></script>
+
+<script src="/js/main.min.js"></script>
 
 
-
+<script>
+    NProgress.start();
+    NProgress.done();
+    lazy();
+    links();
+    window.onpopstate = menu();
+    //pjax操作
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+        .on('pjax:end', () => {
+            dowmdiv();
+            lazy();
+            toc();
+            links();
+            menu();
+        });
+</script>
 
 
 <script type="text/javascript"
