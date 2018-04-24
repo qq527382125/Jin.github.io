@@ -45,7 +45,7 @@
         }
       }
     </script>-->
-<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 <body>
     <!-- 背景轮播图功能 -->
@@ -143,7 +143,7 @@
                         </li>
                         
                         <li>
-                            <a href="/categories/算法/">算法</a>
+                            <a href="/categories/前端/">前端</a>
                         </li>
                         
                         
@@ -177,7 +177,7 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/算法/">算法</a>
+                            <a href="/tags/前端/">前端</a>
                         </li>
                         
                         
@@ -268,8 +268,44 @@
 <h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p>If source = <code>&quot;source&quot;</code> and target = <code>&quot;target&quot;</code>, return <code>-1</code>.</p>
 <p>If source = <code>&quot;abcdabcdefg&quot;</code> and target = <code>&quot;bcd&quot;</code>, return <code>1</code>.</p>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>对于字符串查找问题,可以使用双重for循环解决,效率更高的则为KMP算法,双重 for 循环的使用较有讲究，因为这里需要考虑目标字符串比源字符串短的可能。对目标字符串的循环肯定是必要的，所以可以优化的地方就在于如何访问源字符串了。简单直观的解法是利用源字符串的长度作为 for 循环的截止索引，这种方法需要处理源字符串中剩余长度不足以匹配目标字符串的情况，而更为高效的方案则为仅遍历源字符串中有可能和目标字符串匹配的部分索引。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (haystack == <span class="keyword">null</span> &amp;&amp; needle == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span> (haystack == <span class="keyword">null</span>) <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span> (needle == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; haystack.length() - needle.length() + <span class="number">1</span>; i++) &#123;</div><div class="line">            <span class="keyword">int</span> j = <span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (; j &lt; needle.length(); j++) &#123;</div><div class="line">                <span class="keyword">if</span> (haystack.charAt(i+j) != needle.charAt(j)) <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (j == needle.length()) <span class="keyword">return</span> i;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">strStr</span><span class="params">(<span class="built_in">string</span> haystack, <span class="built_in">string</span> needle)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (haystack.empty() &amp;&amp; needle.empty()) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span> (haystack.empty()) <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">        <span class="keyword">if</span> (needle.empty()) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="comment">// in case of overflow for negative</span></div><div class="line">        <span class="keyword">if</span> (haystack.size() &lt; needle.size()) <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; haystack.size() - needle.size() + <span class="number">1</span>; i++) &#123;</div><div class="line">            <span class="built_in">string</span>::size_type j = <span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (; j &lt; needle.size(); j++) &#123;</div><div class="line">                <span class="keyword">if</span> (haystack[i + j] != needle[j]) <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (j == needle.size()) <span class="keyword">return</span> i;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">strStr</span><span class="token punctuation">(</span>String haystack<span class="token punctuation">,</span> String needle<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>haystack <span class="token operator">==</span> null <span class="token operator">&amp;&amp;</span> needle <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>haystack <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>needle <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> haystack<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> needle<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> needle<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>haystack<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token operator">+</span>j<span class="token punctuation">)</span> <span class="token operator">!=</span> needle<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">==</span> needle<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> i<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c++"><code class="language-c++">class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        if (haystack.empty() && needle.empty()) return 0;
+        if (haystack.empty()) return -1;
+        if (needle.empty()) return 0;
+        // in case of overflow for negative
+        if (haystack.size() < needle.size()) return -1;
+
+        for (int i = 0; i < haystack.size() - needle.size() + 1; i++) {
+            string::size_type j = 0;
+            for (; j < needle.size(); j++) {
+                if (haystack[i + j] != needle[j]) break;
+            }
+            if (j == needle.size()) return i;
+        }
+        return -1;
+    }
+};
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
     </div>
 </article>
@@ -362,7 +398,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/05/05/硬盘/">硬盘</a>
+                    <a href="/2017/05/05/阅读习惯/">阅读</a>
                 </span>
             </li>
             
@@ -374,7 +410,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/05/05/阅读习惯/">阅读</a>
+                    <a href="/2017/05/05/硬盘/">硬盘</a>
                 </span>
             </li>
             
@@ -408,19 +444,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/05/05/字符串查找/">字符串查询</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2017/05/05/硬盘/">硬盘</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2018/04/24/js表单验证/">表单验证</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/05/05/字符串查找/">字符串查询</a>
                 </span>
             </li>
             
@@ -432,13 +462,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2017/05/05/阅读习惯/">阅读</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2017/05/05/虚拟内存/">虚拟内存</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/05/05/阅读习惯/">阅读</a>
+                    <a href="/2017/05/05/硬盘/">硬盘</a>
                 </span>
             </li>
             
@@ -463,17 +499,17 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/habit/" style="font-size: 12.824614394379603px;" class="tag-cloud-link">habit</a>
+    <a href="/tags/habit/" style="font-size: 15.922680241893842px;" class="tag-cloud-link">habit</a>
     
-    <a href="/tags/工具使用/" style="font-size: 18.098413637292413px;" class="tag-cloud-link">工具使用</a>
+    <a href="/tags/工具使用/" style="font-size: 18.501920912078692px;" class="tag-cloud-link">工具使用</a>
     
-    <a href="/tags/算法/" style="font-size: 14.692177839721367px;" class="tag-cloud-link">算法</a>
+    <a href="/tags/前端/" style="font-size: 8.372431811727331px;" class="tag-cloud-link">前端</a>
     
-    <a href="/tags/前端/" style="font-size: 10.103346334194725px;" class="tag-cloud-link">前端</a>
+    <a href="/tags/算法/" style="font-size: 17.044287697219517px;" class="tag-cloud-link">算法</a>
     
-    <a href="/tags/数据结构/" style="font-size: 10.266352995952793px;" class="tag-cloud-link">数据结构</a>
+    <a href="/tags/数据结构/" style="font-size: 12.694158036960593px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="/tags/硬件/" style="font-size: 13.157608261913648px;" class="tag-cloud-link">硬件</a>
+    <a href="/tags/硬件/" style="font-size: 8.21033580205026px;" class="tag-cloud-link">硬件</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">

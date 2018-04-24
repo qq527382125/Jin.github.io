@@ -45,7 +45,7 @@
         }
       }
     </script>-->
-<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 <body>
     <!-- 背景轮播图功能 -->
@@ -143,7 +143,7 @@
                         </li>
                         
                         <li>
-                            <a href="/categories/算法/">算法</a>
+                            <a href="/categories/前端/">前端</a>
                         </li>
                         
                         
@@ -177,7 +177,7 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/算法/">算法</a>
+                            <a href="/tags/前端/">前端</a>
                         </li>
                         
                         
@@ -267,34 +267,214 @@
 <li>表单元素是事件</li>
 </ul>
 <h1 id="最简单的表单验证"><a href="#最简单的表单验证" class="headerlink" title="最简单的表单验证"></a>最简单的表单验证</h1><p>表单要放在<form></form>标签对中</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- &lt;br&gt;是HTML写法。</span></div><div class="line">&lt;br/&gt;是XHTML1.1的写法，也是XML写法。</div><div class="line">&lt;br /&gt;是XHTML为兼容HTML的写法，也是XML写法。--&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>最简单表单HTML结构<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">""</span>&gt;</span></div><div class="line">    账号:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></div><div class="line">    密码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></div><div class="line">    确认:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- &lt;br>是HTML写法。
+&lt;br/>是XHTML1.1的写法，也是XML写法。
+&lt;br />是XHTML为兼容HTML的写法，也是XML写法。--></span>
+<span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>最简单表单HTML结构<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    账号:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/></span></span>
+    密码:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/></span></span>
+    确认:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>注册<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="http://oocfz31zv.bkt.clouddn.com/0019.png" alt="0019"></p>
 <h1 id="绑定验证功能"><a href="#绑定验证功能" class="headerlink" title="绑定验证功能"></a>绑定验证功能</h1><p>为”注册”按钮绑定一个onclick事件属性,引用eg.regCheck()</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!--在HTML5规范中，script的type属性默认是text/javascript，所以可以省略；但是在HTML 4.01和XHTML 1.0规范中，type属性是必须的。--&gt;</span></div><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>最简单表单HTML结构<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">""</span>&gt;</span></div><div class="line">    账号:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">    密码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line"></div><div class="line">    确认:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span> <span class="attr">onclick</span>=<span class="string">"return eg.regCheck();"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">  var eg =&#123;&#125;;//申明一个对象,当做命名空间使用,方便管理</div><div class="line">  eg.regCheck = function()&#123;</div><div class="line"></div><div class="line">  &#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!--在HTML5规范中，script的type属性默认是text/javascript，所以可以省略；但是在HTML 4.01和XHTML 1.0规范中，type属性是必须的。--></span>
+<span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>最简单表单HTML结构<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    账号:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span>
+    密码:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span>
+
+    确认:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>注册<span class="token punctuation">"</span></span> <span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>return eg.regCheck();<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  var eg ={};//申明一个对象,当做命名空间使用,方便管理
+  eg.regCheck = function(){
+
+  }
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="给表单添加验证功能"><a href="#给表单添加验证功能" class="headerlink" title="给表单添加验证功能"></a>给表单添加验证功能</h1><p>让eg.regCheck()函数做些什么才是,比如获取用户输入的账号该怎么办?<br>这时最好给input标签加个id属性,JS再通过这个指定的id去获取对应的信息,然后验证结果true或者false</p>
 <blockquote>
 <p>涉及HTML DOM getElementById() 方法<br>语法<code>document.getElementById(id)</code> getElementById() 方法可返回对拥有指定 ID 的第一个对象的引用。</p>
 <p><input> 标签用于搜集用户信息。根据不同的 type 属性值，输入字段拥有很多种形式。输入字段可以是文本字段、复选框、掩码后的文本控件、单选按钮、按钮等等。</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>最简单表单HTML结构<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">""</span>&gt;</span></div><div class="line">    账号:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"userid"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">    密码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"userpwd"</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line"></div><div class="line">    确认:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span> = <span class="string">"userpwd2"</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span><span class="attr">value</span>=<span class="string">"注册"</span><span class="attr">onclick</span>=<span class="string">"return eg.regCheck();"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">    var eg =&#123;&#125;;</div><div class="line">    eg.$=function(id)&#123;</div><div class="line">      return document.getElementById(id);</div><div class="line">  &#125;;//定义一个公共函数来获取指定id元素,减少代码量,提高代码复用率</div><div class="line">  eg.regCheck = function()&#123;</div><div class="line">    var uid = eg.$("userid");</div><div class="line">    var upwd= eg.$("userpwd");</div><div class="line">    var upwd2= eg.$("userpwd2");</div><div class="line">    if(uid.value=='')&#123;</div><div class="line">      alert('账号不能为空');</div><div class="line">      return false;</div><div class="line">    &#125;</div><div class="line">    if(upwd.value=='')&#123;</div><div class="line">      alert('密码不能为空');</div><div class="line">      return false;</div><div class="line">    &#125;</div><div class="line">    if(upwd2.value != upwd.value)&#123;</div><div class="line">      alert('两次密码输入不相同');</div><div class="line">      return false;</div><div class="line">    &#125;</div><div class="line">    return true;</div><div class="line">  &#125;;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>最简单表单HTML结构<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    账号:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>userid<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span>
+    密码:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>userpwd<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span>
+
+    确认:&lt;input type="password" name="" id = "userpwd2"/><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span>
+
+    &lt;input type="submit"value="注册"onclick="return eg.regCheck();"/>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    var eg ={};
+    eg.$=function(id){
+      return document.getElementById(id);
+  };//定义一个公共函数来获取指定id元素,减少代码量,提高代码复用率
+  eg.regCheck = function(){
+    var uid = eg.$("userid");
+    var upwd= eg.$("userpwd");
+    var upwd2= eg.$("userpwd2");
+    if(uid.value==''){
+      alert('账号不能为空');
+      return false;
+    }
+    if(upwd.value==''){
+      alert('密码不能为空');
+      return false;
+    }
+    if(upwd2.value != upwd.value){
+      alert('两次密码输入不相同');
+      return false;
+    }
+    return true;
+  };
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>onSubmit是表单上(也只能是表单)用的,提交表单前会触发<br>onClick是按钮等控件上用的,用来触发点击事件.<br>用作数据验证的时候,可以选择在submit按钮上的onclick中验证,可以在onsubmit中验证.但是从事件触发顺序上来说,onclick更早.顺序是:<br>用户点击按钮-&gt;onclick-&gt;如果onclick返回有效或未处理onclick则提交表单-&gt;onsubmit-&gt;如果onsubmit未处理或返回true,则提交,否则取消提交.<br>onsubmit中返回false会引起取消表单提交;onclick中返回false则会引起此次点击操作被判断为无效,则也就不会引起表单提交.</p>
 </blockquote>
 <h2 id="绑定验证的另一种方式"><a href="#绑定验证的另一种方式" class="headerlink" title="绑定验证的另一种方式"></a>绑定验证的另一种方式</h2><p>除了把验证绑定在放在注册按钮的onclick事件属性里使用,还可以放到form标签的onsubmit事件属性,功能一样</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">""</span> <span class="attr">onsubmit</span>=<span class="string">"return eg.regCheck();"</span>&gt;</span></div><div class="line">    账号:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"userid"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">    密码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"userpwd"</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line"></div><div class="line">    确认:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span> = <span class="string">"userpwd2"</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span><span class="attr">value</span>=<span class="string">"注册"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">onsubmit</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>return eg.regCheck();<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    账号:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>userid<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span>
+    密码:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>userpwd<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span>
+
+    确认:&lt;input type="password" name="" id = "userpwd2"/><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span>
+
+    &lt;input type="submit"value="注册"/>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>使用了eg这样的全局变量来存储自定义的各种方法,这成为==单全局变量==,这样做的目的是为了减少环境污染,著名的范例是jQuery库</p>
 <h1 id="处理表单问题"><a href="#处理表单问题" class="headerlink" title="处理表单问题"></a>处理表单问题</h1><p>增加简介字段,可以为空,但是最长不超过60个字符,同时要统计下,用户输入错误的次数,输入超过3次,就锁定注册按钮,然后要解锁才能重新使用</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>处理各种类型的表单元素<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">""</span> <span class="attr">onsubmit</span>=<span class="string">"return eg.regCheck();"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span> =<span class="string">"errnum"</span> <span class="attr">value</span>=<span class="string">"0"</span>/&gt;</span></div><div class="line">    账号:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"userid"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">    密码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"userpwd"</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line"></div><div class="line">    确认:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span> = <span class="string">"userpwd2"</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">    简介:<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>"" <span class="attr">rows</span>=<span class="string">"4"</span> <span class="attr">cols</span>=<span class="string">"18"</span> <span class="attr">id</span>=<span class="string">"about"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">    性别<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"1"</span><span class="attr">checked</span>=<span class="string">"checked"</span>/&gt;</span>男<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"0"</span><span class="attr">checked</span>=<span class="string">"checked"</span>/&gt;</span>女<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span><span class="attr">value</span>=<span class="string">"注册"</span> <span class="attr">id</span>=<span class="string">"regBtn"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span><span class="attr">value</span>=<span class="string">"解锁"</span> <span class="attr">onclick</span>=<span class="string">"eg.unlock()"</span> <span class="attr">style</span>=<span class="string">"display:none;"</span><span class="attr">id</span> = <span class="string">"regUnlock"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">  </div><div class="line">    var eg =&#123;&#125;;</div><div class="line">    eg.$=function(id)&#123;</div><div class="line">      return document.getElementById(id);</div><div class="line">  &#125;;//定义一个公共函数来获取指定id元素,减少代码量,提高代码复用率</div><div class="line">  eg.regCheck = function()&#123;</div><div class="line">    var uid = eg.$("userid");</div><div class="line">    var upwd= eg.$("userpwd");</div><div class="line">    var upwd2= eg.$("userpwd2");</div><div class="line">    var about = eg.$("about");</div><div class="line">    if(uid.value=='')&#123;</div><div class="line"></div><div class="line">      alert('账号不能为空');</div><div class="line">      uid.focus();</div><div class="line">      eg.err();</div><div class="line">      return false;</div><div class="line">    &#125;</div><div class="line">    if(upwd.value=='')&#123;</div><div class="line">      alert('密码不能为空');</div><div class="line">      eg.err();</div><div class="line">      return false;</div><div class="line">    &#125;</div><div class="line">    if(upwd2.value != upwd.value)&#123;</div><div class="line">      alert('两次密码输入不相同');</div><div class="line">      eg.err();</div><div class="line">      return false;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if(about.value.length&gt;60)&#123;</div><div class="line">      alert('简介太长!');</div><div class="line">      eg.err();</div><div class="line">      return false;</div><div class="line">    &#125;</div><div class="line">    return true;</div><div class="line">  &#125;;</div><div class="line">//记录出错的错误次数</div><div class="line">eg.err = function()&#123;</div><div class="line">  var e1 = eg.$("errnum");</div><div class="line">  var old = e1.value;</div><div class="line">  e1.value=parseInt(old)+1;//把字符串转换成整数+1,并保存起来</div><div class="line">  eg.lock();//检测是否应该锁定</div><div class="line">&#125;;</div><div class="line">//通过次数判定是否要锁定注册</div><div class="line">eg.lock=function()&#123;</div><div class="line">  var err = eg.$("errnum");</div><div class="line">  if(parseInt(err.value)&gt;2)&#123;</div><div class="line">    eg.$("regBtn").disabled = true;//输入3次错误就锁定</div><div class="line">    eg.$("regUnlock").style.display="block";//同时显示解锁按钮</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">eg.unlock=function()&#123;</div><div class="line">  eg.$("regBtn").disabled = false;</div><div class="line">  eg.$("regUnlock").style.display="none";</div><div class="line">  //元素所有样式都挂载到style属性下</div><div class="line">&#125;;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>处理各种类型的表单元素<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">onsubmit</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>return eg.regCheck();<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    &lt;input type="hidden" name="" id ="errnum" value="0"/>
+    账号:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>userid<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span>
+    密码:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>userpwd<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span>
+
+    确认:&lt;input type="password" name="" id = "userpwd2"/><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span>
+    简介:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>textarea</span> <span class="token attr-name">name""</span> <span class="token attr-name">rows</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>4<span class="token punctuation">"</span></span> <span class="token attr-name">cols</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>18<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>about<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>textarea</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span>
+    性别&lt;input type="radio" name="sex" value="1"checked="checked"/>男&lt;input type="radio" name="sex" value="0"checked="checked"/>女<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/></span></span>
+    &lt;input type="submit"value="注册" id="regBtn"/>
+    &lt;input type="button"value="解锁" onclick="eg.unlock()" style="display:none;"id = "regUnlock"/>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+    var eg ={};
+    eg.$=function(id){
+      return document.getElementById(id);
+  };//定义一个公共函数来获取指定id元素,减少代码量,提高代码复用率
+  eg.regCheck = function(){
+    var uid = eg.$("userid");
+    var upwd= eg.$("userpwd");
+    var upwd2= eg.$("userpwd2");
+    var about = eg.$("about");
+    if(uid.value==''){
+
+      alert('账号不能为空');
+      uid.focus();
+      eg.err();
+      return false;
+    }
+    if(upwd.value==''){
+      alert('密码不能为空');
+      eg.err();
+      return false;
+    }
+    if(upwd2.value != upwd.value){
+      alert('两次密码输入不相同');
+      eg.err();
+      return false;
+    }
+
+    if(about.value.length>60){
+      alert('简介太长!');
+      eg.err();
+      return false;
+    }
+    return true;
+  };
+//记录出错的错误次数
+eg.err = function(){
+  var e1 = eg.$("errnum");
+  var old = e1.value;
+  e1.value=parseInt(old)+1;//把字符串转换成整数+1,并保存起来
+  eg.lock();//检测是否应该锁定
+};
+//通过次数判定是否要锁定注册
+eg.lock=function(){
+  var err = eg.$("errnum");
+  if(parseInt(err.value)>2){
+    eg.$("regBtn").disabled = true;//输入3次错误就锁定
+    eg.$("regUnlock").style.display="block";//同时显示解锁按钮
+  }
+};
+eg.unlock=function(){
+  eg.$("regBtn").disabled = false;
+  eg.$("regUnlock").style.display="none";
+  //元素所有样式都挂载到style属性下
+};
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>js语句到出错的地方就停止了,后面的全部失效,按钮的disabled属性为true时会变成灰色,style.dispaly属性为none时隐藏,为block(展开)出现.</p>
 <blockquote>
-<p>关于第8行的作用,在本文中是为了统计错误次数<br>eg:</p>
-<p><input name="orderid" type="hidden" value="订单编号"><br>隐式文本域 主要是用来传递数据的，这数据恰巧又是你不想让客户端显示出来，你可以将数据在页面中隐藏<br>这是隐藏表单，一般用来传递参数，而又不想显示在客户端。<br>例如：<br>客户在网站在购买产品，点击提交的时候，通常程序会自动生成一个产品的订单编号，用于后台操作或者其它。而我们通常是没必要把这个编号显示给客户看。</p>
+<p>关于第8行的作用,在本文中是为了统计错误次数<br>eg:<br><code>&lt;input name=&#39;orderid&#39; type=hidden value=&quot;订单编号&quot;&gt;</code><br>隐式文本域 主要是用来传递数据的，这数据恰巧又是你不想让客户端显示出来，你可以将数据在页面中隐藏<br>这是隐藏表单，一般用来传递参数，而又不想显示在客户端。<br>例如：<br>客户在网站在购买产品，点击提交的时候，通常程序会自动生成一个产品的订单编号，用于后台操作或者其它。而我们通常是没必要把这个编号显示给客户看。</p>
 </blockquote>
 <p>checkbox复选框,radio单选框,select下拉框</p>
 <h1 id="用正则表达式来验证输入规则"><a href="#用正则表达式来验证输入规则" class="headerlink" title="用正则表达式来验证输入规则"></a>用正则表达式来验证输入规则</h1><p>​    利用正则表达式可以校验复杂的格式要求</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> email = eg.$(<span class="string">"eamail"</span>);</div><div class="line"><span class="keyword">if</span>(!<span class="regexp">/^[A-Za-z\d]+[A-Za-z\d\-_\.]*@([A-Za-z\d]+][A-Za-z\d\-]*\.)[A-Za-z]&#123;2,4&#125;$/</span>.test(eamail.value))&#123;</div><div class="line">	alert(<span class="string">'请输入正确的邮箱!'</span>);</div><div class="line">	eg.err();</div><div class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> email <span class="token operator">=</span> eg<span class="token punctuation">.</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"eamail"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token regex">/^[A-Za-z\d]+[A-Za-z\d\-_\.]*@([A-Za-z\d]+][A-Za-z\d\-]*\.)[A-Za-z]{2,4}$/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>eamail<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'请输入正确的邮箱!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    eg<span class="token punctuation">.</span><span class="token function">err</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="改善用户体验"><a href="#改善用户体验" class="headerlink" title="改善用户体验"></a>改善用户体验</h1><p>比如限制密码长度,要求字母数字组合,再如光标返回输入错误的地方,减少用户操作,基于这样的考虑,加入一些教会体验代码</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">//光标调到输入框代码</span></div><div class="line"><span class="keyword">if</span>(uid.value==<span class="string">''</span>)&#123;</div><div class="line"></div><div class="line">      alert(<span class="string">'账号不能为空'</span>);</div><div class="line">      uid.focus();</div><div class="line">      eg.err();</div><div class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//光标调到输入框代码</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>uid<span class="token punctuation">.</span>value<span class="token operator">==</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+      <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'账号不能为空'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      uid<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      eg<span class="token punctuation">.</span><span class="token function">err</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
     </div>
 </article>
@@ -387,7 +567,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/05/05/硬盘/">硬盘</a>
+                    <a href="/2017/05/05/阅读习惯/">阅读</a>
                 </span>
             </li>
             
@@ -399,7 +579,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/05/05/阅读习惯/">阅读</a>
+                    <a href="/2017/05/05/硬盘/">硬盘</a>
                 </span>
             </li>
             
@@ -433,19 +613,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/05/05/字符串查找/">字符串查询</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2017/05/05/硬盘/">硬盘</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2018/04/24/js表单验证/">表单验证</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/05/05/字符串查找/">字符串查询</a>
                 </span>
             </li>
             
@@ -457,13 +631,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2017/05/05/阅读习惯/">阅读</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2017/05/05/虚拟内存/">虚拟内存</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/05/05/阅读习惯/">阅读</a>
+                    <a href="/2017/05/05/硬盘/">硬盘</a>
                 </span>
             </li>
             
@@ -488,17 +668,17 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/habit/" style="font-size: 11.877923113259007px;" class="tag-cloud-link">habit</a>
+    <a href="/tags/habit/" style="font-size: 8.573573303535046px;" class="tag-cloud-link">habit</a>
     
-    <a href="/tags/工具使用/" style="font-size: 15.93226851442841px;" class="tag-cloud-link">工具使用</a>
+    <a href="/tags/工具使用/" style="font-size: 19.262882463309722px;" class="tag-cloud-link">工具使用</a>
     
-    <a href="/tags/算法/" style="font-size: 10.795605460280413px;" class="tag-cloud-link">算法</a>
+    <a href="/tags/前端/" style="font-size: 8.388897010364467px;" class="tag-cloud-link">前端</a>
     
-    <a href="/tags/前端/" style="font-size: 15.393953239781528px;" class="tag-cloud-link">前端</a>
+    <a href="/tags/算法/" style="font-size: 13.702335439049097px;" class="tag-cloud-link">算法</a>
     
-    <a href="/tags/数据结构/" style="font-size: 8.446279659066402px;" class="tag-cloud-link">数据结构</a>
+    <a href="/tags/数据结构/" style="font-size: 19.26257920175867px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="/tags/硬件/" style="font-size: 19.58593634425536px;" class="tag-cloud-link">硬件</a>
+    <a href="/tags/硬件/" style="font-size: 12.015019935203215px;" class="tag-cloud-link">硬件</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
