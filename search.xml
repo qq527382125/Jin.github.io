@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[阅读]]></title>
-    <url>%2F2017%2F06%2F21%2F%E9%98%85%E8%AF%BB%E4%B9%A0%E6%83%AF%2F</url>
-    <content type="text"><![CDATA[怎么阅读 [TOC] 怎么阅读 早晨阅读 阅读前运动 阅读动机指定奖励 预期与移开尽可能多的障碍,确保早晨起来时一起都可以直接进行不会分心 公开记录每天的进度 如何更聪明的学习 让学习时间分成一部分一部分的组块,因为注意力集中的时间平均为25分钟到30分钟 创造一个专注学习的空间,理由所身处的环境很大程度上决定着我们行为,更容易投入 学习积极性,在学习之前先问自己,我要学习的是什么,学习内容归结为两类,概念和事实,概念比事实更重要 最佳学习概念的方式,是确保你知道并用自己的话讲述出来,就是用这种方式测试以及更有积极性的学习,还有就是通过距离来说明,再最为重要的地方标记 做笔记对模糊不清的地方进行一点补充,添加一些内容,方便更好的记住概念 最好的学习方式就是靠教别人来学习,因为这是一种积极学习的方式,还能确保自己完全理解课题 正确使用教科书,SQ3R方法: 纵览 提问 阅读 诵读 回顾]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[阅读习惯]]></title>
-    <url>%2F2017%2F06%2F21%2F13%E4%B8%AA%E5%AD%A6%E4%B9%A0%E6%8A%80%E5%B7%A7%2F</url>
-    <content type="text"><![CDATA[13个关于阅读的 间歇重复 spaced repetiton为了最大化学习效率 进行时间短但频率高的学习 神经突触大部分在晚上睡觉的时候生长 这意味着有规律的学习 期间有睡眠先休息 这样更有效率 找到自己的风格 find your own style良好的睡眠 good night’s sleep睡觉与做梦是处理和存储新信息至关重要的部分 集中注意力 focus如果你易于拖延 也就是说你倾向于进行学习数学之类的困难任务转到轻松的事情如浏览网页 番茄工作法 pomodoro technique定时间25分钟时间 在此间完完全全专心于学习 当闹钟响起 放松5分钟 如果想继续 再定时开始 先做困难项 hard stuff first在早上有着最强的意志力 一旦你完成了困难的事情 你接下来一整天都会感觉更好 可能得到更多动力激发你完成其他的事项 运动 冥想 以及交谈 exercise meditate and converse有些活动被证实能让你的大脑增长 它们引起你的大脑中新的神经元的产生 从而增长其潜力 到不同的地方去 go places能创建对实物更深刻的记忆 更多的视觉线索进行记忆 认真看待乐趣 take fu seriously间隔再学习 space your studies按记忆曲线回顾 30%read 70% reciteinstant self-test额外的努力能制造更深刻的记忆痕迹 不要强迫 don’t force it]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[数据结构队列(C++)]]></title>
+    <title><![CDATA[数据结构]]></title>
     <url>%2F2017%2F06%2F11%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%98%9F%E5%88%97%E7%AF%87%2F</url>
     <content type="text"><![CDATA[数据结构是指互相之间存在一种或多种特定关系的数据元素的集合 什么是数据结构?数据结构是指互相之间存在一种或多种特定关系的数据元素的集合 队列先进先出 FIFO:first in first out普通队列:有两种情况第一种:售票员不动,第一个人买到票走后,后面一个人向前走,变成队列头,但是效率低第二种:售票员一直向后走,但是前面的内存空间就被浪费了环形队列元素空间可以重复利用:因为一般的环形队列都是一个元素数固定的一个闭环，可以在环形队列初始化的时候分配好确定的内存空间，当进队或出队时只需要返回指定元素内存空间的地址即可，这些内存空间可以重复利用，避免频繁内存分配和释放的开销。 环形队列C++实现class MyQueue { public: MyQueue(int queueCapacity);//创建队列 virtual ~MyQueue();//销毁队列,析构函数 void ClearQueue();//清空队列 bool QueueEmpty() const;//判空队列 int QueueLength() const;//队列长度 bool Enqueue(int element);//新元素入队 bool DeQueue(int &element);//首元素出队 void QueueTraverse();//遍历队列 private: int *m_pQueue;//队列数组指针 int m_iQueueLen;//队列元素个数 int m_iQueueCapacity;//队列数组容量 }]]></content>
       <tags>
@@ -19,14 +9,26 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ssh]]></title>
-    <url>%2F2017%2F05%2F17%2Fssh%2F</url>
-    <content type="text"></content>
+    <title><![CDATA[13个学习技巧]]></title>
+    <url>%2F2017%2F05%2F05%2F13%E4%B8%AA%E5%AD%A6%E4%B9%A0%E6%8A%80%E5%B7%A7%2F</url>
+    <content type="text"><![CDATA[13个学习技巧 间歇重复 spaced repetiton为了最大化学习效率 进行时间短但频率高的学习 神经突触大部分在晚上睡觉的时候生长 这意味着有规律的学习 期间有睡眠先休息 这样更有效率 找到自己的风格 find your own style良好的睡眠 good night’s sleep睡觉与做梦是处理和存储新信息至关重要的部分 集中注意力 focus如果你易于拖延 也就是说你倾向于进行学习数学之类的困难任务转到轻松的事情如浏览网页 番茄工作法 pomodoro technique定时间25分钟时间 在此间完完全全专心于学习 当闹钟响起 放松5分钟 如果想继续 再定时开始 先做困难项 hard stuff first在早上有着最强的意志力 一旦你完成了困难的事情 你接下来一整天都会感觉更好 可能得到更多动力激发你完成其他的事项 运动 冥想 以及交谈 exercise meditate and converse有些活动被证实能让你的大脑增长 它们引起你的大脑中新的神经元的产生 从而增长其潜力 到不同的地方去 go places能创建对实物更深刻的记忆 更多的视觉线索进行记忆 认真看待乐趣 take fu seriously间隔再学习 space your studies按记忆曲线回顾 30%read 70% reciteinstant self-test额外的努力能制造更深刻的记忆痕迹 不要强迫 don’t force it]]></content>
+      <categories>
+        <category>习惯</category>
+      </categories>
+      <tags>
+        <tag>habit</tag>
+      </tags>
   </entry>
   <entry>
-    <title><![CDATA[热拔插]]></title>
-    <url>%2F2017%2F05%2F07%2F%E7%83%AD%E6%8B%94%E6%8F%92%2F</url>
-    <content type="text"><![CDATA[热插拔（hot-plugging或Hot Swap）即带电插拔，热插拔功能就是允许用户在不关闭系统，不切断电源的情况下取出和更换损坏的硬盘、电源或板卡等部件，从而提高了系统对灾难的及时恢复能力、扩展性和灵活性等。因为热插拔可以节省时间，减少操作步骤，还可以降低开关机时启动电流过大对计算机硬件的冲击（还有一个主要原因是符合人的惰性），所以被一些电脑玩家频繁使用。 关于硬盘的热拔插 以前的硬盘磁头不具备自动停靠的功能，在通电状态下磁头是“飞行”在盘片上面的，当系统断电之前，必须用一条叫“Park”的专用命令，来让磁头归位。否则，就有可能因为盘片瞬间停转而磁头来不及归位，造成盘片被磁头“铲伤”。 而现在的硬盘，只有当读取数据的时候，磁头才会飞行在盘片表面。一旦读取动作结束，磁头立即自动归位停靠。同时，现在的硬盘都具备延时断电的功能。即当系统供电突然丢失时，硬盘本身的控制器能自动探测到这个变化，然后强迫磁头停止当前读写指令的执行，并使磁头正常归位.这个设计大大加强了硬盘在意外断电情况下的安全系数。 所以，盘片损伤的可能性其实是极低的。但这并不意味着热插拔硬盘是毫无危险的。因为开机状态下带电插拔硬盘，都会产生一个瞬时的冲击电流，过去我们认为这是造成硬盘带电插拔损坏的罪魁祸首。然而事实上，硬盘电源接口电路对这种瞬间电流的变化的宽容度是比较大的，绝大多数时候并不会导致硬盘电路板被烧毁。真正的危险来自于硬盘的数据线！ 在带电状态下插拔硬盘数据线，数据线上也会产生不正常的瞬间电流和压降，导致多个精密控制芯片被烧毁，这才是真正的“硬盘杀手”。 因此，只要我们能保证插拔电源线和数据线的顺序正确，即“插”硬盘的时候先接数据线，后接电源线；“拔”硬盘的时候正相反，先拔电源线，后拔数据线。这样，硬盘热插拔就不是天方夜谭！]]></content>
+    <title><![CDATA[字符串查询]]></title>
+    <url>%2F2017%2F05%2F05%2F%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9F%A5%E6%89%BE%2F</url>
+    <content type="text"><![CDATA[简单的字符串查询算法 Problem StatementFor a given source string and a target string, you should output the first index(from 0) of target string in source string. If target does not exist in source, just return -1. ExampleIf source = &quot;source&quot; and target = &quot;target&quot;, return -1. If source = &quot;abcdabcdefg&quot; and target = &quot;bcd&quot;, return 1. 题解对于字符串查找问题,可以使用双重for循环解决,效率更高的则为KMP算法,双重 for 循环的使用较有讲究，因为这里需要考虑目标字符串比源字符串短的可能。对目标字符串的循环肯定是必要的，所以可以优化的地方就在于如何访问源字符串了。简单直观的解法是利用源字符串的长度作为 for 循环的截止索引，这种方法需要处理源字符串中剩余长度不足以匹配目标字符串的情况，而更为高效的方案则为仅遍历源字符串中有可能和目标字符串匹配的部分索引。 public class Solution { public int strStr(String haystack, String needle) { if (haystack == null &amp;&amp; needle == null) return 0; if (haystack == null) return -1; if (needle == null) return 0; for (int i = 0; i &lt; haystack.length() - needle.length() + 1; i++) { int j = 0; for (; j &lt; needle.length(); j++) { if (haystack.charAt(i+j) != needle.charAt(j)) break; } if (j == needle.length()) return i; } return -1; } } class Solution { public: int strStr(string haystack, string needle) { if (haystack.empty() && needle.empty()) return 0; if (haystack.empty()) return -1; if (needle.empty()) return 0; // in case of overflow for negative if (haystack.size() < needle.size()) return -1; for (int i = 0; i < haystack.size() - needle.size() + 1; i++) { string::size_type j = 0; for (; j < needle.size(); j++) { if (haystack[i + j] != needle[j]) break; } if (j == needle.size()) return i; } return -1; } };]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[硬盘]]></title>
@@ -34,17 +36,36 @@
     <content type="text"><![CDATA[硬盘不是内存。硬盘是电脑主要的存储媒介之一，由一个或者多个铝制或者玻璃制的碟片组成。碟片外覆盖有铁磁性材料。硬盘有固态硬盘（SSD 盘，新式硬盘）、机械硬盘（HDD 传统硬盘）、混合硬盘（HHD 一块基于传统机械硬盘诞生出来的新硬盘）。SSD采用闪存颗粒来存储，HDD采用磁性碟片来存储，混合硬盘（HHD: Hybrid Hard Disk）是把磁性硬盘和闪存集成到一起的一种硬盘。绝大多数硬盘都是固定硬盘，被永久性地密封固定在硬盘驱动器中。内存是计算机中重要的部件之一，它是与CPU进行沟通的桥梁。计算机中所有程序的运行都是在内存中进行的，因此内存的性能对计算机的影响非常大。内存（Memory）也被称为内存储器，其作用是用于暂时存放CPU中的运算数据，以及与硬盘等外部存储器交换的数据。只要计算机在运行中，CPU就会把需要运算的数据调到内存中进行运算，当运算完成后CPU再将结果传送出来，内存的运行也决定了计算机的稳定运行。 内存是由内存芯片、电路板、金手指等部分组成的]]></content>
   </entry>
   <entry>
-    <title><![CDATA[回调函数]]></title>
-    <url>%2F2017%2F05%2F03%2F%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[你到一个商店买东西，刚好你要的东西没有货，于是你在店员那里留下了你的电话，过了几天店里有货了，店员就打了你的电话，然后你接到电话后就到店里去取了货。在这个例子里，你的电话号码就叫回调函数，你把电话留给店员就叫登记回调函数，店里后来有货了叫做触发了回调关联的事件，店员给你打电话叫做调用回调函数，你到店里去取货叫做响应回调事件。回答完毕。]]></content>
+    <title><![CDATA[虚拟内存]]></title>
+    <url>%2F2017%2F05%2F05%2F%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%2F</url>
+    <content type="text"><![CDATA[页面文件（pagefile.sys）也称虚拟内存，就是在硬盘上拿出（设定出）一部分空间作为暂不被调用程序或叫“惰性”程序及相关数据的临时存放空间。 1.页面文件（pagefile.sys）也称虚拟内存，就是在硬盘上拿出（设定出）一部分空间作为暂不被调用程序或叫“惰性”程序及相关数据的临时存放空间。 因内存容量总是有限,而实际运行的程序会很多，若都塞在内存中会大量占用有限的内存资源，不利于系统正常、快速、流畅地调用、运行急需的程序及数据。于是系统就开辟出一部分硬盘空间将惰性程序及相关数据暂时存放于此，而让即将被调用的程序或称“活性”程序及数据存留在内存中方便马上调用；而页面文件中暂存的“惰性程序”及数据待CPU需要调用时再与内存交互，如此即为页面文件的工作原理。页面文件像内存一样起到中间暂存、交换作用又是硬盘空间的一部分，所以又叫虚拟内存。 2。 页面文件如同文件夹中常见文件一样，是实实在在存在的文件，只是为安全起见系统将其默认为隐藏文件，显示后一般可在系统盘根目录中见到名为pagefile.sys的文件，它就是页面文件。 3。 要修改页面文件（虚拟内存）的存放位置及大小，对XP而言：可在“我的电脑”上右击选“属性”—“高级”选项卡里的“性能”选项框中—“设置”—“高级”—“虚拟内存”框中—“更改”即来到虚拟内存设置窗口（WIN2000进入类似）。要先确定你的页面文件在哪个驱动器盘符，然后将别的盘符驱动器的页面文件全部禁用，可保留一个页面文件。微软的默认设置是，页面文件最小值应为物理内存的1.5倍，最大值为2-3倍。我的设置建议是同意微软的默认设置，不需要另设它值。若物理内存为1G又觉得1.5倍的最小值设置占硬盘空间较大，最小值可设为1G即物理内存的1倍，以后若出现问题则改回默认设置；最大值默认即可。因页面文件的使用是由小至大、逐渐增加的过程，若最小值范围内可正常运行、交互，系统就不会再增大到最大值的程度。 4。 页面文件最好单独设置在一个盘符里（我的机器就设置到了F盘中），如此能使系统调用虚拟内存中的程序及数据时能更快速、更流畅。还有，变更页面文件的位置之前最好能对相应盘符进行磁盘碎片整理，以使页面文件连续、规律地存放利于快速读取。]]></content>
       <categories>
-        <category>编程概念理解</category>
         <category>硬件</category>
       </categories>
+      <tags>
+        <tag>硬件</tag>
+      </tags>
   </entry>
   <entry>
-    <title><![CDATA[虚拟内存（页面文件）]]></title>
-    <url>%2F2017%2F05%2F03%2F%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%2F</url>
-    <content type="text"><![CDATA[1.页面文件（pagefile.sys）也称虚拟内存，就是在硬盘上拿出（设定出）一部分空间作为暂不被调用程序或叫“惰性”程序及相关数据的临时存放空间。 因内存容量总是有限,而实际运行的程序会很多，若都塞在内存中会大量占用有限的内存资源，不利于系统正常、快速、流畅地调用、运行急需的程序及数据。于是系统就开辟出一部分硬盘空间将惰性程序及相关数据暂时存放于此，而让即将被调用的程序或称“活性”程序及数据存留在内存中方便马上调用；而页面文件中暂存的“惰性程序”及数据待CPU需要调用时再与内存交互，如此即为页面文件的工作原理。页面文件像内存一样起到中间暂存、交换作用又是硬盘空间的一部分，所以又叫虚拟内存。 2。 页面文件如同文件夹中常见文件一样，是实实在在存在的文件，只是为安全起见系统将其默认为隐藏文件，显示后一般可在系统盘根目录中见到名为pagefile.sys的文件，它就是页面文件。 3。 要修改页面文件（虚拟内存）的存放位置及大小，对XP而言：可在“我的电脑”上右击选“属性”—“高级”选项卡里的“性能”选项框中—“设置”—“高级”—“虚拟内存”框中—“更改”即来到虚拟内存设置窗口（WIN2000进入类似）。要先确定你的页面文件在哪个驱动器盘符，然后将别的盘符驱动器的页面文件全部禁用，可保留一个页面文件。微软的默认设置是，页面文件最小值应为物理内存的1.5倍，最大值为2-3倍。我的设置建议是同意微软的默认设置，不需要另设它值。若物理内存为1G又觉得1.5倍的最小值设置占硬盘空间较大，最小值可设为1G即物理内存的1倍，以后若出现问题则改回默认设置；最大值默认即可。因页面文件的使用是由小至大、逐渐增加的过程，若最小值范围内可正常运行、交互，系统就不会再增大到最大值的程度。 4。 页面文件最好单独设置在一个盘符里（我的机器就设置到了F盘中），如此能使系统调用虚拟内存中的程序及数据时能更快速、更流畅。还有，变更页面文件的位置之前最好能对相应盘符进行磁盘碎片整理，以使页面文件连续、规律地存放利于快速读取。]]></content>
+    <title><![CDATA[chrome]]></title>
+    <url>%2F2017%2F05%2F05%2Fchrome%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%2F</url>
+    <content type="text"><![CDATA[使用好chrome是必不可少的 介绍chrome的一些不为人知的功能Chrome的开发者工具是个很强大的东西，相信程序员们都不会陌生，不过有些小功能可能并不为大众所知，所以，写下这篇文章罗列一下可能你所不知道的功能，有的功能可能会比较实用，有的则不一定，也欢迎大家补充交流。 话不多话，我们开始。 代码格式化 强制DOM状态 动画 直接编辑网页 网络限速 复制HTTP请求 抓个带手机的图 设置断点 关于Console中的技巧 关于console对象 关于快捷键 代码格式化有很多css/js的代码都会被 minify 掉，你可以点击代码窗口左下角的那个 { } 标签，chrome会帮你给格式化掉。 强制DOM状态有些HTML的DOM是有状态的，比如&lt;a&gt; 标签，其会有 active，hover， focus，visited这些状态，有时候，我们的CSS会来定关不同状态的样式，在分析网页查看网页上DOM的CSS样式时，我们可以点击CSS样式上的 :hov 这个小按钮来强制这个DOM的状态。 动画现在的网页上都会有一些动画效果。在Chrome的开发者工具中，通过右上角的菜单中的More Tools =&gt; Animations 呼出相关的选项卡。于是你就可以慢动作播放动画了（可以点选 25% 或10%），然后，Chrome还可以帮你把动画录下来，你可以拉动动再画的过程，甚至可以做一些简单的修改。 直接编辑网页在你的 console 里 输入下面的命令： document.designMode = &quot;on&quot;11 于是你就可以直接修改网页上的内容了。 P.S. 下面这个抓屏中还演示了一个如何清空console的示例。你可以输入 clear() 或是 按Ctrl+L（Windows下），CMD + K (Mac下) 网络限速你可以设置你的网络的访问速度来模拟一个网络很慢的情况。 复制HTTP请求这个是我很喜欢 的一个功能，你可以在 network选项卡里，点击 XHR 过滤相关的Ajax请求，然后在相关的请求上点鼠标右键，在菜单中选择： Copy =&gt; Copy as cURL，然后就可以到你的命令行下去 执行 curl 的命令了。这个可以很容易做一些自动化的测试。 友情提示：这个操作有可能会把你的个人隐私信息复制出去，比如你个人登录后的cookie。 抓个带手机的图这个可能有点无聊了，不过我觉得挺有意思的。 在device显示中，先选择一个手机，然后在右上角选 Show Device Frame，然后你就看到手机的样子了，然后再到那个菜中中选 Capture snapshot，就可以抓下一个有手机样子的截图了。我抓的图如下（当然，不是所有的手机都有frame的） 设置断点除了给JavaScript的源代码上设置断点调试，你还可以： 给DOM设置断点选中一个DOM，然后在右键菜单中选 Break on … 你可以看到如下三个选项： 给XHR和Event Lisener设置断点在 Sources 面页中，你可以看到右边的那堆break points中，除了上面我们说的给DOM设置断点，你还可以给XHR和Event Listener设置断点，载图如下： 关于Console中的技巧DOM操作 chrome会帮你buffer 5个你查看过的DOM对象，你可以直接在Console中用 $0, $1, $2, $3, $4来访问。 你还可以使用像jQuery那样的语法来获得DOM对象，如：$(&quot;#mydiv&quot;) 你还可使用 $$(&quot;.class&quot;) 来选择所有满足条件的DOM对象。 你可以使用 getEventListeners($(&quot;selector&quot;)) 来查看某个DOM对象上的事件（如下图所示）。 你还可以使用 monitorEvents($(&quot;selector&quot;)) 来监控相关的事件。比如：monitorEvents(document.body, &quot;click&quot;); Console中的一些函数1.monitor函数使用 monitor函数来监控一函数，如下面的示例 2.copy函数inspect函数可以让你控制台跳到你需要查看的对象上。如：更多的函数请参数官方文档 – Using the Console / Command Line Reference Console的输出我们知道，除了console.log之外，还有console.debug，console.info，console.warn，console.error这些不同级别的输出。另外一个鲜为人知的功能是，console.log中，你还可以对输出的文本加上css的样式，如下所示： console.log(&quot;%c左耳朵&quot;, &quot;font-size:90px;color:#888&quot;)11 于是，你可以定义一些相关的log函数，如： console.todo = function( msg){ console.log( &#39;%c%s %s %s&#39;, &#39;font-size:20px; color:yellow; background-color: blue;&#39;, &#39;--&#39;, msg, &#39;--&#39;); } console.important = function( msg){ console.log( &#39;%c%s %s %s&#39;, &#39;font-size:20px; color:brown; font-weight: bold; text-decoration: underline;&#39;, &#39;--&#39;, msg, &#39;--&#39;); }123456123456 关于console.log中的格式化，你可以参看如下表格： 指示符 输出 %s 格式化输出一个字符串变量。 %i or %d 格式化输出一个整型变量的值。 %f 格式化输出一个浮点数变量的值。 %o 格式化输出一个DOM对象。 %O 格式化输出一个Javascript对象。 %c 为后面的字符串加上CSS样式 除了console.log打印js的数组，你还可以使用console.table来打印，如下所示： var pets = [ { animal: &#39;Horse&#39;, name: &#39;Pony&#39;, age: 23 }, { animal: &#39;Dog&#39;, name: &#39;Snoopy&#39;, age: 13 }, { animal: &#39;Cat&#39;, name: &#39;Tom&#39;, age: 18 }, { animal: &#39;Mouse&#39;, name: &#39;Jerry&#39;, age: 12} ]; console.table(pets)12345671234567 关于console对象 console对象除了上面的打日志的功能，其还有很多功能，比如： console.trace() 可以打出js的函数调用栈 console.time() 和 console.timeEnd() 可以帮你计算一段代码间消耗的时间。 console.profile() 和 console.profileEnd() 可以让你查看CPU的消耗。 console.count() 可以让你看到相同的日志当前被打印的次数。 console.assert(expression, object) 可以让你assert一个表达式 这些东西都可以看看Google的Console API的文档。 其实，还有很多东西，你可以参看Google的官方文档 – Chrome DevTools 关于快捷键点击在 DevTools的右上角的那三个坚排的小点，你会看到一个菜单，点选 Shortcuts，你就可以看到所有的快捷键了 如果你知道更多，也欢迎补充！ （全文完）]]></content>
+      <categories>
+        <category>前端工具</category>
+      </categories>
+      <tags>
+        <tag>工具使用</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[阅读]]></title>
+    <url>%2F2017%2F05%2F05%2F%E9%98%85%E8%AF%BB%E4%B9%A0%E6%83%AF%2F</url>
+    <content type="text"><![CDATA[如何阅读 [TOC] 怎么阅读 早晨阅读 阅读前运动 阅读动机指定奖励 预期与移开尽可能多的障碍,确保早晨起来时一起都可以直接进行不会分心 公开记录每天的进度 如何更聪明的学习 让学习时间分成一部分一部分的组块,因为注意力集中的时间平均为25分钟到30分钟 创造一个专注学习的空间,理由所身处的环境很大程度上决定着我们行为,更容易投入 学习积极性,在学习之前先问自己,我要学习的是什么,学习内容归结为两类,概念和事实,概念比事实更重要 最佳学习概念的方式,是确保你知道并用自己的话讲述出来,就是用这种方式测试以及更有积极性的学习,还有就是通过距离来说明,再最为重要的地方标记 做笔记对模糊不清的地方进行一点补充,添加一些内容,方便更好的记住概念 最好的学习方式就是靠教别人来学习,因为这是一种积极学习的方式,还能确保自己完全理解课题 正确使用教科书,SQ3R方法: 纵览 提问 阅读 诵读 回顾]]></content>
+      <categories>
+        <category>习惯</category>
+      </categories>
+      <tags>
+        <tag>habit</tag>
+      </tags>
   </entry>
 </search>

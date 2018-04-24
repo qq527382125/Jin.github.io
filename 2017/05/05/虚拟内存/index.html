@@ -12,7 +12,7 @@
     
     
     
-    <title>archive_a | JINXO</title>
+    <title>虚拟内存 | JINXO</title>
     <link href=”http://yoursite.com“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -66,13 +66,13 @@
         <div class="ring">
             <a href="http://yoursite.com" class="menuItem" style="left: 50%; top: 15%;">首页</a>
             
-            <a href="/archives/2017/page/3/" class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
             
             <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
             <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
             <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
             
-            <a href="/archives/2017/" class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
             
         </div>
         <audio id="audio" src="/imgs/oni.mp3"></audio>
@@ -116,7 +116,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -207,19 +207,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-archive">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://yoursite.com">JINXO</a>
         >
-        <span>归档</span>
+        <span>虚拟内存</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/archives">归档</a>
+                <a href="/2017/05/05/虚拟内存/">虚拟内存</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/硬件/">硬件</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2017-05-05
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -227,51 +242,38 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/archives">归档</a>
+                    <a href="/2017/05/05/虚拟内存/">虚拟内存</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2017-05-05
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/硬件/">硬件</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        
-        
-            <h1 style="font-size: 24px; margin-top: 40px;">2017年</h1>
-            
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-             
-             
-                        <a href="/2017/06/11/数据结构队列篇/">数据结构</a>
-                        <br>
-            
-             
-                        <a href="/2017/05/05/13个学习技巧/">13个学习技巧</a>
-                        <br>
-            
-             
-                        <a href="/2017/05/05/字符串查找/">字符串查询</a>
-                        <br>
-            
-             
-                        <a href="/2017/05/05/硬盘/">硬盘</a>
-                        <br>
-            
-             
-                        <a href="/2017/05/05/虚拟内存/">虚拟内存</a>
-                        <br>
-            
-             
-                        <a href="/2017/05/05/chrome开发者工具/">chrome</a>
-                        <br>
-            
-             
-                        <a href="/2017/05/05/阅读习惯/">阅读</a>
-                        <br>
-            
-                    </div>
-        
+    <div class="content-article">
+        <p>页面文件（pagefile.sys）也称虚拟内存，就是在硬盘上拿出（设定出）一部分空间作为暂不被调用程序或叫“惰性”程序及相关数据的临时存放空间。<br><a id="more"></a></p>
+<p>1.页面文件（pagefile.sys）也称虚拟内存，就是在硬盘上拿出（设定出）一部分空间作为暂不被调用程序或叫“惰性”程序及相关数据的临时存放空间。</p>
+<p>因内存容量总是有限,而实际运行的程序会很多，若都塞在内存中会大量占用有限的内存资源，不利于系统正常、快速、流畅地调用、运行急需的程序及数据。于是系统就开辟出一部分硬盘空间将惰性程序及相关数据暂时存放于此，而让即将被调用的程序或称“活性”程序及数据存留在内存中方便马上调用；而页面文件中暂存的“惰性程序”及数据待CPU需要调用时再与内存交互，如此即为页面文件的工作原理。页面文件像内存一样起到中间暂存、交换作用又是硬盘空间的一部分，所以又叫虚拟内存。</p>
+<p>2。</p>
+<p>页面文件如同文件夹中常见文件一样，是实实在在存在的文件，只是为安全起见系统将其默认为隐藏文件，显示后一般可在系统盘根目录中见到名为pagefile.sys的文件，它就是页面文件。</p>
+<p>3。</p>
+<p>要修改页面文件（虚拟内存）的存放位置及大小，对XP而言：可在“我的电脑”上右击选“属性”—“高级”选项卡里的“性能”选项框中—“设置”—“高级”—“虚拟内存”框中—“更改”即来到虚拟内存设置窗口（WIN2000进入类似）。要先确定你的页面文件在哪个驱动器盘符，然后将别的盘符驱动器的页面文件全部禁用，可保留一个页面文件。微软的默认设置是，页面文件最小值应为物理内存的1.5倍，最大值为2-3倍。我的设置建议是同意微软的默认设置，不需要另设它值。若物理内存为1G又觉得1.5倍的最小值设置占硬盘空间较大，最小值可设为1G即物理内存的1倍，以后若出现问题则改回默认设置；最大值默认即可。因页面文件的使用是由小至大、逐渐增加的过程，若最小值范围内可正常运行、交互，系统就不会再增大到最大值的程度。</p>
+<p>4。</p>
+<p>页面文件最好单独设置在一个盘符里（我的机器就设置到了F盘中），如此能使系统调用虚拟内存中的程序及数据时能更快速、更流畅。还有，变更页面文件的位置之前最好能对相应盘符进行磁盘碎片整理，以使页面文件连续、规律地存放利于快速读取。</p>
+
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -436,27 +438,27 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/archives/2017/page/2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2017/05/05/虚拟内存/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/archives/2017/page/2/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2017/05/05/虚拟内存/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/archives/2017/page/2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2017/05/05/虚拟内存/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/habit/" style="font-size: 9.395099414129094px;" class="tag-cloud-link">habit</a>
+    <a href="/tags/habit/" style="font-size: 10.547578556834239px;" class="tag-cloud-link">habit</a>
     
-    <a href="/tags/算法/" style="font-size: 8.740778687177695px;" class="tag-cloud-link">算法</a>
+    <a href="/tags/算法/" style="font-size: 12.282681039428088px;" class="tag-cloud-link">算法</a>
     
-    <a href="/tags/数据结构/" style="font-size: 12.528465713895647px;" class="tag-cloud-link">数据结构</a>
+    <a href="/tags/数据结构/" style="font-size: 14.522290577080142px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="/tags/硬件/" style="font-size: 13.92855789727292px;" class="tag-cloud-link">硬件</a>
+    <a href="/tags/硬件/" style="font-size: 19.809469156843807px;" class="tag-cloud-link">硬件</a>
     
-    <a href="/tags/工具使用/" style="font-size: 15.4279372635662px;" class="tag-cloud-link">工具使用</a>
+    <a href="/tags/工具使用/" style="font-size: 11.76335686344326px;" class="tag-cloud-link">工具使用</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">

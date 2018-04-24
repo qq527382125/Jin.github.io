@@ -12,7 +12,7 @@
     
     
     
-    <title>archive_a | JINXO</title>
+    <title>chrome | JINXO</title>
     <link href=”http://yoursite.com“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -66,13 +66,13 @@
         <div class="ring">
             <a href="http://yoursite.com" class="menuItem" style="left: 50%; top: 15%;">首页</a>
             
-            <a href="/archives/2017/page/3/" class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
             
             <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
             <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
             <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
             
-            <a href="/archives/2017/" class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
             
         </div>
         <audio id="audio" src="/imgs/oni.mp3"></audio>
@@ -116,7 +116,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -207,19 +207,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-archive">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://yoursite.com">JINXO</a>
         >
-        <span>归档</span>
+        <span>chrome</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/archives">归档</a>
+                <a href="/2017/05/05/chrome开发者工具/">chrome</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/工具使用/">工具使用</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2017-05-05
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -227,51 +242,137 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/archives">归档</a>
+                    <a href="/2017/05/05/chrome开发者工具/">chrome</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2017-05-05
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/工具使用/">工具使用</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        
-        
-            <h1 style="font-size: 24px; margin-top: 40px;">2017年</h1>
-            
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-             
-             
-                        <a href="/2017/06/11/数据结构队列篇/">数据结构</a>
-                        <br>
-            
-             
-                        <a href="/2017/05/05/13个学习技巧/">13个学习技巧</a>
-                        <br>
-            
-             
-                        <a href="/2017/05/05/字符串查找/">字符串查询</a>
-                        <br>
-            
-             
-                        <a href="/2017/05/05/硬盘/">硬盘</a>
-                        <br>
-            
-             
-                        <a href="/2017/05/05/虚拟内存/">虚拟内存</a>
-                        <br>
-            
-             
-                        <a href="/2017/05/05/chrome开发者工具/">chrome</a>
-                        <br>
-            
-             
-                        <a href="/2017/05/05/阅读习惯/">阅读</a>
-                        <br>
-            
-                    </div>
-        
+    <div class="content-article">
+        <p>使用好chrome是必不可少的<br><a id="more"></a></p>
+<h1 id="介绍chrome的一些不为人知的功能"><a href="#介绍chrome的一些不为人知的功能" class="headerlink" title="介绍chrome的一些不为人知的功能"></a>介绍chrome的一些不为人知的功能</h1><p>Chrome的开发者工具是个很强大的东西，相信程序员们都不会陌生，不过有些小功能可能并不为大众所知，所以，写下这篇文章罗列一下可能你所不知道的功能，有的功能可能会比较实用，有的则不一定，也欢迎大家补充交流。</p>
+<p>话不多话，我们开始。</p>
+<ul>
+<li><strong>代码格式化</strong></li>
+<li><strong>强制DOM状态</strong></li>
+<li><strong>动画</strong></li>
+<li><strong>直接编辑网页</strong></li>
+<li><strong>网络限速</strong></li>
+<li><strong>复制HTTP请求</strong></li>
+<li><strong>抓个带手机的图</strong></li>
+<li><strong>设置断点</strong></li>
+<li><strong>关于Console中的技巧</strong></li>
+<li><strong>关于console对象</strong></li>
+<li><strong>关于快捷键</strong></li>
+</ul>
+<hr>
+<h2 id="代码格式化"><a href="#代码格式化" class="headerlink" title="代码格式化"></a><strong>代码格式化</strong></h2><p>有很多css/<a href="http://lib.csdn.net/base/javascript" target="_blank" rel="external">js</a>的代码都会被 minify 掉，你可以点击代码窗口左下角的那个 { } 标签，chrome会帮你给格式化掉。<br><img src="http://coolshell.cn//wp-content/uploads/2017/01/pretty-code.gif" alt="格式化动图"></p>
+<h2 id="强制DOM状态"><a href="#强制DOM状态" class="headerlink" title="强制DOM状态"></a><strong>强制DOM状态</strong></h2><p>有些HTML的DOM是有状态的，比如<code>&lt;a&gt;</code> 标签，其会有 <code>active</code>，<code>hover</code>， <code>focus</code>，<code>visited</code>这些状态，有时候，我们的CSS会来定关不同状态的样式，在分析网页查看网页上DOM的CSS样式时，我们可以点击CSS样式上的 <code>:hov</code> 这个小按钮来强制这个DOM的状态。<br><img src="http://coolshell.cn//wp-content/uploads/2017/01/state.gif" alt="这里写图片描述"></p>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a><strong>动画</strong></h2><p>现在的网页上都会有一些动画效果。在Chrome的开发者工具中，通过右上角的菜单中的<code>More Tools =&gt; Animations</code> 呼出相关的选项卡。于是你就可以慢动作播放动画了（可以点选 <code>25%</code> 或<code>10%</code>），然后，Chrome还可以帮你把动画录下来，你可以拉动动再画的过程，甚至可以做一些简单的修改。<br><img src="http://coolshell.cn//wp-content/uploads/2017/01/animation.gif" alt="这里写图片描述"></p>
+<h2 id="直接编辑网页"><a href="#直接编辑网页" class="headerlink" title="直接编辑网页"></a><strong>直接编辑网页</strong></h2><p>在你的 console 里 输入下面的命令：</p>
+<pre><code>document.designMode = &quot;on&quot;11
+</code></pre><p>于是你就可以直接修改网页上的内容了。</p>
+<p>P.S. 下面这个抓屏中还演示了一个如何清空console的示例。你可以输入 clear() 或是 按<code>Ctrl+L</code>（Windows下），<code>CMD + K</code> (Mac下)<br><img src="http://coolshell.cn//wp-content/uploads/2017/01/editor.gif" alt="这里写图片描述"></p>
+<h2 id="网络限速"><a href="#网络限速" class="headerlink" title="网络限速"></a><strong>网络限速</strong></h2><p>你可以设置你的网络的访问速度来模拟一个网络很慢的情况。<br><img src="http://coolshell.cn//wp-content/uploads/2017/01/custom-network-throttling-profiles.gif" alt="这里写图片描述"></p>
+<h2 id="复制HTTP请求"><a href="#复制HTTP请求" class="headerlink" title="复制HTTP请求"></a><strong>复制HTTP请求</strong></h2><p>这个是我很喜欢 的一个功能，你可以在 network选项卡里，点击 XHR 过滤相关的Ajax请求，然后在相关的请求上点鼠标右键，在菜单中选择： <code>Copy =&gt; Copy as cURL</code>，然后就可以到你的命令行下去 执行 curl 的命令了。这个可以很容易做一些自动化的<a href="http://lib.csdn.net/base/softwaretest" target="_blank" rel="external">测试</a>。<br><img src="http://coolshell.cn//wp-content/uploads/2017/01/curl.gif" alt="这里写图片描述"></p>
+<p><strong>友情提示：这个操作有可能会把你的个人隐私信息复制出去，比如你个人登录后的cookie。</strong></p>
+<h2 id="抓个带手机的图"><a href="#抓个带手机的图" class="headerlink" title="抓个带手机的图"></a><strong>抓个带手机的图</strong></h2><p>这个可能有点无聊了，不过我觉得挺有意思的。</p>
+<p>在device显示中，先选择一个手机，然后在右上角选 <code>Show Device Frame</code>，然后你就看到手机的样子了，然后再到那个菜中中选 Capture snapshot，就可以抓下一个有手机样子的截图了。<br><img src="http://coolshell.cn//wp-content/uploads/2017/01/device.gif" alt="这里写图片描述"><br>我抓的图如下（当然，不是所有的手机都有frame的）<br><img src="http://coolshell.cn//wp-content/uploads/2017/01/coolshell.cn-iPhone-6-Plus-1-148x300.png" alt="这里写图片描述"></p>
+<h2 id="设置断点"><a href="#设置断点" class="headerlink" title="设置断点"></a><strong>设置断点</strong></h2><p>除了给<a href="http://lib.csdn.net/base/javascript" target="_blank" rel="external">JavaScript</a>的源代码上设置断点调试，你还可以：</p>
+<h3 id="给DOM设置断点"><a href="#给DOM设置断点" class="headerlink" title="给DOM设置断点"></a><strong>给DOM设置断点</strong></h3><p>选中一个DOM，然后在右键菜单中选 Break on … 你可以看到如下三个选项：<br><img src="http://coolshell.cn//wp-content/uploads/2017/01/break.dom_-768x531.png" alt="这里写图片描述"></p>
+<h3 id="给XHR和Event-Lisener设置断点"><a href="#给XHR和Event-Lisener设置断点" class="headerlink" title="给XHR和Event Lisener设置断点"></a><strong>给XHR和Event Lisener设置断点</strong></h3><p>在 Sources 面页中，你可以看到右边的那堆break points中，除了上面我们说的给DOM设置断点，你还可以给XHR和Event Listener设置断点，载图如下：<br><img src="http://coolshell.cn//wp-content/uploads/2017/01/breakpoints-768x943.png" alt="这里写图片描述"></p>
+<h2 id="关于Console中的技巧"><a href="#关于Console中的技巧" class="headerlink" title="关于Console中的技巧"></a><strong>关于Console中的技巧</strong></h2><h3 id="DOM操作"><a href="#DOM操作" class="headerlink" title="DOM操作"></a><strong>DOM操作</strong></h3><ul>
+<li>chrome会帮你buffer 5个你查看过的DOM对象，你可以直接在Console中用 <code>$0, $1, $2, $3, $4</code>来访问。</li>
+<li>你还可以使用像jQuery那样的语法来获得DOM对象，如：<code>$(&quot;#mydiv&quot;)</code></li>
+<li>你还可使用 <code>$$(&quot;.class&quot;)</code> 来选择所有满足条件的DOM对象。</li>
+<li>你可以使用 <code>getEventListeners($(&quot;selector&quot;))</code> 来查看某个DOM对象上的事件（如下图所示）。<img src="http://coolshell.cn//wp-content/uploads/2017/01/events-geteventlisteners_expanded.png" alt="这里写图片描述"></li>
+<li>你还可以使用 <code>monitorEvents($(&quot;selector&quot;))</code> 来监控相关的事件。比如：<code>monitorEvents(document.body, &quot;click&quot;);</code><img src="http://coolshell.cn//wp-content/uploads/2017/01/monitor-events-1024x378.png" alt="这里写图片描述"></li>
+</ul>
+<h3 id="Console中的一些函数"><a href="#Console中的一些函数" class="headerlink" title="Console中的一些函数"></a><strong>Console中的一些函数</strong></h3><p>1.<strong>monitor函数</strong><br>使用 monitor函数来监控一函数，如下面的示例<br><img src="http://coolshell.cn//wp-content/uploads/2017/01/monitor-604x226.png" alt="这里写图片描述"></p>
+<p>2.<strong>copy函数</strong><br>inspect函数可以让你控制台跳到你需要查看的对象上。如：<br><img src="http://coolshell.cn//wp-content/uploads/2017/01/inspect-1024x459.png" alt="这里写图片描述"><br>更多的函数请参数官方文档 – <a href="https://developers.google.com/web/tools/chrome-devtools/console/command-line-reference" target="_blank" rel="external">Using the Console / Command Line Reference</a></p>
+<h3 id="Console的输出"><a href="#Console的输出" class="headerlink" title="Console的输出"></a><strong>Console的输出</strong></h3><p>我们知道，除了<code>console.log</code>之外，还有<code>console.debug</code>，<code>console.info</code>，<code>console.warn</code>，<code>console.error</code>这些不同级别的输出。另外一个鲜为人知的功能是，<code>console.log</code>中，你还可以对输出的文本加上css的样式，如下所示：</p>
+<pre><code>console.log(&quot;%c左耳朵&quot;, &quot;font-size:90px;color:#888&quot;)11
+</code></pre><p><img src="http://coolshell.cn//wp-content/uploads/2017/01/console.log_-604x185.png" alt="这里写图片描述"><br>于是，你可以定义一些相关的log函数，如：</p>
+<pre><code>console.todo = function( msg){
+  console.log( &#39;%c%s %s %s&#39;, &#39;font-size:20px; color:yellow; background-color: blue;&#39;, &#39;--&#39;, msg, &#39;--&#39;);
+}
+console.important = function( msg){
+  console.log( &#39;%c%s %s %s&#39;, &#39;font-size:20px; color:brown; font-weight: bold; text-decoration: underline;&#39;, &#39;--&#39;, msg, &#39;--&#39;);
+}123456123456
+</code></pre><p><img src="http://coolshell.cn//wp-content/uploads/2017/01/console.log2_-768x309.png" alt="这里写图片描述"></p>
+<p>关于console.log中的格式化，你可以参看如下表格：</p>
+<table>
+<thead>
+<tr>
+<th>指示符</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%s</td>
+<td>格式化输出一个字符串变量。</td>
+</tr>
+<tr>
+<td>%i or %d</td>
+<td>格式化输出一个整型变量的值。</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>格式化输出一个浮点数变量的值。</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>格式化输出一个DOM对象。</td>
+</tr>
+<tr>
+<td>%O</td>
+<td>格式化输出一个Javascript对象。</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>为后面的字符串加上CSS样式</td>
+</tr>
+</tbody>
+</table>
+<p>除了console.log打印js的数组，你还可以使用console.table来打印，如下所示：</p>
+<pre><code>var pets = [
+  { animal: &#39;Horse&#39;, name: &#39;Pony&#39;, age: 23 },
+  { animal: &#39;Dog&#39;, name: &#39;Snoopy&#39;, age: 13 },
+  { animal: &#39;Cat&#39;, name: &#39;Tom&#39;, age: 18 },
+  { animal: &#39;Mouse&#39;, name: &#39;Jerry&#39;, age: 12}
+];
+console.table(pets)12345671234567
+</code></pre><p><img src="http://coolshell.cn//wp-content/uploads/2017/01/console.table_-768x328.png" alt="这里写图片描述"></p>
+<h2 id="关于console对象"><a href="#关于console对象" class="headerlink" title="关于console对象"></a><strong>关于console对象</strong></h2><ul>
+<li>console对象除了上面的打日志的功能，其还有很多功能，比如：</li>
+<li>console.trace() 可以打出js的函数调用栈</li>
+<li>console.time() 和 console.timeEnd() 可以帮你计算一段代码间消耗的时间。</li>
+<li>console.profile() 和 console.profileEnd() 可以让你查看CPU的消耗。</li>
+<li>console.count() 可以让你看到相同的日志当前被打印的次数。</li>
+<li>console.assert(expression, object) 可以让你assert一个表达式</li>
+</ul>
+<p>这些东西都可以看看<a href="https://developers.google.com/web/tools/chrome-devtools/console/console-reference" target="_blank" rel="external">Google的Console API的文档。</a></p>
+<p>其实，还有很多东西，你可以参看Google的官方文档 – <a href="https://developers.google.com/web/tools/chrome-devtools/" target="_blank" rel="external">Chrome DevTools</a></p>
+<h2 id="关于快捷键"><a href="#关于快捷键" class="headerlink" title="关于快捷键"></a><strong>关于快捷键</strong></h2><p>点击在 DevTools的右上角的那三个坚排的小点，你会看到一个菜单，点选 Shortcuts，你就可以看到所有的快捷键了<br><img src="http://img.blog.csdn.net/20170216103841932?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZmFjZWtib29r/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://coolshell.cn//wp-content/uploads/2017/01/shortcuts-1024x466.png" alt="这里写图片描述"></p>
+<p>如果你知道更多，也欢迎补充！</p>
+<p>（全文完）</p>
+
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -436,27 +537,27 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/archives/2017/page/2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2017/05/05/chrome开发者工具/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/archives/2017/page/2/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2017/05/05/chrome开发者工具/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/archives/2017/page/2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2017/05/05/chrome开发者工具/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/habit/" style="font-size: 9.395099414129094px;" class="tag-cloud-link">habit</a>
+    <a href="/tags/habit/" style="font-size: 18.65693201836152px;" class="tag-cloud-link">habit</a>
     
-    <a href="/tags/算法/" style="font-size: 8.740778687177695px;" class="tag-cloud-link">算法</a>
+    <a href="/tags/算法/" style="font-size: 17.83778239708844px;" class="tag-cloud-link">算法</a>
     
-    <a href="/tags/数据结构/" style="font-size: 12.528465713895647px;" class="tag-cloud-link">数据结构</a>
+    <a href="/tags/数据结构/" style="font-size: 11.931225108675768px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="/tags/硬件/" style="font-size: 13.92855789727292px;" class="tag-cloud-link">硬件</a>
+    <a href="/tags/硬件/" style="font-size: 18.776264000872708px;" class="tag-cloud-link">硬件</a>
     
-    <a href="/tags/工具使用/" style="font-size: 15.4279372635662px;" class="tag-cloud-link">工具使用</a>
+    <a href="/tags/工具使用/" style="font-size: 13.7411062823776px;" class="tag-cloud-link">工具使用</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
