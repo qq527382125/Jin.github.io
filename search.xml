@@ -20,17 +20,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[chrome]]></title>
-    <url>%2F2017%2F05%2F05%2Fchrome%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%2F</url>
-    <content type="text"><![CDATA[使用好chrome是必不可少的 介绍chrome的一些不为人知的功能Chrome的开发者工具是个很强大的东西，相信程序员们都不会陌生，不过有些小功能可能并不为大众所知，所以，写下这篇文章罗列一下可能你所不知道的功能，有的功能可能会比较实用，有的则不一定，也欢迎大家补充交流。 话不多话，我们开始。 代码格式化 强制DOM状态 动画 直接编辑网页 网络限速 复制HTTP请求 抓个带手机的图 设置断点 关于Console中的技巧 关于console对象 关于快捷键 代码格式化有很多css/js的代码都会被 minify 掉，你可以点击代码窗口左下角的那个 { } 标签，chrome会帮你给格式化掉。 强制DOM状态有些HTML的DOM是有状态的，比如&lt;a&gt; 标签，其会有 active，hover， focus，visited这些状态，有时候，我们的CSS会来定关不同状态的样式，在分析网页查看网页上DOM的CSS样式时，我们可以点击CSS样式上的 :hov 这个小按钮来强制这个DOM的状态。 动画现在的网页上都会有一些动画效果。在Chrome的开发者工具中，通过右上角的菜单中的More Tools =&gt; Animations 呼出相关的选项卡。于是你就可以慢动作播放动画了（可以点选 25% 或10%），然后，Chrome还可以帮你把动画录下来，你可以拉动动再画的过程，甚至可以做一些简单的修改。 直接编辑网页在你的 console 里 输入下面的命令： document.designMode = &quot;on&quot;11 于是你就可以直接修改网页上的内容了。 P.S. 下面这个抓屏中还演示了一个如何清空console的示例。你可以输入 clear() 或是 按Ctrl+L（Windows下），CMD + K (Mac下) 网络限速你可以设置你的网络的访问速度来模拟一个网络很慢的情况。 复制HTTP请求这个是我很喜欢 的一个功能，你可以在 network选项卡里，点击 XHR 过滤相关的Ajax请求，然后在相关的请求上点鼠标右键，在菜单中选择： Copy =&gt; Copy as cURL，然后就可以到你的命令行下去 执行 curl 的命令了。这个可以很容易做一些自动化的测试。 友情提示：这个操作有可能会把你的个人隐私信息复制出去，比如你个人登录后的cookie。 抓个带手机的图这个可能有点无聊了，不过我觉得挺有意思的。 在device显示中，先选择一个手机，然后在右上角选 Show Device Frame，然后你就看到手机的样子了，然后再到那个菜中中选 Capture snapshot，就可以抓下一个有手机样子的截图了。我抓的图如下（当然，不是所有的手机都有frame的） 设置断点除了给JavaScript的源代码上设置断点调试，你还可以： 给DOM设置断点选中一个DOM，然后在右键菜单中选 Break on … 你可以看到如下三个选项： 给XHR和Event Lisener设置断点在 Sources 面页中，你可以看到右边的那堆break points中，除了上面我们说的给DOM设置断点，你还可以给XHR和Event Listener设置断点，载图如下： 关于Console中的技巧DOM操作 chrome会帮你buffer 5个你查看过的DOM对象，你可以直接在Console中用 $0, $1, $2, $3, $4来访问。 你还可以使用像jQuery那样的语法来获得DOM对象，如：$(&quot;#mydiv&quot;) 你还可使用 $$(&quot;.class&quot;) 来选择所有满足条件的DOM对象。 你可以使用 getEventListeners($(&quot;selector&quot;)) 来查看某个DOM对象上的事件（如下图所示）。 你还可以使用 monitorEvents($(&quot;selector&quot;)) 来监控相关的事件。比如：monitorEvents(document.body, &quot;click&quot;); Console中的一些函数1.monitor函数使用 monitor函数来监控一函数，如下面的示例 2.copy函数inspect函数可以让你控制台跳到你需要查看的对象上。如：更多的函数请参数官方文档 – Using the Console / Command Line Reference Console的输出我们知道，除了console.log之外，还有console.debug，console.info，console.warn，console.error这些不同级别的输出。另外一个鲜为人知的功能是，console.log中，你还可以对输出的文本加上css的样式，如下所示： console.log(&quot;%c左耳朵&quot;, &quot;font-size:90px;color:#888&quot;)11 于是，你可以定义一些相关的log函数，如： console.todo = function( msg)&#123; console.log( &apos;%c%s %s %s&apos;, &apos;font-size:20px; color:yellow; background-color: blue;&apos;, &apos;--&apos;, msg, &apos;--&apos;);&#125;console.important = function( msg)&#123; console.log( &apos;%c%s %s %s&apos;, &apos;font-size:20px; color:brown; font-weight: bold; text-decoration: underline;&apos;, &apos;--&apos;, msg, &apos;--&apos;);&#125;123456123456 关于console.log中的格式化，你可以参看如下表格： 指示符 输出 %s 格式化输出一个字符串变量。 %i or %d 格式化输出一个整型变量的值。 %f 格式化输出一个浮点数变量的值。 %o 格式化输出一个DOM对象。 %O 格式化输出一个Javascript对象。 %c 为后面的字符串加上CSS样式 除了console.log打印js的数组，你还可以使用console.table来打印，如下所示： var pets = [ &#123; animal: &apos;Horse&apos;, name: &apos;Pony&apos;, age: 23 &#125;, &#123; animal: &apos;Dog&apos;, name: &apos;Snoopy&apos;, age: 13 &#125;, &#123; animal: &apos;Cat&apos;, name: &apos;Tom&apos;, age: 18 &#125;, &#123; animal: &apos;Mouse&apos;, name: &apos;Jerry&apos;, age: 12&#125;];console.table(pets)12345671234567 关于console对象 console对象除了上面的打日志的功能，其还有很多功能，比如： console.trace() 可以打出js的函数调用栈 console.time() 和 console.timeEnd() 可以帮你计算一段代码间消耗的时间。 console.profile() 和 console.profileEnd() 可以让你查看CPU的消耗。 console.count() 可以让你看到相同的日志当前被打印的次数。 console.assert(expression, object) 可以让你assert一个表达式 这些东西都可以看看Google的Console API的文档。 其实，还有很多东西，你可以参看Google的官方文档 – Chrome DevTools 关于快捷键点击在 DevTools的右上角的那三个坚排的小点，你会看到一个菜单，点选 Shortcuts，你就可以看到所有的快捷键了 如果你知道更多，也欢迎补充！ （全文完）]]></content>
-      <categories>
-        <category>前端工具</category>
-      </categories>
-      <tags>
-        <tag>工具使用</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[13个学习技巧]]></title>
     <url>%2F2017%2F05%2F05%2F13%E4%B8%AA%E5%AD%A6%E4%B9%A0%E6%8A%80%E5%B7%A7%2F</url>
     <content type="text"><![CDATA[13个学习技巧 间歇重复 spaced repetiton为了最大化学习效率 进行时间短但频率高的学习 神经突触大部分在晚上睡觉的时候生长 这意味着有规律的学习 期间有睡眠先休息 这样更有效率 找到自己的风格 find your own style良好的睡眠 good night’s sleep睡觉与做梦是处理和存储新信息至关重要的部分 集中注意力 focus如果你易于拖延 也就是说你倾向于进行学习数学之类的困难任务转到轻松的事情如浏览网页 番茄工作法 pomodoro technique定时间25分钟时间 在此间完完全全专心于学习 当闹钟响起 放松5分钟 如果想继续 再定时开始 先做困难项 hard stuff first在早上有着最强的意志力 一旦你完成了困难的事情 你接下来一整天都会感觉更好 可能得到更多动力激发你完成其他的事项 运动 冥想 以及交谈 exercise meditate and converse有些活动被证实能让你的大脑增长 它们引起你的大脑中新的神经元的产生 从而增长其潜力 到不同的地方去 go places能创建对实物更深刻的记忆 更多的视觉线索进行记忆 认真看待乐趣 take fu seriously间隔再学习 space your studies按记忆曲线回顾 30%read 70% reciteinstant self-test额外的努力能制造更深刻的记忆痕迹 不要强迫 don’t force it]]></content>
@@ -42,6 +31,11 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[硬盘]]></title>
+    <url>%2F2017%2F05%2F05%2F%E7%A1%AC%E7%9B%98%2F</url>
+    <content type="text"><![CDATA[硬盘不是内存。硬盘是电脑主要的存储媒介之一，由一个或者多个铝制或者玻璃制的碟片组成。碟片外覆盖有铁磁性材料。硬盘有固态硬盘（SSD 盘，新式硬盘）、机械硬盘（HDD 传统硬盘）、混合硬盘（HHD 一块基于传统机械硬盘诞生出来的新硬盘）。SSD采用闪存颗粒来存储，HDD采用磁性碟片来存储，混合硬盘（HHD: Hybrid Hard Disk）是把磁性硬盘和闪存集成到一起的一种硬盘。绝大多数硬盘都是固定硬盘，被永久性地密封固定在硬盘驱动器中。内存是计算机中重要的部件之一，它是与CPU进行沟通的桥梁。计算机中所有程序的运行都是在内存中进行的，因此内存的性能对计算机的影响非常大。内存（Memory）也被称为内存储器，其作用是用于暂时存放CPU中的运算数据，以及与硬盘等外部存储器交换的数据。只要计算机在运行中，CPU就会把需要运算的数据调到内存中进行运算，当运算完成后CPU再将结果传送出来，内存的运行也决定了计算机的稳定运行。 内存是由内存芯片、电路板、金手指等部分组成的]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[字符串查询]]></title>
     <url>%2F2017%2F05%2F05%2F%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9F%A5%E6%89%BE%2F</url>
     <content type="text"><![CDATA[简单的字符串查询算法 Problem StatementFor a given source string and a target string, you should output the first index(from 0) of target string in source string. If target does not exist in source, just return -1. ExampleIf source = &quot;source&quot; and target = &quot;target&quot;, return -1. If source = &quot;abcdabcdefg&quot; and target = &quot;bcd&quot;, return 1. 题解对于字符串查找问题,可以使用双重for循环解决,效率更高的则为KMP算法,双重 for 循环的使用较有讲究，因为这里需要考虑目标字符串比源字符串短的可能。对目标字符串的循环肯定是必要的，所以可以优化的地方就在于如何访问源字符串了。简单直观的解法是利用源字符串的长度作为 for 循环的截止索引，这种方法需要处理源字符串中剩余长度不足以匹配目标字符串的情况，而更为高效的方案则为仅遍历源字符串中有可能和目标字符串匹配的部分索引。 public class Solution &#123; public int strStr(String haystack, String needle) &#123; if (haystack == null &amp;&amp; needle == null) return 0; if (haystack == null) return -1; if (needle == null) return 0; for (int i = 0; i &lt; haystack.length() - needle.length() + 1; i++) &#123; int j = 0; for (; j &lt; needle.length(); j++) &#123; if (haystack.charAt(i+j) != needle.charAt(j)) break; &#125; if (j == needle.length()) return i; &#125; return -1; &#125;&#125; class Solution &#123;public: int strStr(string haystack, string needle) &#123; if (haystack.empty() &amp;&amp; needle.empty()) return 0; if (haystack.empty()) return -1; if (needle.empty()) return 0; // in case of overflow for negative if (haystack.size() &lt; needle.size()) return -1; for (int i = 0; i &lt; haystack.size() - needle.size() + 1; i++) &#123; string::size_type j = 0; for (; j &lt; needle.size(); j++) &#123; if (haystack[i + j] != needle[j]) break; &#125; if (j == needle.size()) return i; &#125; return -1; &#125;&#125;;]]></content>
@@ -50,6 +44,17 @@
       </categories>
       <tags>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[chrome]]></title>
+    <url>%2F2017%2F05%2F05%2Fchrome%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%2F</url>
+    <content type="text"><![CDATA[使用好chrome是必不可少的 介绍chrome的一些不为人知的功能Chrome的开发者工具是个很强大的东西，相信程序员们都不会陌生，不过有些小功能可能并不为大众所知，所以，写下这篇文章罗列一下可能你所不知道的功能，有的功能可能会比较实用，有的则不一定，也欢迎大家补充交流。 话不多话，我们开始。 代码格式化 强制DOM状态 动画 直接编辑网页 网络限速 复制HTTP请求 抓个带手机的图 设置断点 关于Console中的技巧 关于console对象 关于快捷键 代码格式化有很多css/js的代码都会被 minify 掉，你可以点击代码窗口左下角的那个 { } 标签，chrome会帮你给格式化掉。 强制DOM状态有些HTML的DOM是有状态的，比如&lt;a&gt; 标签，其会有 active，hover， focus，visited这些状态，有时候，我们的CSS会来定关不同状态的样式，在分析网页查看网页上DOM的CSS样式时，我们可以点击CSS样式上的 :hov 这个小按钮来强制这个DOM的状态。 动画现在的网页上都会有一些动画效果。在Chrome的开发者工具中，通过右上角的菜单中的More Tools =&gt; Animations 呼出相关的选项卡。于是你就可以慢动作播放动画了（可以点选 25% 或10%），然后，Chrome还可以帮你把动画录下来，你可以拉动动再画的过程，甚至可以做一些简单的修改。 直接编辑网页在你的 console 里 输入下面的命令： document.designMode = &quot;on&quot;11 于是你就可以直接修改网页上的内容了。 P.S. 下面这个抓屏中还演示了一个如何清空console的示例。你可以输入 clear() 或是 按Ctrl+L（Windows下），CMD + K (Mac下) 网络限速你可以设置你的网络的访问速度来模拟一个网络很慢的情况。 复制HTTP请求这个是我很喜欢 的一个功能，你可以在 network选项卡里，点击 XHR 过滤相关的Ajax请求，然后在相关的请求上点鼠标右键，在菜单中选择： Copy =&gt; Copy as cURL，然后就可以到你的命令行下去 执行 curl 的命令了。这个可以很容易做一些自动化的测试。 友情提示：这个操作有可能会把你的个人隐私信息复制出去，比如你个人登录后的cookie。 抓个带手机的图这个可能有点无聊了，不过我觉得挺有意思的。 在device显示中，先选择一个手机，然后在右上角选 Show Device Frame，然后你就看到手机的样子了，然后再到那个菜中中选 Capture snapshot，就可以抓下一个有手机样子的截图了。我抓的图如下（当然，不是所有的手机都有frame的） 设置断点除了给JavaScript的源代码上设置断点调试，你还可以： 给DOM设置断点选中一个DOM，然后在右键菜单中选 Break on … 你可以看到如下三个选项： 给XHR和Event Lisener设置断点在 Sources 面页中，你可以看到右边的那堆break points中，除了上面我们说的给DOM设置断点，你还可以给XHR和Event Listener设置断点，载图如下： 关于Console中的技巧DOM操作 chrome会帮你buffer 5个你查看过的DOM对象，你可以直接在Console中用 $0, $1, $2, $3, $4来访问。 你还可以使用像jQuery那样的语法来获得DOM对象，如：$(&quot;#mydiv&quot;) 你还可使用 $$(&quot;.class&quot;) 来选择所有满足条件的DOM对象。 你可以使用 getEventListeners($(&quot;selector&quot;)) 来查看某个DOM对象上的事件（如下图所示）。 你还可以使用 monitorEvents($(&quot;selector&quot;)) 来监控相关的事件。比如：monitorEvents(document.body, &quot;click&quot;); Console中的一些函数1.monitor函数使用 monitor函数来监控一函数，如下面的示例 2.copy函数inspect函数可以让你控制台跳到你需要查看的对象上。如：更多的函数请参数官方文档 – Using the Console / Command Line Reference Console的输出我们知道，除了console.log之外，还有console.debug，console.info，console.warn，console.error这些不同级别的输出。另外一个鲜为人知的功能是，console.log中，你还可以对输出的文本加上css的样式，如下所示： console.log(&quot;%c左耳朵&quot;, &quot;font-size:90px;color:#888&quot;)11 于是，你可以定义一些相关的log函数，如： console.todo = function( msg)&#123; console.log( &apos;%c%s %s %s&apos;, &apos;font-size:20px; color:yellow; background-color: blue;&apos;, &apos;--&apos;, msg, &apos;--&apos;);&#125;console.important = function( msg)&#123; console.log( &apos;%c%s %s %s&apos;, &apos;font-size:20px; color:brown; font-weight: bold; text-decoration: underline;&apos;, &apos;--&apos;, msg, &apos;--&apos;);&#125;123456123456 关于console.log中的格式化，你可以参看如下表格： 指示符 输出 %s 格式化输出一个字符串变量。 %i or %d 格式化输出一个整型变量的值。 %f 格式化输出一个浮点数变量的值。 %o 格式化输出一个DOM对象。 %O 格式化输出一个Javascript对象。 %c 为后面的字符串加上CSS样式 除了console.log打印js的数组，你还可以使用console.table来打印，如下所示： var pets = [ &#123; animal: &apos;Horse&apos;, name: &apos;Pony&apos;, age: 23 &#125;, &#123; animal: &apos;Dog&apos;, name: &apos;Snoopy&apos;, age: 13 &#125;, &#123; animal: &apos;Cat&apos;, name: &apos;Tom&apos;, age: 18 &#125;, &#123; animal: &apos;Mouse&apos;, name: &apos;Jerry&apos;, age: 12&#125;];console.table(pets)12345671234567 关于console对象 console对象除了上面的打日志的功能，其还有很多功能，比如： console.trace() 可以打出js的函数调用栈 console.time() 和 console.timeEnd() 可以帮你计算一段代码间消耗的时间。 console.profile() 和 console.profileEnd() 可以让你查看CPU的消耗。 console.count() 可以让你看到相同的日志当前被打印的次数。 console.assert(expression, object) 可以让你assert一个表达式 这些东西都可以看看Google的Console API的文档。 其实，还有很多东西，你可以参看Google的官方文档 – Chrome DevTools 关于快捷键点击在 DevTools的右上角的那三个坚排的小点，你会看到一个菜单，点选 Shortcuts，你就可以看到所有的快捷键了 如果你知道更多，也欢迎补充！ （全文完）]]></content>
+      <categories>
+        <category>前端工具</category>
+      </categories>
+      <tags>
+        <tag>工具使用</tag>
       </tags>
   </entry>
   <entry>
@@ -73,10 +78,5 @@
       <tags>
         <tag>habit</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[硬盘]]></title>
-    <url>%2F2017%2F05%2F05%2F%E7%A1%AC%E7%9B%98%2F</url>
-    <content type="text"><![CDATA[硬盘不是内存。硬盘是电脑主要的存储媒介之一，由一个或者多个铝制或者玻璃制的碟片组成。碟片外覆盖有铁磁性材料。硬盘有固态硬盘（SSD 盘，新式硬盘）、机械硬盘（HDD 传统硬盘）、混合硬盘（HHD 一块基于传统机械硬盘诞生出来的新硬盘）。SSD采用闪存颗粒来存储，HDD采用磁性碟片来存储，混合硬盘（HHD: Hybrid Hard Disk）是把磁性硬盘和闪存集成到一起的一种硬盘。绝大多数硬盘都是固定硬盘，被永久性地密封固定在硬盘驱动器中。内存是计算机中重要的部件之一，它是与CPU进行沟通的桥梁。计算机中所有程序的运行都是在内存中进行的，因此内存的性能对计算机的影响非常大。内存（Memory）也被称为内存储器，其作用是用于暂时存放CPU中的运算数据，以及与硬盘等外部存储器交换的数据。只要计算机在运行中，CPU就会把需要运算的数据调到内存中进行运算，当运算完成后CPU再将结果传送出来，内存的运行也决定了计算机的稳定运行。 内存是由内存芯片、电路板、金手指等部分组成的]]></content>
   </entry>
 </search>
