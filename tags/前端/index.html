@@ -12,7 +12,7 @@
     
     
     
-    <title>字符串查询 | JINXO</title>
+    <title>tags: 前端 | JINXO</title>
     <link href=”http://yoursite.com“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -207,34 +207,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    
-<article class="article well article-body" id="article">
+                    <article class="article well article-body" id="article-tag">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://yoursite.com">JINXO</a>
         >
-        <span>字符串查询</span>
+        <span>标签</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2017/05/05/字符串查找/">字符串查询</a>
+                <a href="/tags/前端/index.html">前端</a>
             </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/算法/">算法</a>
-                
-            </span>
-            
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2017-05-05
-            </span>
-            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -242,39 +227,21 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2017/05/05/字符串查找/">字符串查询</a>
+                    <a href="/tags/前端/index.html">前端</a>
                 </h4>
             </div>
-            <p>
-                <i class="fa fa-calendar"></i> 2017-05-05
-            </p>
-            <p>
-                
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/算法/">算法</a>
-                
-                
-                
-            </p>
         </center>
     </div>
-    <div class="content-article">
-        <p>简单的字符串查询算法</p>
-<a id="more"></a>
-<h1 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h1><p>For a given source string and a target string, you should output the <strong>first</strong></p>
-<p>index(from 0) of target string in source string.</p>
-<p>If target does not exist in source, just return <code>-1</code>.</p>
-<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p>If source = <code>&quot;source&quot;</code> and target = <code>&quot;target&quot;</code>, return <code>-1</code>.</p>
-<p>If source = <code>&quot;abcdabcdefg&quot;</code> and target = <code>&quot;bcd&quot;</code>, return <code>1</code>.</p>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>对于字符串查找问题,可以使用双重for循环解决,效率更高的则为KMP算法,双重 for 循环的使用较有讲究，因为这里需要考虑目标字符串比源字符串短的可能。对目标字符串的循环肯定是必要的，所以可以优化的地方就在于如何访问源字符串了。简单直观的解法是利用源字符串的长度作为 for 循环的截止索引，这种方法需要处理源字符串中剩余长度不足以匹配目标字符串的情况，而更为高效的方案则为仅遍历源字符串中有可能和目标字符串匹配的部分索引。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (haystack == <span class="keyword">null</span> &amp;&amp; needle == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span> (haystack == <span class="keyword">null</span>) <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span> (needle == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; haystack.length() - needle.length() + <span class="number">1</span>; i++) &#123;</div><div class="line">            <span class="keyword">int</span> j = <span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (; j &lt; needle.length(); j++) &#123;</div><div class="line">                <span class="keyword">if</span> (haystack.charAt(i+j) != needle.charAt(j)) <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (j == needle.length()) <span class="keyword">return</span> i;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">strStr</span><span class="params">(<span class="built_in">string</span> haystack, <span class="built_in">string</span> needle)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (haystack.empty() &amp;&amp; needle.empty()) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span> (haystack.empty()) <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">        <span class="keyword">if</span> (needle.empty()) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="comment">// in case of overflow for negative</span></div><div class="line">        <span class="keyword">if</span> (haystack.size() &lt; needle.size()) <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; haystack.size() - needle.size() + <span class="number">1</span>; i++) &#123;</div><div class="line">            <span class="built_in">string</span>::size_type j = <span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (; j &lt; needle.size(); j++) &#123;</div><div class="line">                <span class="keyword">if</span> (haystack[i + j] != needle[j]) <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (j == needle.size()) <span class="keyword">return</span> i;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
+    <div class="content-article" style="margin-top: 30px;">
+        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
+            
+            <a href="/2018/04/24/js表单验证/">表单验证</a>
+            <br>
+            
+            
+        </div>
     </div>
 </article>
-
-
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -451,29 +418,29 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/2017/05/05/字符串查找/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/tags/前端/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/2017/05/05/字符串查找/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/tags/前端/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/2017/05/05/字符串查找/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/tags/前端/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/工具使用/" style="font-size: 19.811086758113458px;" class="tag-cloud-link">工具使用</a>
+    <a href="/tags/工具使用/" style="font-size: 12.868777026651557px;" class="tag-cloud-link">工具使用</a>
     
-    <a href="/tags/habit/" style="font-size: 18.323401206003194px;" class="tag-cloud-link">habit</a>
+    <a href="/tags/habit/" style="font-size: 8.45019934933839px;" class="tag-cloud-link">habit</a>
     
-    <a href="/tags/数据结构/" style="font-size: 18.47822903320242px;" class="tag-cloud-link">数据结构</a>
+    <a href="/tags/数据结构/" style="font-size: 17.482825856033937px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="/tags/算法/" style="font-size: 10.971359357517473px;" class="tag-cloud-link">算法</a>
+    <a href="/tags/算法/" style="font-size: 10.495347783486px;" class="tag-cloud-link">算法</a>
     
-    <a href="/tags/硬件/" style="font-size: 13.438636417321845px;" class="tag-cloud-link">硬件</a>
+    <a href="/tags/硬件/" style="font-size: 18.407302248784454px;" class="tag-cloud-link">硬件</a>
     
-    <a href="/tags/前端/" style="font-size: 8.529388298703196px;" class="tag-cloud-link">前端</a>
+    <a href="/tags/前端/" style="font-size: 19.063152254562517px;" class="tag-cloud-link">前端</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
