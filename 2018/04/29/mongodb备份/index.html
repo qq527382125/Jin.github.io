@@ -12,7 +12,7 @@
     
     
     
-    <title>硬盘 | JINXO</title>
+    <title>JINXO</title>
     <link href=”http://yoursite.com“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -195,19 +195,19 @@
         <i class="fa fa-home"></i>
         <a href="http://yoursite.com">JINXO</a>
         >
-        <span>硬盘</span>
+        <span></span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2017/05/05/硬盘/">硬盘</a>
+                <a href="/2018/04/29/mongodb备份/"></a>
             </h1>
         </div>
         <div class="tag-article">
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2017-05-05
+                <i class="fa fa-calendar"></i> 2018-04-29
             </span>
             
         </div>
@@ -217,11 +217,11 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2017/05/05/硬盘/">硬盘</a>
+                    <a href="/2018/04/29/mongodb备份/"></a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2017-05-05
+                <i class="fa fa-calendar"></i> 2018-04-29
             </p>
             <p>
                 
@@ -230,8 +230,64 @@
         </center>
     </div>
     <div class="content-article">
-        <p>硬盘不是内存。<br>硬盘是电脑主要的存储媒介之一，由一个或者多个铝制或者玻璃制的碟片组成。碟片外覆盖有铁磁性材料。<br><a id="more"></a><br>硬盘有固态硬盘（SSD 盘，新式硬盘）、机械硬盘（HDD 传统硬盘）、混合硬盘（HHD 一块基于传统机械硬盘诞生出来的新硬盘）。SSD采用闪存颗粒来存储，HDD采用磁性碟片来存储，混合硬盘（HHD: Hybrid Hard Disk）是把磁性硬盘和闪存集成到一起的一种硬盘。绝大多数硬盘都是固定硬盘，被永久性地密封固定在硬盘驱动器中。<br>内存是计算机中重要的部件之一，它是与CPU进行沟通的桥梁。计算机中所有程序的运行都是在内存中进行的，因此内存的性能对计算机的影响非常大。内存（Memory）也被称为内存储器，其作用是用于暂时存放CPU中的运算数据，以及与硬盘等外部存储器交换的数据。只要计算机在运行中，CPU就会把需要运算的数据调到内存中进行运算，当运算完成后CPU再将结果传送出来，内存的运行也决定了计算机的稳定运行。 内存是由内存芯片、电路板、金手指等部分组成的</p>
-<p><img src="\\images\image.png\" alt="upload successful"></p>
+        <p>最近怼一个老项目，需要做<code>MongoDB</code>的备份，就找了一下脚本，大家可以参考一下。</p>
+<h2 id="备份脚本"><a href="#备份脚本" class="headerlink" title="备份脚本"></a>备份脚本</h2><pre><code>#!/bin/bash  
+sourcepath=&#39;&#39;
+targetpath=&#39;/home/ubuntu/backup_db&#39;
+# 改成你自己的备份目录
+nowtime=$(date +%Y%m%d)
+
+start()
+{
+  ${sourcepath}mongodump --host 127.0.0.1 --port 27017 --out ${targetpath}/${nowtime}
+  # 备份 127.0.0.1:27017 的整个MongoDB数据库
+  # 输出到目标目录下的当前日期目录
+  # 如：/backup_db/20171003/
+}
+execute()  
+{
+  start
+  if [ $? -eq 0 ]
+  then
+    echo &quot;back successfully!&quot;  
+  else
+    echo &quot;back failure!&quot;  
+  fi
+}
+
+if [ ! -d &quot;${targetpath}/${nowtime}/&quot; ]
+then
+ mkdir ${targetpath}/${nowtime}
+fi
+execute
+echo &quot;============== back end ${nowtime} ==============&quot;
+</code></pre><blockquote>
+<p>使用前记得改一下脚本里面的参数，按照需求调整目录</p>
+</blockquote>
+<h2 id="删除过期备份"><a href="#删除过期备份" class="headerlink" title="删除过期备份"></a>删除过期备份</h2><pre><code>#!/bin/bash  
+targetpath=&#39;/home/ubuntu/backup_db&#39;
+nowtime=$(date -d &#39;-7 days&#39; &quot;+%Y%m%d&quot;)
+if [ -d &quot;${targetpath}/${nowtime}/&quot; ]
+then
+  rm -rf &quot;${targetpath}/${nowtime}/&quot;
+  echo &quot;=======${targetpath}/${nowtime}/===删除完毕==&quot;  
+fi
+echo &quot;===$nowtime ===&quot;
+</code></pre><blockquote>
+<p>哈哈，只是把命令改成 <code>rm -rf</code> 了而已。记得按照需求调整参数里面的目录</p>
+</blockquote>
+<h2 id="自动备份和删除备份"><a href="#自动备份和删除备份" class="headerlink" title="自动备份和删除备份"></a>自动备份和删除备份</h2><p>不得不说我们的主角 <code>crontab -e</code></p>
+<p><code>Cron</code> 可以实现定时任务的功能。</p>
+<pre><code>10 04 * * * /home/ubuntu/cron-shell/mongobak 1 &gt; /var/log/cron/crontab_mongo_back.log &amp;
+10 02 * * * /home/ubuntu/cron-shell/mongobak_delete 1 &gt; /var/log/cron/crontab_mongo_delete.log &amp;
+</code></pre><p>半夜三更的时候，定时任务就会执行 <code>mongobak</code> 和 <code>mongobak_delete</code> 两个脚本啦~</p>
+<p>并且两个脚本的输出也会保存到 <code>/var/log/cron/</code> 的日志文件里面，方便你后期检查。</p>
+<p>上面的命令请根据实际需要调整喔</p>
+<blockquote>
+<p><strong>除非注明，麦麦小家文章均为原创，转载请以链接形式标明本文地址。</strong></p>
+<p>版权声明：<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</a></p>
+<p>本文地址：<a href="https://blog.micblo.com/2017/10/03/MongoDB%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BD%E5%B0%8F%E8%84%9A%E6%9C%AC/" target="_blank" rel="external">https://blog.micblo.com/2017/10/03/MongoDB自动备份小脚本/</a></p>
+</blockquote>
 
     </div>
 </article>
@@ -242,7 +298,7 @@
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = '硬盘'
+      window.commentConfig.title = ''
     }
 </script>
 
@@ -379,6 +435,12 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2018/04/24/js表单验证/">表单验证</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2018/04/29/mongodb备份/"></a>
                 </span>
             </li>
@@ -415,12 +477,6 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/04/24/数据结构队列篇/">数据结构</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2017/05/05/13个学习技巧/">13个学习技巧</a>
                 </span>
             </li>
@@ -446,33 +502,33 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/2017/05/05/硬盘/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2018/04/29/mongodb备份/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/2017/05/05/硬盘/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2018/04/29/mongodb备份/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/2017/05/05/硬盘/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2018/04/29/mongodb备份/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/前端/" style="font-size: 15.416776839109282px;" class="tag-cloud-link">前端</a>
+    <a href="/tags/前端/" style="font-size: 12.227275013571123px;" class="tag-cloud-link">前端</a>
     
-    <a href="/tags/工具/" style="font-size: 12.135070294681263px;" class="tag-cloud-link">工具</a>
+    <a href="/tags/工具/" style="font-size: 19.621217517806272px;" class="tag-cloud-link">工具</a>
     
-    <a href="/tags/javascript/" style="font-size: 12.612737430545756px;" class="tag-cloud-link">javascript</a>
+    <a href="/tags/javascript/" style="font-size: 15.267115621966484px;" class="tag-cloud-link">javascript</a>
     
-    <a href="/tags/算法/" style="font-size: 14.827157797504636px;" class="tag-cloud-link">算法</a>
+    <a href="/tags/算法/" style="font-size: 14.834283140548235px;" class="tag-cloud-link">算法</a>
     
-    <a href="/tags/工具使用/" style="font-size: 15.432918189714446px;" class="tag-cloud-link">工具使用</a>
+    <a href="/tags/工具使用/" style="font-size: 19.70542192414367px;" class="tag-cloud-link">工具使用</a>
     
-    <a href="/tags/数据结构/" style="font-size: 10.686762468770596px;" class="tag-cloud-link">数据结构</a>
+    <a href="/tags/数据结构/" style="font-size: 11.421159915268593px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="/tags/habit/" style="font-size: 8.169324502006642px;" class="tag-cloud-link">habit</a>
+    <a href="/tags/habit/" style="font-size: 18.67012865715271px;" class="tag-cloud-link">habit</a>
     
-    <a href="/tags/硬件/" style="font-size: 15.147094526696844px;" class="tag-cloud-link">硬件</a>
+    <a href="/tags/硬件/" style="font-size: 12.677374816181471px;" class="tag-cloud-link">硬件</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
@@ -571,7 +627,7 @@
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Fri May 05 2017 14:21:52 GMT+0800'
+      window.commentConfig.id = 'Sun Apr 29 2018 00:32:35 GMT+0800'
       window.commentConfig.owner = 'null'
       window.commentConfig.repo = 'null'
       window.commentConfig.client_id = 'null'
@@ -579,7 +635,7 @@
       window.commentConfig.redirect_uri = 'null'
     } else {
       window.commentConfig = {
-      	id: 'Fri May 05 2017 14:21:52 GMT+0800',
+      	id: 'Sun Apr 29 2018 00:32:35 GMT+0800',
         owner: 'null',
         repo: 'null',
         client_id: 'null',
