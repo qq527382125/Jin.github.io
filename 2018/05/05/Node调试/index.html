@@ -12,7 +12,7 @@
     
     
     
-    <title>vscode必备插件 | JINXO</title>
+    <title>Node调试 | JINXO</title>
     <link href=”http://yoursite.com“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -195,13 +195,13 @@
         <i class="fa fa-home"></i>
         <a href="http://yoursite.com">JINXO</a>
         >
-        <span>vscode必备插件</span>
+        <span>Node调试</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2018/04/30/vscode插件/">vscode必备插件</a>
+                <a href="/2018/05/05/Node调试/">Node调试</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -209,12 +209,14 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/工具/">工具</a>
+                <a href="/tags/工具使用/">工具使用</a>, 
+                
+                <a href="/tags/Node/">Node</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2018-04-30
+                <i class="fa fa-calendar"></i> 2018-05-05
             </span>
             
         </div>
@@ -224,17 +226,19 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2018/04/30/vscode插件/">vscode必备插件</a>
+                    <a href="/2018/05/05/Node调试/">Node调试</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2018-04-30
+                <i class="fa fa-calendar"></i> 2018-05-05
             </p>
             <p>
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/工具/">工具</a>
+                <a href="/tags/工具使用/">工具使用</a>, 
+                
+                <a href="/tags/Node/">Node</a>
                 
                 
                 
@@ -242,52 +246,129 @@
         </center>
     </div>
     <div class="content-article">
-        <p>工欲善其事必先利其器<br><a id="more"></a></p>
-<h1 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h1><p>习惯了sublime可以装sublime keymap插件</p>
+        <p><img src="http://oocfz31zv.bkt.clouddn.com/bg2018031901.png" alt="bg2018031901"><br><a id="more"></a></p>
+<h1 id="Node调试工具入门"><a href="#Node调试工具入门" class="headerlink" title="Node调试工具入门"></a>Node调试工具入门</h1><p>2016年,Node决定将Chrome浏览器的开发者工具作为官方的调试工具，使得Node脚本也可以使用图形界面调试。</p>
+<p>本文介绍如何使用 Node 脚本的调试工具。</p>
+<h2 id="一、示例程序"><a href="#一、示例程序" class="headerlink" title="一、示例程序"></a>一、示例程序</h2><p>为了方便讲解，下面是一个示例脚本。首先，新建一个工作目录，并进入该目录。</p>
+<blockquote>
+<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">mkdir</span> debug-demo
+$ <span class="token function">cd</span> debug-demo
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</blockquote>
+<p>然后，生成<code>package.json</code>文件，并安装 <a href="http://www.ruanyifeng.com/blog/2017/08/koa.html" target="_blank" rel="external">Koa</a> 框架和 koa-route 模块。</p>
+<blockquote>
+<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">npm</span> init -y
+$ <span class="token function">npm</span> <span class="token function">install</span> --save koa koa-route
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</blockquote>
+<p>接着，新建一个脚本<code>app.js</code>，并写入下面的内容。</p>
+<blockquote>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// app.js</span>
+<span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-route'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> main <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> welcome <span class="token operator">=</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> name<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'Hello '</span> <span class="token operator">+</span> name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> main<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/:name'</span><span class="token punctuation">,</span> welcome<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'listening on port 3000'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<p>上面代码是一个简单的 Web 应用，指定了两个路由，访问后会显示一行欢迎信息。如果想了解代码的详细含义，可以参考 <a href="http://www.ruanyifeng.com/blog/2017/08/koa.html" target="_blank" rel="external">Koa 教程</a>。</p>
+<h2 id="二、启动开发者工具"><a href="#二、启动开发者工具" class="headerlink" title="二、启动开发者工具"></a>二、启动开发者工具</h2><p>现在，运行上面的脚本。</p>
+<blockquote>
+<pre class="line-numbers language-bash"><code class="language-bash">$ node --inspect app.js
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<p>上面代码中，<code>--inspect</code>参数是启动调试模式必需的。这时，打开浏览器访问<code>http://127.0.0.1:3000</code>，就可以看到 Hello World 了。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031902.png" alt="img"></p>
+<p>接下来，就要开始调试了。一共有两种打开调试工具的方法，第一种是在 Chrome 浏览器的地址栏，键入 <code>chrome://inspect</code>或者<code>about:inspect</code>，回车后就可以看到下面的界面。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031903.png" alt="img"></p>
+<p>在 Target 部分，点击 inspect 链接，就能进入调试工具了。</p>
+<p>第二种进入调试工具的方法，是在 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> 的窗口打开”开发者工具”，顶部左上角有一个 Node 的绿色标志，点击就可以进入。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031904.png" alt="img"></p>
+<h2 id="三、调试工具窗口"><a href="#三、调试工具窗口" class="headerlink" title="三、调试工具窗口"></a>三、调试工具窗口</h2><p>调试工具其实就是”开发者工具”的定制版，省去了那些对服务器脚本没用的部分。</p>
+<p>它主要有四个面板。</p>
+<blockquote>
 <ul>
-<li>ctrl+shift+p 命令面板</li>
-<li>ctrl+` 切换终端</li>
-<li>选择文件的语言 先ctrl+k再按m</li>
+<li>Console：控制台</li>
+<li>Memory：内存</li>
+<li>Profiler：性能</li>
+<li>Sources：源码</li>
 </ul>
-<h1 id="如何让文件类型一目了然"><a href="#如何让文件类型一目了然" class="headerlink" title="如何让文件类型一目了然"></a>如何让文件类型一目了然</h1><p>vscode-icons</p>
-<h1 id="高效地管理项目"><a href="#高效地管理项目" class="headerlink" title="高效地管理项目"></a>高效地管理项目</h1><p>Project Manager</p>
-<p>Functionality</p>
-<p>Manage your projects right inside Visual Studio Code. Easily access and switch between them.</p>
-<p>You can define your own Favorite projects, and auto-detect VSCode projects, Git, Mercurial and SVN repositories.</p>
-<h1 id="自动格式化代码"><a href="#自动格式化代码" class="headerlink" title="自动格式化代码"></a>自动格式化代码</h1><p>第一种：用默认的第一次用ctrl+k+第二次ctrl+d（效果不是很好，须先选中在使用）</p>
-<p>第二种：下载Beautify插件，然后在命令面板中 选择beautify file(可以绑定快捷键 默认绑定快捷键shift+ctrl+F)</p>
-<h1 id="一键搭建各类语言的学习环境"><a href="#一键搭建各类语言的学习环境" class="headerlink" title="一键搭建各类语言的学习环境"></a>一键搭建各类语言的学习环境</h1><p>Code runner插件。装完后可以</p>
-<p><img src="http://oocfz31zv.bkt.clouddn.com/150.jpg" alt="150"></p>
-<p>选择右上角，或者ctrl+alt+n可以运行输出。</p>
-<p>选择文件的语言 先ctrl+k再按m(右下角默认纯文本的个选择语言)。</p>
-<h1 id="和chrome联动调试"><a href="#和chrome联动调试" class="headerlink" title="和chrome联动调试"></a>和chrome联动调试</h1><p>下载Debugger for  Chrome插件。</p>
-<p><img src="http://oocfz31zv.bkt.clouddn.com/151.jpg" alt="151"></p>
-<p>选择Debug的配置，有chrome: Attach和Launch两种模式。</p>
-<ul>
-<li>使用launch模式。需要修改的是等下调试所用的url，还有webRoot是等下所运行程序的文件夹，如<code>${workspaceRoot}/src</code>,设置断点，在弹出的页面上点击触发就会停在断点。</li>
-</ul>
-<p><img src="http://oocfz31zv.bkt.clouddn.com/152.jpg" alt="152"></p>
-<ul>
-<li>使用attach模式，这个模式要设置chrome浏览器开发端口。</li>
-</ul>
-<p>参考 <a href="https://www.cnblogs.com/pugang/p/5681325.html" target="_blank" rel="external">https://www.cnblogs.com/pugang/p/5681325.html</a></p>
-<p><img src="http://oocfz31zv.bkt.clouddn.com/153.jpg" alt="153"></p>
-<h1 id="自动检测代码规范和错误"><a href="#自动检测代码规范和错误" class="headerlink" title="自动检测代码规范和错误"></a>自动检测代码规范和错误</h1><p>安装 ESLint 并运行 <code>npm install -g eslint</code> </p>
-<p>然后运行 <code>eslint --init</code>然后会有一些问题，回答完问题，会生成.eslintrc.js文件。（里面可以更改问题的答案）</p>
-<p><img src="http://oocfz31zv.bkt.clouddn.com/154.jpg" alt="154"></p>
-<p><img src="http://oocfz31zv.bkt.clouddn.com/155.jpg" alt="155"></p>
-<p>右下角出现ESLint模式。</p>
-<h1 id="提升React等前端开发的效率"><a href="#提升React等前端开发的效率" class="headerlink" title="提升React等前端开发的效率"></a>提升React等前端开发的效率</h1><p>一些</p>
-<ul>
-<li>npm</li>
-<li>npm Intellisense</li>
-<li>path Intellisense</li>
-<li>TypeScript Hero</li>
-<li>IntelliSense for CSS class names</li>
-</ul>
-<p>可以搜IntelliSense有很多相关的提示插件</p>
-<h1 id="集成并美化终端"><a href="#集成并美化终端" class="headerlink" title="集成并美化终端"></a>集成并美化终端</h1><p>现在的vscode一般自带了这个插件。</p>
-<p><code>d</code></p>
+</blockquote>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031905.png" alt="img"></p>
+<p>这些面板的用法，基本上跟浏览器环境差不多，这里只介绍 Sources （源码）面板。</p>
+<h2 id="四、设置断点"><a href="#四、设置断点" class="headerlink" title="四、设置断点"></a>四、设置断点</h2><p>进入 Sources 面板，找到正在运行的脚本<code>app.js</code>。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031906.png" alt="img"></p>
+<p>在第11行（也就是下面这一行）的行号上点一下，就设置了一个断点。</p>
+<blockquote>
+<pre class="line-numbers language-bash"><code class="language-bash">ctx.response.body <span class="token operator">=</span> <span class="token string">'Hello '</span> + name<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031907.png" alt="img"></p>
+<p>这时，浏览器访问 <a href="http://127.0.0.1:3000/alice" target="_blank" rel="external">http://127.0.0.1:3000/alice</a> ，页面会显示正在等待服务器返回。切换到调试工具，可以看到 Node 主线程处于暂停（paused）阶段。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031908.png" alt="img"></p>
+<p>进入 Console 面板，输入 name，会返回 alice。这表明我们正处在断点处的上下文（context）。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031909.png" alt="img"></p>
+<p>再切回 Sources 面板，右侧可以看到 Watch、Call Stack、Scope、Breakpoints 等折叠项。打开 Scope 折叠项，可以看到 Local 作用域和 Global 作用域里面的所有变量。</p>
+<p>Local 作用域里面，变量<code>name</code>的值是<code>alice</code>，双击进入编辑状态，把它改成<code>bob</code>。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031910.png" alt="img"></p>
+<p>然后，点击顶部工具栏的继续运行按钮。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031911.png" alt="img"></p>
+<p>页面上就可以看到 Hello bob 了。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031912.png" alt="img"></p>
+<p>命令行下，按下 ctrl + c，终止运行<code>app.js</code>。</p>
+<h2 id="五、调试非服务脚本"><a href="#五、调试非服务脚本" class="headerlink" title="五、调试非服务脚本"></a>五、调试非服务脚本</h2><p>Web 服务脚本会一直在后台运行，但是大部分脚本只是处理某个任务，运行完就会终止。这时，你可能根本没有时间打开调试工具。等你打开了，脚本早就结束运行了。这时怎么调试呢？</p>
+<blockquote>
+<pre class="line-numbers language-bash"><code class="language-bash">$ node --inspect<span class="token operator">=</span>9229 -e <span class="token string">"setTimeout(function() { console.log('yes'); }, 30000)"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<p>上面代码中，<code>--inspect=9229</code>指定调试端口为 9229，这是调试工具默认的通信端口。<code>-e</code>参数指定一个字符串，作为代码运行。</p>
+<p>访问<code>chrome://inspect</code>，就可以进入调试工具，调试这段代码了。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031913.png" alt="img"></p>
+<p>代码放在<code>setTimeout</code>里面，总是不太方便。那些运行时间较短的脚本，可能根本来不及打开调试工具。这时就要使用下面的方法。</p>
+<blockquote>
+<pre class="line-numbers language-bash"><code class="language-bash">$ node --inspect-brk<span class="token operator">=</span>9229 app.js
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<p>上面代码中，<code>--inspect-brk</code>指定在第一行就设置断点。也就是说，一开始运行，就是暂停的状态。</p>
+<h2 id="六、忘了写-–inspect-怎么办？"><a href="#六、忘了写-–inspect-怎么办？" class="headerlink" title="六、忘了写 –inspect 怎么办？"></a>六、忘了写 –inspect 怎么办？</h2><p>打开调试工具的前提是，启动 Node 脚本时就加上<code>--inspect</code>参数。如果忘了这个参数，还能不能调试呢？</p>
+<p>回答是可以的。首先，正常启动脚本。</p>
+<blockquote>
+<pre class="line-numbers language-bash"><code class="language-bash">$ node app.js
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<p>然后，在另一个命令行窗口，查找上面脚本的进程号。</p>
+<blockquote>
+<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">ps</span> ax <span class="token operator">|</span> <span class="token function">grep</span> app.js 
+
+30464 pts/11   Sl+    0:00 node app.js
+30541 pts/12   S+     0:00 <span class="token function">grep</span> app.js
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<p>上面命令中，<code>app.js</code>的进程号是<code>30464</code>。</p>
+<p>接着，运行下面的命令。</p>
+<blockquote>
+<pre class="line-numbers language-bash"><code class="language-bash">$ node -e <span class="token string">'process._debugProcess(30464)'</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<p>上面命令会建立进程 30464 与调试工具的连接，然后就可以打开调试工具了。</p>
+<p>还有一种方法，就是向脚本进程发送 <a href="https://stackoverflow.com/questions/13052548/node-js-how-to-attach-to-a-running-process-and-to-debug-the-server-with-a-conso" target="_blank" rel="external">SIGUSR1</a> 信号，也可以建立调试连接。</p>
+<blockquote>
+<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">kill</span> -SIGUSR1 30464
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
 
     </div>
 </article>
@@ -298,7 +379,7 @@
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = 'vscode必备插件'
+      window.commentConfig.title = 'Node调试'
     }
 </script>
 
@@ -435,7 +516,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/05/08/vim配置/">适合前端的vim配置</a>
+                    <a href="/2018/04/30/Electron/">Electron搭建node桌面应用</a>
                 </span>
             </li>
             
@@ -454,12 +535,6 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2017/05/05/13个学习技巧/">13个学习技巧</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/04/29/mongodb备份/">MongoDB的备份</a>
                 </span>
             </li>
             
@@ -489,7 +564,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/04/24/数据结构队列篇/">数据结构</a>
+                    <a href="/2017/05/05/字符串查找/">字符串查询</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/05/05/虚拟内存/">虚拟内存</a>
                 </span>
             </li>
             
@@ -502,41 +583,41 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/2018/04/30/vscode插件/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2018/05/05/Node调试/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/2018/04/30/vscode插件/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2018/05/05/Node调试/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/2018/04/30/vscode插件/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2018/05/05/Node调试/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/Electron/" style="font-size: 11.617102394957978px;" class="tag-cloud-link">Electron</a>
+    <a href="/tags/Electron/" style="font-size: 13.202610527751965px;" class="tag-cloud-link">Electron</a>
     
-    <a href="/tags/node/" style="font-size: 17.642619952938297px;" class="tag-cloud-link">node</a>
+    <a href="/tags/node/" style="font-size: 15.46862603637529px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/工具使用/" style="font-size: 14.016362167585577px;" class="tag-cloud-link">工具使用</a>
+    <a href="/tags/工具使用/" style="font-size: 10.954041515405713px;" class="tag-cloud-link">工具使用</a>
     
-    <a href="/tags/Node/" style="font-size: 11.113448773519721px;" class="tag-cloud-link">Node</a>
+    <a href="/tags/Node/" style="font-size: 17.95549481822349px;" class="tag-cloud-link">Node</a>
     
-    <a href="/tags/habit/" style="font-size: 19.560000836768207px;" class="tag-cloud-link">habit</a>
+    <a href="/tags/habit/" style="font-size: 8.00122296524153px;" class="tag-cloud-link">habit</a>
     
-    <a href="/tags/工具/" style="font-size: 14.48329018894636px;" class="tag-cloud-link">工具</a>
+    <a href="/tags/工具/" style="font-size: 15.909639136443115px;" class="tag-cloud-link">工具</a>
     
-    <a href="/tags/数据库/" style="font-size: 13.098700924926643px;" class="tag-cloud-link">数据库</a>
+    <a href="/tags/数据库/" style="font-size: 14.997515415304065px;" class="tag-cloud-link">数据库</a>
     
-    <a href="/tags/前端/" style="font-size: 11.652422596693906px;" class="tag-cloud-link">前端</a>
+    <a href="/tags/前端/" style="font-size: 15.339940317296902px;" class="tag-cloud-link">前端</a>
     
-    <a href="/tags/javascript/" style="font-size: 18.40310861400761px;" class="tag-cloud-link">javascript</a>
+    <a href="/tags/javascript/" style="font-size: 14.145504856890923px;" class="tag-cloud-link">javascript</a>
     
-    <a href="/tags/算法/" style="font-size: 12.607905194606076px;" class="tag-cloud-link">算法</a>
+    <a href="/tags/算法/" style="font-size: 13.869699570670008px;" class="tag-cloud-link">算法</a>
     
-    <a href="/tags/硬件/" style="font-size: 16.361321768453244px;" class="tag-cloud-link">硬件</a>
+    <a href="/tags/硬件/" style="font-size: 18.808001886051002px;" class="tag-cloud-link">硬件</a>
     
-    <a href="/tags/数据结构/" style="font-size: 13.923143184652217px;" class="tag-cloud-link">数据结构</a>
+    <a href="/tags/数据结构/" style="font-size: 14.433377915745707px;" class="tag-cloud-link">数据结构</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
@@ -635,7 +716,7 @@
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Mon Apr 30 2018 02:32:57 GMT+0800'
+      window.commentConfig.id = 'Sat May 05 2018 15:26:54 GMT+0800'
       window.commentConfig.owner = 'null'
       window.commentConfig.repo = 'null'
       window.commentConfig.client_id = 'null'
@@ -643,7 +724,7 @@
       window.commentConfig.redirect_uri = 'null'
     } else {
       window.commentConfig = {
-      	id: 'Mon Apr 30 2018 02:32:57 GMT+0800',
+      	id: 'Sat May 05 2018 15:26:54 GMT+0800',
         owner: 'null',
         repo: 'null',
         client_id: 'null',
