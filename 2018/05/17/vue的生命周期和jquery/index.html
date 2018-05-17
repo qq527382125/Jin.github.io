@@ -117,11 +117,11 @@
                         
                         
                         <li>
-                            <a href="/categories/习惯/">习惯</a>
+                            <a href="/categories/ES6/">ES6</a>
                         </li>
                         
                         <li>
-                            <a href="/categories/ES6/">ES6</a>
+                            <a href="/categories/习惯/">习惯</a>
                         </li>
                         
                         <li>
@@ -151,11 +151,11 @@
                         
                         
                         <li>
-                            <a href="/tags/habit/">habit</a>
+                            <a href="/tags/ES6/">ES6</a>
                         </li>
                         
                         <li>
-                            <a href="/tags/ES6/">ES6</a>
+                            <a href="/tags/habit/">habit</a>
                         </li>
                         
                         <li>
@@ -353,6 +353,11 @@ http<span class="token punctuation">:</span><span class="token operator">/</span
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>再次 npm run dev ，OK了，没报错，赶紧去组件里试一下吧，console.log($(‘选择器’)) ，你会发现成功使用jQuery获取到了DOM。</p>
+<hr>
+<h1 id="对于vue和JQuery混合使用的看法"><a href="#对于vue和JQuery混合使用的看法" class="headerlink" title="对于vue和JQuery混合使用的看法"></a>对于vue和JQuery混合使用的看法</h1><p>Vue 的官方是不建议直接操作 DOM 的，<strong>Vue 的用途在于视图和数据的绑定</strong>。如果通过JQuery 直接操作 DOM 的话，势必会造成视图数据和模型数据的不匹配，这样 Vue 就失去它存在的意义了。</p>
+<p><strong>JQuery 和 VueJS 合理使用并不会造成冲突</strong>，因为他们的侧重点不同，<strong>VueJS 侧重数据绑定和视图组件，JQuery 侧重异步请求和动画效果</strong>。如果使用JQuery + VueJS 开发，一定要在 Vue 渲染完所有的 HTML组件之后再通过 JQuery 处理，而<strong>使用 JQuery 时应避免直接操作 DOM</strong> ，但是应用动画是允许的。</p>
+<p><strong>JQuery 与 VueJS 相互配合可以非常高效的完成异步任务</strong>，首先通过 JQuery 发出 Ajax 请求，接受到服务端传递的 JSON 数据后，再通过 Vue 将数据绑定到组件上，最后由 JQuery 进行动画处理，整个过程就如行云流水般自然。</p>
+<p>说句题外话，<strong>Vue 的目的不是取代 JQuery，它是为了解决前后端分离而出现的</strong>。如果没有数据变化，只是单纯的样式变化，则没有必要去大费周章进行视图模型的绑定，并且还不利于 SEO 优化。</p>
 
     </div>
 </article>
@@ -500,37 +505,19 @@ http<span class="token punctuation">:</span><span class="token operator">/</span
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/05/11/ES6today/">Reflect</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/05/10/ES6七/">数组扩展</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2018/05/08/ES6三/">字符扩展</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/05/08/ES6六/">函数扩展二</a>
+                    <a href="/2018/05/10/ES6八/">对象的扩展</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/05/05/chrome开发者工具/">chrome</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/04/29/mongodb备份/">MongoDB的备份</a>
+                    <a href="/2018/05/08/ES6五/">函数扩展</a>
                 </span>
             </li>
             
@@ -542,19 +529,37 @@ http<span class="token punctuation">:</span><span class="token operator">/</span
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/05/13/大白话讲解Promise/"></a>
+                    <a href="/2018/05/08/es6一/">let和const</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/05/17/vue的生命周期和jquery/">vue的生命周期和JQuery</a>
+                    <a href="/2018/04/24/js表单验证/">表单验证</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/05/13/长专注/">极其专注</a>
+                    <a href="/2018/05/08/vim配置/">适合前端的vim配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/16/vue2/">vue</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/05/05/硬盘/">硬盘</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/05/05/虚拟内存/">虚拟内存</a>
                 </span>
             </li>
             
@@ -579,35 +584,35 @@ http<span class="token punctuation">:</span><span class="token operator">/</span
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/habit/" style="font-size: 11.542361144904774px;" class="tag-cloud-link">habit</a>
+    <a href="/tags/ES6/" style="font-size: 13.926305489802854px;" class="tag-cloud-link">ES6</a>
     
-    <a href="/tags/ES6/" style="font-size: 16.565333681826807px;" class="tag-cloud-link">ES6</a>
+    <a href="/tags/habit/" style="font-size: 19.77384620713685px;" class="tag-cloud-link">habit</a>
     
-    <a href="/tags/Electron/" style="font-size: 13.35175948988189px;" class="tag-cloud-link">Electron</a>
+    <a href="/tags/Electron/" style="font-size: 19.809927254889125px;" class="tag-cloud-link">Electron</a>
     
-    <a href="/tags/node/" style="font-size: 12.44119771828031px;" class="tag-cloud-link">node</a>
+    <a href="/tags/node/" style="font-size: 10.669429966523435px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/工具使用/" style="font-size: 17.931730525487616px;" class="tag-cloud-link">工具使用</a>
+    <a href="/tags/工具使用/" style="font-size: 11.869361050895161px;" class="tag-cloud-link">工具使用</a>
     
-    <a href="/tags/Node/" style="font-size: 13.488057147368105px;" class="tag-cloud-link">Node</a>
+    <a href="/tags/Node/" style="font-size: 9.337860185415217px;" class="tag-cloud-link">Node</a>
     
-    <a href="/tags/前端/" style="font-size: 17.30192772962026px;" class="tag-cloud-link">前端</a>
+    <a href="/tags/前端/" style="font-size: 12.231954610138924px;" class="tag-cloud-link">前端</a>
     
-    <a href="/tags/工具/" style="font-size: 18.13649921903918px;" class="tag-cloud-link">工具</a>
+    <a href="/tags/工具/" style="font-size: 18.659025866586745px;" class="tag-cloud-link">工具</a>
     
-    <a href="/tags/数据库/" style="font-size: 19.43274075288286px;" class="tag-cloud-link">数据库</a>
+    <a href="/tags/数据库/" style="font-size: 13.78767034360655px;" class="tag-cloud-link">数据库</a>
     
-    <a href="/tags/javascript/" style="font-size: 13.209806497550037px;" class="tag-cloud-link">javascript</a>
+    <a href="/tags/javascript/" style="font-size: 11.84807588876471px;" class="tag-cloud-link">javascript</a>
     
-    <a href="/tags/vue/" style="font-size: 11.46697806562591px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/vue/" style="font-size: 10.110915191731598px;" class="tag-cloud-link">vue</a>
     
-    <a href="/tags/JQuery/" style="font-size: 15.159459254937591px;" class="tag-cloud-link">JQuery</a>
+    <a href="/tags/JQuery/" style="font-size: 17.15721888688316px;" class="tag-cloud-link">JQuery</a>
     
-    <a href="/tags/数据结构/" style="font-size: 16.483270115597293px;" class="tag-cloud-link">数据结构</a>
+    <a href="/tags/算法/" style="font-size: 15.853829958776725px;" class="tag-cloud-link">算法</a>
     
-    <a href="/tags/算法/" style="font-size: 16.39919735163978px;" class="tag-cloud-link">算法</a>
+    <a href="/tags/数据结构/" style="font-size: 13.70887531230536px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="/tags/硬件/" style="font-size: 16.92218051802675px;" class="tag-cloud-link">硬件</a>
+    <a href="/tags/硬件/" style="font-size: 8.104530076982211px;" class="tag-cloud-link">硬件</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
