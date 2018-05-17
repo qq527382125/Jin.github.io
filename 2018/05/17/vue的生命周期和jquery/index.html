@@ -12,7 +12,7 @@
     
     
     
-    <title>tags: ES6 | JINXO</title>
+    <title>vue的生命周期和JQuery | JINXO</title>
     <link href=”JINxo-geek.github.io“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -189,19 +189,38 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="JINxo-geek.github.io">JINXO</a>
         >
-        <span>标签</span>
+        <span>vue的生命周期和JQuery</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/tags/ES6/page/3/index.html">ES6</a>
+                <a href="/2018/05/17/vue的生命周期和jquery/">vue的生命周期和JQuery</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/前端/">前端</a>, 
+                
+                <a href="/tags/vue/">vue</a>, 
+                
+                <a href="/tags/JQuery/">JQuery</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-05-17
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -209,27 +228,145 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/tags/ES6/page/3/index.html">ES6</a>
+                    <a href="/2018/05/17/vue的生命周期和jquery/">vue的生命周期和JQuery</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-05-17
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/前端/">前端</a>, 
+                
+                <a href="/tags/vue/">vue</a>, 
+                
+                <a href="/tags/JQuery/">JQuery</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2018/05/10/ES6七/">数组扩展</a>
-            <br>
-            
-            <a href="/2018/05/08/es6二/">解构赋值</a>
-            <br>
-            
-            <a href="/2018/05/08/es6一/">let和const</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <p>vue学习<br><a id="more"></a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>原来一直使用的JQuery开发前端，突然想用vue开发单页面应用，发现vue中很难使用JQuery，因为Vue实例生命周期的原因，JQuery不能在一开始就找到DOM,jquery产生效果的时间是<code>document.ready</code>之后，和vue的生命周期<code>mounted</code>钩子时间差不多，所以建议把jQuery中的代码放到mounted中。这样保证可以找到节点 。</p>
+<p>当然最好的方法是用vue数据驱动的思想重构成vue习惯的写法。比如用v-on监听DOM啦~</p>
+<p>Vue实例有一个完整的生命周期，也就是从开始创建、初始化数据、编译模板、挂载Dom、渲染→更新→渲染、卸载等一系列过程，我们称这是Vue的生命周期。通俗说就是Vue实例从创建到销毁的过程，就是生命周期。 在Vue的整个生命周期中，它提供了一系列的事件，可以让我们在事件触发时注册js方法，可以让我们用自己注册的js方法控制整个大局，在这些事件响应方法中的this直接指向的是vue的实例。 </p>
+</blockquote>
+<p><strong>注意</strong>vue路由跳转后原组件被销毁，也就是说，JQuery在每次切换组件的时候都要重新绑定，所以写在钩子里面比较好。还有setInterval事件和组件的生命周期没有直接关系。setInterval会返回一个ID 值。setInterval() 方法会不停地调用函数，直到 clearInterval() 被调用或窗口被关闭。由 setInterval() 返回的 ID 值可用作 clearInterval() 方法的参数。 说以即使vue组件被销毁了，之后新组件生成，setInterval() 还是会生效。</p>
+<p>附上Vue的生命周期图</p>
+<p><img src="http://oocfz31zv.bkt.clouddn.com/1460000012510450.png" alt="1460000012510450"></p>
+<p><img src="http://oocfz31zv.bkt.clouddn.com/1078605-20170103090445394-654791522.png" alt="1078605-20170103090445394-654791522"></p>
+<h3 id="每个钩子函数都在啥时间触发"><a href="#每个钩子函数都在啥时间触发" class="headerlink" title="每个钩子函数都在啥时间触发"></a>每个钩子函数都在啥时间触发</h3><p><strong>beforeCreate</strong></p>
+<blockquote>
+<p>在实例初始化之后，数据观测(data observer) 和 event/watcher 事件配置之前被调用。</p>
+</blockquote>
+<p><strong>created</strong></p>
+<blockquote>
+<p>实例已经创建完成之后被调用。在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。然而，挂载阶段还没开始，$el 属性目前不可见。</p>
+</blockquote>
+<p><strong>beforeMount</strong></p>
+<blockquote>
+<p>在挂载开始之前被调用：相关的 render 函数首次被调用。</p>
+</blockquote>
+<p><strong>mounted</strong></p>
+<blockquote>
+<p>el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。</p>
+</blockquote>
+<p><strong>beforeUpdate</strong></p>
+<blockquote>
+<p>数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。 你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。</p>
+</blockquote>
+<p><strong>updated</strong></p>
+<blockquote>
+<p>由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</p>
+</blockquote>
+<p>当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态，因为这可能会导致更新无限循环。</p>
+<p>该钩子在服务器端渲染期间不被调用。</p>
+<p><strong>beforeDestroy</strong></p>
+<blockquote>
+<p>实例销毁之前调用。在这一步，实例仍然完全可用。</p>
+</blockquote>
+<p><strong>destroyed</strong></p>
+<blockquote>
+<p>Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。 该钩子在服务器端渲染期间不被调用。</p>
+</blockquote>
+<hr>
+<h1 id="如何在vue项目中引入JQuery"><a href="#如何在vue项目中引入JQuery" class="headerlink" title="如何在vue项目中引入JQuery"></a>如何在vue项目中引入JQuery</h1><pre class="line-numbers language-js"><code class="language-js">编译报错：$ is undefined or no<span class="token operator">-</span>undef <span class="token string">'$'</span> is not defined
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>假设你已经使用vue-cli搭建好了开发的脚手架，接下来，看下面。</p>
+<p>1.NPM 安装 jQuery，项目根目录下运行以下代码</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> jquery --save
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>2.webpack配置</p>
+<p>在项目根目录下的build目录下找到webpack.base.conf.js文件，在开头使用以下代码引入webpack，因为该文件默认没有引用。</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后在module.exports中添加一段代码，</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 原有代码</span>
+resolve<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+ extensions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'.js'</span><span class="token punctuation">,</span> <span class="token string">'.vue'</span><span class="token punctuation">,</span> <span class="token string">'.json'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+ alias<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+<span class="token string">'vue$'</span><span class="token punctuation">:</span> <span class="token string">'vue/dist/vue.esm.js'</span><span class="token punctuation">,</span>
+<span class="token string">'@'</span><span class="token punctuation">:</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'src'</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token comment" spellcheck="true">// 添加代码</span>
+plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+ <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>ProvidePlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+$<span class="token punctuation">:</span> <span class="token string">"jquery"</span><span class="token punctuation">,</span>
+jQuery<span class="token punctuation">:</span> <span class="token string">"jquery"</span><span class="token punctuation">,</span>
+jquery<span class="token punctuation">:</span> <span class="token string">"jquery"</span><span class="token punctuation">,</span>
+<span class="token string">"window.jQuery"</span><span class="token punctuation">:</span> <span class="token string">"jquery"</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token comment" spellcheck="true">// 原有代码</span>
+module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+ rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+<span class="token comment" spellcheck="true">// ......</span>
+ <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>然后许多其他解决办法到此就说在main.js里导入就可以了，然而题主照着做了。</p>
+<p>main.js里导入jQuery</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token string">'jquery'</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在Vue组件里使用 $ or jQuery 写了操作dom的代码</p>
+<p>接着启动项目</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> run dev
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>但是编译却报错了：</p>
+<pre class="line-numbers language-js"><code class="language-js">http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>eslint<span class="token punctuation">.</span>org<span class="token operator">/</span>docs<span class="token operator">/</span>rules<span class="token operator">/</span>no<span class="token operator">-</span>undef <span class="token string">'$'</span> is not defined or
+http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>eslint<span class="token punctuation">.</span>org<span class="token operator">/</span>docs<span class="token operator">/</span>rules<span class="token operator">/</span>no<span class="token operator">-</span>undef <span class="token string">'jQuery'</span> is not defined
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>咋回事呢？？？</p>
+<p>3.eslint 检查</p>
+<p>机智的朋友肯定想到跟eslint有关，没错，这时候需要做的下一步就是要修改根目录下.eslintrc.js文件了，在改文件的module.exports中，为env添加一个键值对 jquery: true 就可以了，也就是：</p>
+<pre class="line-numbers language-js"><code class="language-js">env<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+ <span class="token comment" spellcheck="true">// 原有</span>
+ browser<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+ <span class="token comment" spellcheck="true">// 添加</span>
+ jquery<span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>再次 npm run dev ，OK了，没报错，赶紧去组件里试一下吧，console.log($(‘选择器’)) ，你会发现成功使用jQuery获取到了DOM。</p>
+
     </div>
 </article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = 'vue的生命周期和JQuery'
+    }
+</script>
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -363,19 +500,37 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/05/05/13个学习技巧/">13个学习技巧</a>
+                    <a href="/2018/05/11/ES6today/">Reflect</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/05/05/Node调试/">Node调试</a>
+                    <a href="/2018/05/10/ES6七/">数组扩展</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/05/08/es6一/">let和const</a>
+                    <a href="/2018/05/08/ES6三/">字符扩展</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/08/ES6六/">函数扩展二</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/05/05/chrome开发者工具/">chrome</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/29/mongodb备份/">MongoDB的备份</a>
                 </span>
             </li>
             
@@ -387,37 +542,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/04/28/tampermonkey脚本/">Tampermonkey简单脚本编写</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/05/16/vue2/">vue</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2018/05/13/大白话讲解Promise/"></a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/04/24/数据结构队列篇/">数据结构</a>
+                    <a href="/2018/05/17/vue的生命周期和jquery/">vue的生命周期和JQuery</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/05/05/字符串查找/">字符串查询</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2017/05/05/虚拟内存/">虚拟内存</a>
+                    <a href="/2018/05/13/长专注/">极其专注</a>
                 </span>
             </li>
             
@@ -430,47 +567,47 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/tags/ES6/page/3/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2018/05/17/vue的生命周期和jquery/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/tags/ES6/page/3/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2018/05/17/vue的生命周期和jquery/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/tags/ES6/page/3/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2018/05/17/vue的生命周期和jquery/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/habit/" style="font-size: 12.357233388144902px;" class="tag-cloud-link">habit</a>
+    <a href="/tags/habit/" style="font-size: 11.542361144904774px;" class="tag-cloud-link">habit</a>
     
-    <a href="/tags/ES6/" style="font-size: 18.635316633219198px;" class="tag-cloud-link">ES6</a>
+    <a href="/tags/ES6/" style="font-size: 16.565333681826807px;" class="tag-cloud-link">ES6</a>
     
-    <a href="/tags/Electron/" style="font-size: 18.28355993580062px;" class="tag-cloud-link">Electron</a>
+    <a href="/tags/Electron/" style="font-size: 13.35175948988189px;" class="tag-cloud-link">Electron</a>
     
-    <a href="/tags/node/" style="font-size: 19.138175569792608px;" class="tag-cloud-link">node</a>
+    <a href="/tags/node/" style="font-size: 12.44119771828031px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/工具使用/" style="font-size: 12.414771218196261px;" class="tag-cloud-link">工具使用</a>
+    <a href="/tags/工具使用/" style="font-size: 17.931730525487616px;" class="tag-cloud-link">工具使用</a>
     
-    <a href="/tags/Node/" style="font-size: 11.992579520183092px;" class="tag-cloud-link">Node</a>
+    <a href="/tags/Node/" style="font-size: 13.488057147368105px;" class="tag-cloud-link">Node</a>
     
-    <a href="/tags/前端/" style="font-size: 8.405749292217557px;" class="tag-cloud-link">前端</a>
+    <a href="/tags/前端/" style="font-size: 17.30192772962026px;" class="tag-cloud-link">前端</a>
     
-    <a href="/tags/工具/" style="font-size: 15.608398477308128px;" class="tag-cloud-link">工具</a>
+    <a href="/tags/工具/" style="font-size: 18.13649921903918px;" class="tag-cloud-link">工具</a>
     
-    <a href="/tags/数据库/" style="font-size: 17.800667333109413px;" class="tag-cloud-link">数据库</a>
+    <a href="/tags/数据库/" style="font-size: 19.43274075288286px;" class="tag-cloud-link">数据库</a>
     
-    <a href="/tags/javascript/" style="font-size: 12.989677315649214px;" class="tag-cloud-link">javascript</a>
+    <a href="/tags/javascript/" style="font-size: 13.209806497550037px;" class="tag-cloud-link">javascript</a>
     
-    <a href="/tags/vue/" style="font-size: 15.852499626747328px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/vue/" style="font-size: 11.46697806562591px;" class="tag-cloud-link">vue</a>
     
-    <a href="/tags/JQuery/" style="font-size: 14.601522657520249px;" class="tag-cloud-link">JQuery</a>
+    <a href="/tags/JQuery/" style="font-size: 15.159459254937591px;" class="tag-cloud-link">JQuery</a>
     
-    <a href="/tags/数据结构/" style="font-size: 13.366716237094334px;" class="tag-cloud-link">数据结构</a>
+    <a href="/tags/数据结构/" style="font-size: 16.483270115597293px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="/tags/算法/" style="font-size: 9.209799540131394px;" class="tag-cloud-link">算法</a>
+    <a href="/tags/算法/" style="font-size: 16.39919735163978px;" class="tag-cloud-link">算法</a>
     
-    <a href="/tags/硬件/" style="font-size: 16.959706545338577px;" class="tag-cloud-link">硬件</a>
+    <a href="/tags/硬件/" style="font-size: 16.92218051802675px;" class="tag-cloud-link">硬件</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
@@ -569,7 +706,7 @@
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'undefined'
+      window.commentConfig.id = 'Thu May 17 2018 19:41:55 GMT+0800'
       window.commentConfig.owner = 'null'
       window.commentConfig.repo = 'null'
       window.commentConfig.client_id = 'null'
@@ -577,7 +714,7 @@
       window.commentConfig.redirect_uri = 'null'
     } else {
       window.commentConfig = {
-      	id: 'undefined',
+      	id: 'Thu May 17 2018 19:41:55 GMT+0800',
         owner: 'null',
         repo: 'null',
         client_id: 'null',
