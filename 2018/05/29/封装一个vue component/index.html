@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="JINXO">
+    
+    <meta name="description" content="全栈">
+    
+    
+    
+    
+    
+    
+    <title>封装vue组件 | JINXO</title>
+    <link href=”JINxo-geek.github.io“ rel=”prefetch” />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="JINxo-geek.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">JINXO</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/习惯/">习惯</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/ES6/">ES6</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/前端工具/">前端工具</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/habit/">habit</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/ES6/">ES6</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/工具使用/">工具使用</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="JINxo-geek.github.io">JINXO</a>
+        >
+        <span>封装vue组件</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/05/29/封装一个vue component/">封装vue组件</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/前端/">前端</a>, 
+                
+                <a href="/tags/vue/">vue</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-05-29
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2018/05/29/封装一个vue component/">封装vue组件</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-05-29
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/前端/">前端</a>, 
+                
+                <a href="/tags/vue/">vue</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>vue学习，封装组件<br><a id="more"></a></p>
+<h1 id="为什么选择自己封装第三方库"><a href="#为什么选择自己封装第三方库" class="headerlink" title="为什么选择自己封装第三方库"></a>为什么选择自己封装第三方库</h1><p>其实vue 写 component 相当简单和方便，github上有很多的 vue component 都只是简单的包装了一些 jquery 或者原生 js 的插件，但我个人是不太喜欢使用这些第三方封装的。理由如下： </p>
+<ul>
+<li><strong>很多第三方封装的组件参数配置项其实是有缺损的。</strong>如一些富文本或者图表组件，配置项远比你想想中的多得多，第三方封装组件很难覆盖全部所有配置。</li>
+<li><strong>第三方组件的更新频率很难保证。</strong>很多第三方封装组件并不能一直和原始组件保持同步更新速度，万一原始组件更新了某个你需要的功能，但第三方并没有更新那岂不是很尴尬，而且很多第三方组件维护一段时间之后就不维护了。</li>
+<li><strong>灵活性和针对性。</strong>还是那富文本来说，富文本在我司有很多定制化需求，我们需要将图片上传七牛，需要将图片打水印，需要很多针对业务的特殊需求，使用第三方包装的组件是不合适的，一般基于第三方封装的组件是很难拓展的。</li>
+</ul>
+<h1 id="动手开工"><a href="#动手开工" class="headerlink" title="动手开工"></a>动手开工</h1><p>接下来我们一起改造包装一个js插件。只要几分钟就可以封装一个专属于你的vue component。封装对象：<a href="https://github.com/inorganik/countUp.js" target="_blank" rel="external">countUp.js</a>，改造后结果 <a href="https://github.com/PanJiaChen/vue-countTo" target="_blank" rel="external">vue-countTo</a>。 </p>
+<p>首先我们用官方提供的 <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="external">vue-cli</a> 来构建项目 这里选择了 <a href="https://github.com/vuejs-templates/webpack-simple" target="_blank" rel="external">webpack-simple</a> (组件相对而言比较简单，不需要很多复杂的功能，所以 webpack-simple 已经满足需求了) </p>
+<pre class="line-numbers language-shell"><code class="language-shell">$ npm install -g vue-cli
+$ vue init webpack-simple my-project
+$ cd my-project
+$ npm install
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>安装countup.js </p>
+<pre class="line-numbers language-shell"><code class="language-shell">npm install countup.js
+npm run dev
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>启动项目之后按照 countup.js 官方 demo 初始化插件 </p>
+<p><strong>app.vue</strong></p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+  <span class="token operator">&lt;</span>span ref<span class="token operator">=</span><span class="token string">'countup'</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token keyword">import</span> CountUp <span class="token keyword">from</span> <span class="token string">'countup.js'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'countup-demo'</span><span class="token punctuation">,</span>
+  data <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      numAnim<span class="token punctuation">:</span><span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">initCountUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span><span class="token punctuation">{</span>
+    <span class="token function">initCountUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>numAnim <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CountUp</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>countup<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2017</span><span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>numAnim<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>刷新页面，就这么简单，countUp.js 已经生效了。 </p>
+<p>接下来查看 countUp.js 的 github 发现它定义了如下可配置参数</p>
+<p> <img src="http://oocfz31zv.bkt.clouddn.com/bVMiDR.png" alt="bVMiDR"></p>
+<p>对应 vue 就是 props，类型和初始化一目了然。 </p>
+<pre class="line-numbers language-js"><code class="language-js">props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  start<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    type<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  end<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    type<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token number">2017</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  decimal<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    type<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  duration<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    type<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token number">2.5</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    type<span class="token punctuation">:</span> Object
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>之后再将countup之前写死的配置项替换为动态props就可以了 </p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>numAnim <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CountUp</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>countup<span class="token punctuation">,</span> 
+                           <span class="token keyword">this</span><span class="token punctuation">.</span>start<span class="token punctuation">,</span>
+                           <span class="token keyword">this</span><span class="token punctuation">.</span>end<span class="token punctuation">,</span>
+                           <span class="token keyword">this</span><span class="token punctuation">.</span>decimal<span class="token punctuation">,</span>
+                           <span class="token keyword">this</span><span class="token punctuation">.</span>duration<span class="token punctuation">,</span>
+                           <span class="token keyword">this</span><span class="token punctuation">.</span>options<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="使用组件"><a href="#使用组件" class="headerlink" title="使用组件"></a>使用组件</h2><pre class="line-numbers language-js"><code class="language-js"><span class="token operator">&lt;</span>vue<span class="token operator">-</span>count<span class="token operator">-</span>up <span class="token punctuation">:</span>end<span class="token operator">=</span><span class="token string">"2500"</span> <span class="token punctuation">:</span>duration<span class="token operator">=</span><span class="token string">"2.5"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>vue<span class="token operator">-</span>count<span class="token operator">-</span>up<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>只要几分钟一个属于自己的原生组件就包装好了，就是这么简单。<a href="https://github.com/PanJiaChen/countUp-demo/blob/master/src/App.vue" target="_blank" rel="external">完整demo</a> </p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+  <span class="token operator">&lt;</span>span ref<span class="token operator">=</span><span class="token string">'countup'</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token keyword">import</span> CountUp <span class="token keyword">from</span> <span class="token string">'countup.js'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'countup-demo'</span><span class="token punctuation">,</span>
+  data <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      numAnim<span class="token punctuation">:</span><span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+   props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            start<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                type<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
+                <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token number">0</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            end<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                type<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
+                <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token number">2018</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            decimal<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                type<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
+                <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token number">0</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            duration<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                type<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
+                <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token number">2.5</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                type<span class="token punctuation">:</span> Object
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">initCountUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span><span class="token punctuation">{</span>
+    <span class="token function">initCountUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>numAnim <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CountUp</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>countup<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>start<span class="token punctuation">,</span>
+                        <span class="token keyword">this</span><span class="token punctuation">.</span>end<span class="token punctuation">,</span>
+                        <span class="token keyword">this</span><span class="token punctuation">.</span>decimal<span class="token punctuation">,</span>
+                        <span class="token keyword">this</span><span class="token punctuation">.</span>duration<span class="token punctuation">,</span>
+                        <span class="token keyword">this</span><span class="token punctuation">.</span>options
+                <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>numAnim<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这时候你如果觉得使用countUp.js 还有些不满足你的需求，那你可以选择自己来造轮子了。 </p>
+<h1 id="造轮子篇"><a href="#造轮子篇" class="headerlink" title="造轮子篇"></a>造轮子篇</h1><p>首先当然是阅读<a href="https://github.com/inorganik/countUp.js/blob/master/countUp.js" target="_blank" rel="external">源码</a>了<br>其实源码也就两部分核心代码<br><strong>第一部分</strong>：主要是就是 <code>requestAnimationFrame</code>，在游览器不支持<code>requestAnimationFrame</code>的情况下使用 <code>setTimeout</code>来模拟，这段代码值得仔细阅读，自己在平时的项目中也能借鉴使用这段代码。<br><strong>第二部分</strong>：就是 <a href="https://github.com/inorganik/countUp.js/blob/master/countUp.js#L153" target="_blank" rel="external">count</a> 函数<br>看懂这两部分之后造轮子就相当的简单了, <a href="https://github.com/PanJiaChen/vue-countTo" target="_blank" rel="external">demo</a></p>
+<p>造轮子过程中发现 countUp,并没有 autoplay 这个参数项可以让组件自动开始count，没关系。。。我们可以自己来撸，我们首先定义 autoplay 这个props为布尔值，默认所有组件 autoplay 为 true。</p>
+<pre class="line-numbers language-js"><code class="language-js"> props<span class="token punctuation">:</span><span class="token punctuation">{</span>
+   autoplay<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+     type<span class="token punctuation">:</span> Boolean<span class="token punctuation">,</span>
+     required<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+     <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token boolean">true</span>
+   <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>定义好 props 之后只要在 mounted 生命周期内加一个判断就完事了。 </p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>autoplay<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我们的 countUp 组件可以自动 count 了！ </p>
+<h1 id="上传npm"><a href="#上传npm" class="headerlink" title="上传npm"></a>上传npm</h1><p>在不跨项目的情况下之前所做的已经满足需求了。但我们不能就此满足，我想让世界上更多的人来使用我的插件，这时候就要上传 <a href="https://www.npmjs.com/" target="_blank" rel="external">npm</a>了 <a href="https://github.com/PanJiaChen/vue-countTo" target="_blank" rel="external">demo</a> 。</p>
+<p>首先我们新建一个index.js</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> CountTo <span class="token keyword">from</span> <span class="token string">'./vue-countTo.vue'</span>
+
+<span class="token comment" spellcheck="true">// 导出模块</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> CountTo
+
+<span class="token comment" spellcheck="true">//global 情况下 自动安装</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">'undefined'</span> <span class="token operator">&amp;&amp;</span> window<span class="token punctuation">.</span>Vue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  window<span class="token punctuation">.</span>Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'count-to'</span><span class="token punctuation">,</span> CountTo<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>同时我们也要改造一下 webpack 的配置，因为不是所有使用你组件的人都是通过 npm 安装使用 import 引入组件的的。</p>
+<p>还有很多人是通过 <code>&lt;script&gt;</code> 标签的方式直接引入的，所以我们要将 <code>libraryTarget</code>改为 <a href="https://webpack.js.org/configuration/output/" target="_blank" rel="external">umd</a> 格式</p>
+<pre class="line-numbers language-json"><code class="language-json">library<span class="token operator">:</span> 'CountTo'<span class="token punctuation">,</span>
+libraryTarget<span class="token operator">:</span> 'umd'<span class="token punctuation">,</span>
+umdNamedDefine<span class="token operator">:</span> <span class="token boolean">true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>大功告成，现在只要将它发布到 npm 就可以了，首先注册一个<a href="https://www.npmjs.com/signup" target="_blank" rel="external">npm</a> 账号， 之后配置自己的 package.json (注意填写 version，每次发布的 version 不能相同；main 为入口文件地址)。 之后只要一行命令 npm publish 你的项目就发到 npm 了，快让小伙伴们一起来用你的vue component 吧！ </p>
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '封装vue组件'
+    }
+</script>
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            JINXO
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>全栈</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/29/封装一个vue component/">封装vue组件</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/27/ES2017异步函数/"></a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/26/koa介绍，廖雪峰/">koa2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/26/基本介绍2/"></a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/26/koa项目搭建/"></a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/26/基本介绍/"></a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/20/vue实例的属性和方法/">vue属性和方法</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/19/vue组件间的通信/">vue组件间通信</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/19/element/">element</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/18/vue开发经验/">vue开发经验</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/11/ES6/">Proxy</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/30/Electron/">Electron搭建node桌面应用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/08/es6一/">let和const</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/26/koa项目搭建/"></a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/29/mongodb备份/">MongoDB的备份</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/08/vim配置/">适合前端的vim配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/17/vue的生命周期和jquery/">vue的生命周期和JQuery</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/05/05/字符串查找/">字符串查询</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/05/05/硬盘/">硬盘</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/05/05/阅读习惯/">阅读</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/2018/05/29/封装一个vue component/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/2018/05/29/封装一个vue component/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/2018/05/29/封装一个vue component/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/habit/" style="font-size: 17.84377098671009px;" class="tag-cloud-link">habit</a>
+    
+    <a href="/tags/ES6/" style="font-size: 17.49624527200198px;" class="tag-cloud-link">ES6</a>
+    
+    <a href="/tags/工具使用/" style="font-size: 14.797056088918993px;" class="tag-cloud-link">工具使用</a>
+    
+    <a href="/tags/Node/" style="font-size: 15.998170104185895px;" class="tag-cloud-link">Node</a>
+    
+    <a href="/tags/Electron/" style="font-size: 19.116804887327262px;" class="tag-cloud-link">Electron</a>
+    
+    <a href="/tags/node/" style="font-size: 11.532374830267372px;" class="tag-cloud-link">node</a>
+    
+    <a href="/tags/前端/" style="font-size: 19.03327687727875px;" class="tag-cloud-link">前端</a>
+    
+    <a href="/tags/element/" style="font-size: 11.707628505546719px;" class="tag-cloud-link">element</a>
+    
+    <a href="/tags/工具/" style="font-size: 9.86454830005494px;" class="tag-cloud-link">工具</a>
+    
+    <a href="/tags/javascript/" style="font-size: 12.769919922581362px;" class="tag-cloud-link">javascript</a>
+    
+    <a href="/tags/vue/" style="font-size: 18.900997637419916px;" class="tag-cloud-link">vue</a>
+    
+    <a href="/tags/数据库/" style="font-size: 10.100835672096334px;" class="tag-cloud-link">数据库</a>
+    
+    <a href="/tags/JQuery/" style="font-size: 11.666034676096755px;" class="tag-cloud-link">JQuery</a>
+    
+    <a href="/tags/数据结构/" style="font-size: 17.174158180398184px;" class="tag-cloud-link">数据结构</a>
+    
+    <a href="/tags/算法/" style="font-size: 8.231294329305014px;" class="tag-cloud-link">算法</a>
+    
+    <a href="/tags/硬件/" style="font-size: 16.02576675920778px;" class="tag-cloud-link">硬件</a>
+    
+    <a href="/tags/koa2/" style="font-size: 11.583376326588308px;" class="tag-cloud-link">koa2</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/JINxo-geek" target="_blank">Github</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 JINXO Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Tue May 29 2018 22:02:28 GMT+0800'
+      window.commentConfig.owner = 'null'
+      window.commentConfig.repo = 'null'
+      window.commentConfig.client_id = 'null'
+      window.commentConfig.client_secret = 'null'
+      window.commentConfig.redirect_uri = 'null'
+    } else {
+      window.commentConfig = {
+      	id: 'Tue May 29 2018 22:02:28 GMT+0800',
+        owner: 'null',
+        repo: 'null',
+        client_id: 'null',
+        client_secret: 'null',
+        redirect_uri: 'null'
+      }
+    }
+</script>
+<script src="/js/comment/gitment.js"></script>
+
+</html>
