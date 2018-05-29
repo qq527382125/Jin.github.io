@@ -12,7 +12,7 @@
     
     
     
-    <title>JINXO</title>
+    <title>koa基础 | JINXO</title>
     <link href=”JINxo-geek.github.io“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -125,7 +125,7 @@
                         </li>
                         
                         <li>
-                            <a href="/categories/前端工具/">前端工具</a>
+                            <a href="/categories/node/">node</a>
                         </li>
                         
                         
@@ -159,7 +159,7 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/工具使用/">工具使用</a>
+                            <a href="/tags/Electron/">Electron</a>
                         </li>
                         
                         
@@ -195,16 +195,27 @@
         <i class="fa fa-home"></i>
         <a href="JINxo-geek.github.io">JINXO</a>
         >
-        <span></span>
+        <span>koa基础</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2018/05/26/基本介绍/"></a>
+                <a href="/2018/05/26/koa基本介绍/">koa基础</a>
             </h1>
         </div>
         <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/node/">node</a>, 
+                
+                <a href="/tags/前端/">前端</a>, 
+                
+                <a href="/tags/koa/">koa</a>
+                
+            </span>
             
             <span class="label label-gal">
                 <i class="fa fa-calendar"></i> 2018-05-26
@@ -217,7 +228,7 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2018/05/26/基本介绍/"></a>
+                    <a href="/2018/05/26/koa基本介绍/">koa基础</a>
                 </h4>
             </div>
             <p>
@@ -225,12 +236,22 @@
             </p>
             <p>
                 
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/node/">node</a>, 
+                
+                <a href="/tags/前端/">前端</a>, 
+                
+                <a href="/tags/koa/">koa</a>
+                
+                
                 
             </p>
         </center>
     </div>
     <div class="content-article">
-        <h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+        <p>koa基础介绍<br><a id="more"></a></p>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
 <li>什么是叫中间件？处在 HTTP Request 和 HTTP Response 中间，用来实现某种中间功能。<code>app.use()</code>用来加载中间件。 </li>
 <li></li>
 </ul>
@@ -613,6 +634,71 @@ app<span class="token punctuation">.</span><span class="token function">on</span
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>上面代码中，<code>main</code>函数抛出错误，被<code>handler</code>函数捕获。<code>catch</code>代码块里面使用<code>ctx.app.emit()</code>手动释放<code>error</code>事件，才能让监听函数监听到。</p>
 <p>运行这个 demo。访问 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，你会在命令行窗口看到<code>logging error</code>。 </p>
+<h1 id="Web-App的功能"><a href="#Web-App的功能" class="headerlink" title="Web App的功能"></a>Web App的功能</h1><p><strong>Cookies</strong></p>
+<p><code>ctx.cookies</code> 用来读写<code>Cookie</code> 。</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> main <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> n <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'view'</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  ctx<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'view'</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> n <span class="token operator">+</span> <span class="token string">' views'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>运行这个 demo。 访问 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，你会看到<code>1 views</code>。刷新一次页面，就变成了<code>2 views</code>。再刷新，每次都会计数增加1。 </p>
+<h1 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h1><p>Web 应用离不开处理表单，本质上，表单就是POST方法发送到服务器的键值对。<br><code>koa-body</code> 模块可以用来从POST请求数据体里面提取键值对。请看下面的例子。</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> koaBody <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-body'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> main <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> body <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>body<span class="token punctuation">.</span>name<span class="token punctuation">)</span> ctx<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span><span class="token string">'.name required'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">koaBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>运行这个 demo。 </p>
+<p>打开另一个命令行窗口，运行下面的命令。</p>
+<pre class="line-numbers language-shell"><code class="language-shell">$ curl -X POST --data "name=Jack" 127.0.0.1:3000
+{"name":"Jack"}
+
+$ curl -X POST --data "name" 127.0.0.1:3000
+name required
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上面代码使用POST方法向服务器发送一个键值对，会被正确解析，如果发送的数据不正确，就会收到错误的提示。</p>
+<h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p> <code>koa-body</code> 模块还可以用来开处理文件上传。</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> os <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'os'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> koaBody <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-body'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> main <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> tmpdir <span class="token operator">=</span> os<span class="token punctuation">.</span><span class="token function">tmpdir</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> filePaths <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> files <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body<span class="token punctuation">.</span>files <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span>  <span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> files<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> file <span class="token operator">=</span> files<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> filePath <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>tmpdir<span class="token punctuation">,</span>file<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> reader <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> writer <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    reader<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>writer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    filePaths<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> filePaths<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">koaBody</span><span class="token punctuation">(</span><span class="token punctuation">{</span>multipart<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>运行这个demo。</p>
+<p>打开另一个命令行窗口，运行下面的命令，上传一个文件。注意，<code>/path/to/file</code>要更换为真实的文件路径。</p>
+<pre class="line-numbers language-shell"><code class="language-shell">$ curl --form upload=@/path/to/file http://127.0.0.1:3000
+["/tmp/file"]
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
     </div>
 </article>
@@ -623,7 +709,7 @@ app<span class="token punctuation">.</span><span class="token function">on</span
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = ''
+      window.commentConfig.title = 'koa基础'
     }
 </script>
 
@@ -702,19 +788,13 @@ app<span class="token punctuation">.</span><span class="token function">on</span
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/05/26/基本介绍2/"></a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2018/05/26/koa项目搭建/"></a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/05/26/基本介绍/"></a>
+                    <a href="/2018/05/26/koa基本介绍/">koa基础</a>
                 </span>
             </li>
             
@@ -742,6 +822,12 @@ app<span class="token punctuation">.</span><span class="token function">on</span
                 </span>
             </li>
             
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/18/vue自定义事件/">vue自定义事件</a>
+                </span>
+            </li>
+            
         </ul>
     </div>
 </aside>
@@ -760,25 +846,43 @@ app<span class="token punctuation">.</span><span class="token function">on</span
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/05/05/13个学习技巧/">13个学习技巧</a>
+                    <a href="/2018/05/11/ES6today/">Reflect</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/05/11/ES6/">Proxy</a>
+                    <a href="/2018/05/10/ES6九/">Symbol</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/05/05/Node调试/">Node调试</a>
+                    <a href="/2018/05/10/ES6八/">对象的扩展</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/04/30/Electron/">Electron搭建node桌面应用</a>
+                    <a href="/2018/05/19/element/">element</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/08/es6一/">let和const</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/26/koa项目搭建/"></a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/28/tampermonkey脚本/">Tampermonkey简单脚本编写</a>
                 </span>
             </li>
             
@@ -790,31 +894,13 @@ app<span class="token punctuation">.</span><span class="token function">on</span
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/05/17/vue的生命周期和jquery/">vue的生命周期和JQuery</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/05/13/大白话讲解Promise/"></a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/05/26/基本介绍2/"></a>
+                    <a href="/2018/05/13/长专注/">极其专注</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2017/05/05/硬盘/">硬盘</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2017/05/05/虚拟内存/">虚拟内存</a>
                 </span>
             </li>
             
@@ -827,51 +913,53 @@ app<span class="token punctuation">.</span><span class="token function">on</span
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/2018/05/26/基本介绍/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2018/05/26/koa基本介绍/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/2018/05/26/基本介绍/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2018/05/26/koa基本介绍/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/2018/05/26/基本介绍/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2018/05/26/koa基本介绍/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/habit/" style="font-size: 15.476808457253407px;" class="tag-cloud-link">habit</a>
+    <a href="/tags/habit/" style="font-size: 17.786525428090982px;" class="tag-cloud-link">habit</a>
     
-    <a href="/tags/ES6/" style="font-size: 13.490828900367934px;" class="tag-cloud-link">ES6</a>
+    <a href="/tags/ES6/" style="font-size: 19.62304085301104px;" class="tag-cloud-link">ES6</a>
     
-    <a href="/tags/工具使用/" style="font-size: 17.305356872372567px;" class="tag-cloud-link">工具使用</a>
+    <a href="/tags/Electron/" style="font-size: 8.37497587661866px;" class="tag-cloud-link">Electron</a>
     
-    <a href="/tags/Node/" style="font-size: 10.346372276649396px;" class="tag-cloud-link">Node</a>
+    <a href="/tags/node/" style="font-size: 12.117260646037368px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/Electron/" style="font-size: 14.12463906294139px;" class="tag-cloud-link">Electron</a>
+    <a href="/tags/工具使用/" style="font-size: 9.444588501951596px;" class="tag-cloud-link">工具使用</a>
     
-    <a href="/tags/node/" style="font-size: 17.252991064987633px;" class="tag-cloud-link">node</a>
+    <a href="/tags/Node/" style="font-size: 9.044867988143555px;" class="tag-cloud-link">Node</a>
     
-    <a href="/tags/前端/" style="font-size: 14.43246978656601px;" class="tag-cloud-link">前端</a>
+    <a href="/tags/前端/" style="font-size: 18.93824761479399px;" class="tag-cloud-link">前端</a>
     
-    <a href="/tags/element/" style="font-size: 15.424158734880555px;" class="tag-cloud-link">element</a>
+    <a href="/tags/element/" style="font-size: 13.895563623707378px;" class="tag-cloud-link">element</a>
     
-    <a href="/tags/工具/" style="font-size: 11.240933604451246px;" class="tag-cloud-link">工具</a>
+    <a href="/tags/koa/" style="font-size: 8.533809014675992px;" class="tag-cloud-link">koa</a>
     
-    <a href="/tags/数据库/" style="font-size: 16.920872831436313px;" class="tag-cloud-link">数据库</a>
+    <a href="/tags/工具/" style="font-size: 18.26725195141493px;" class="tag-cloud-link">工具</a>
     
-    <a href="/tags/javascript/" style="font-size: 12.076034499982942px;" class="tag-cloud-link">javascript</a>
+    <a href="/tags/数据库/" style="font-size: 8.912457053862958px;" class="tag-cloud-link">数据库</a>
     
-    <a href="/tags/vue/" style="font-size: 15.053236961085105px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/javascript/" style="font-size: 8.623361236559427px;" class="tag-cloud-link">javascript</a>
     
-    <a href="/tags/JQuery/" style="font-size: 17.638096166896275px;" class="tag-cloud-link">JQuery</a>
+    <a href="/tags/vue/" style="font-size: 15.458921940838367px;" class="tag-cloud-link">vue</a>
     
-    <a href="/tags/算法/" style="font-size: 12.036355277940084px;" class="tag-cloud-link">算法</a>
+    <a href="/tags/JQuery/" style="font-size: 19.461923629461786px;" class="tag-cloud-link">JQuery</a>
     
-    <a href="/tags/数据结构/" style="font-size: 19.722618515356295px;" class="tag-cloud-link">数据结构</a>
+    <a href="/tags/算法/" style="font-size: 8.625172451225925px;" class="tag-cloud-link">算法</a>
     
-    <a href="/tags/硬件/" style="font-size: 10.887696741287273px;" class="tag-cloud-link">硬件</a>
+    <a href="/tags/数据结构/" style="font-size: 9.745857076093506px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="/tags/koa2/" style="font-size: 14.148800742149456px;" class="tag-cloud-link">koa2</a>
+    <a href="/tags/硬件/" style="font-size: 8.477021147733689px;" class="tag-cloud-link">硬件</a>
+    
+    <a href="/tags/koa2/" style="font-size: 18.751382339701326px;" class="tag-cloud-link">koa2</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
