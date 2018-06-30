@@ -302,7 +302,6 @@ var galTheme = {
 if ($('#comments-template')) {
 
 	var gitment = new Gitment({
-		id: window.commentConfig.id,
 		owner: window.commentConfig.owner,
 		repo: window.commentConfig.repo,
 		oauth: {
