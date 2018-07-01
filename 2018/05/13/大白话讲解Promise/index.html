@@ -539,6 +539,15 @@ Promise
 </article>
 
 
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = ''
+    }
+</script>
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -672,43 +681,25 @@ Promise
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/05/05/13个学习技巧/">13个学习技巧</a>
+                    <a href="/2017/05/05/ES6十/">Set 和 Map 数据结构</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/05/05/ES6today/">Reflect</a>
+                    <a href="/2018/05/19/element/">element</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/05/05/ES6七/">数组扩展</a>
+                    <a href="/2018/05/26/koa基本介绍/">koa基础</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/30/ES6三/">字符扩展</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2017/05/05/ES6四/">数值扩展</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2017/05/05/chrome开发者工具/">chrome</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2017/05/05/es6一/">let和const</a>
+                    <a href="/2018/04/24/js表单验证/">表单验证</a>
                 </span>
             </li>
             
@@ -720,13 +711,31 @@ Promise
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/04/30/vscode插件/">vscode必备插件</a>
+                    <a href="/2018/05/19/vue组件间的通信/">vue组件间通信</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2018/05/17/vue的生命周期和jquery/">vue的生命周期和JQuery</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/18/vue自定义事件/">vue自定义事件</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/29/封装一个vue component/">封装vue组件</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/05/05/虚拟内存/">虚拟内存</a>
                 </span>
             </li>
             
@@ -751,41 +760,41 @@ Promise
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/habit/" style="font-size: 8.47995330950625px;" class="tag-cloud-link">habit</a>
+    <a href="/tags/habit/" style="font-size: 16.213041491938306px;" class="tag-cloud-link">habit</a>
     
-    <a href="/tags/ES6/" style="font-size: 18.29896507019843px;" class="tag-cloud-link">ES6</a>
+    <a href="/tags/ES6/" style="font-size: 16.78427241817051px;" class="tag-cloud-link">ES6</a>
     
-    <a href="/tags/Electron/" style="font-size: 16.44198185114977px;" class="tag-cloud-link">Electron</a>
+    <a href="/tags/Electron/" style="font-size: 8.799590116442822px;" class="tag-cloud-link">Electron</a>
     
-    <a href="/tags/node/" style="font-size: 9.854750627181641px;" class="tag-cloud-link">node</a>
+    <a href="/tags/node/" style="font-size: 14.92097079563711px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/工具使用/" style="font-size: 12.216591563530816px;" class="tag-cloud-link">工具使用</a>
+    <a href="/tags/工具使用/" style="font-size: 9.238958321735065px;" class="tag-cloud-link">工具使用</a>
     
-    <a href="/tags/Node/" style="font-size: 15.3025001080151px;" class="tag-cloud-link">Node</a>
+    <a href="/tags/Node/" style="font-size: 11.522867300740787px;" class="tag-cloud-link">Node</a>
     
-    <a href="/tags/前端/" style="font-size: 19.68894929069356px;" class="tag-cloud-link">前端</a>
+    <a href="/tags/前端/" style="font-size: 10.261874663351088px;" class="tag-cloud-link">前端</a>
     
-    <a href="/tags/element/" style="font-size: 9.672096579847125px;" class="tag-cloud-link">element</a>
+    <a href="/tags/element/" style="font-size: 16.54494616793647px;" class="tag-cloud-link">element</a>
     
-    <a href="/tags/koa/" style="font-size: 16.511610615165374px;" class="tag-cloud-link">koa</a>
+    <a href="/tags/koa/" style="font-size: 12.740614007831395px;" class="tag-cloud-link">koa</a>
     
-    <a href="/tags/工具/" style="font-size: 10.507741375161348px;" class="tag-cloud-link">工具</a>
+    <a href="/tags/工具/" style="font-size: 14.330137342025084px;" class="tag-cloud-link">工具</a>
     
-    <a href="/tags/数据库/" style="font-size: 18.98948246535392px;" class="tag-cloud-link">数据库</a>
+    <a href="/tags/数据库/" style="font-size: 11.86680957849542px;" class="tag-cloud-link">数据库</a>
     
-    <a href="/tags/javascript/" style="font-size: 17.77417728662511px;" class="tag-cloud-link">javascript</a>
+    <a href="/tags/javascript/" style="font-size: 11.465323208114736px;" class="tag-cloud-link">javascript</a>
     
-    <a href="/tags/vue/" style="font-size: 18.051012096130165px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/vue/" style="font-size: 11.333524191672158px;" class="tag-cloud-link">vue</a>
     
-    <a href="/tags/JQuery/" style="font-size: 11.15478883570462px;" class="tag-cloud-link">JQuery</a>
+    <a href="/tags/JQuery/" style="font-size: 11.537676793478072px;" class="tag-cloud-link">JQuery</a>
     
-    <a href="/tags/算法/" style="font-size: 11.713051444710084px;" class="tag-cloud-link">算法</a>
+    <a href="/tags/算法/" style="font-size: 10.918142612735934px;" class="tag-cloud-link">算法</a>
     
-    <a href="/tags/数据结构/" style="font-size: 12.945066235617315px;" class="tag-cloud-link">数据结构</a>
+    <a href="/tags/数据结构/" style="font-size: 14.15156867723745px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="/tags/硬件/" style="font-size: 9.741081015765202px;" class="tag-cloud-link">硬件</a>
+    <a href="/tags/硬件/" style="font-size: 12.082061603671104px;" class="tag-cloud-link">硬件</a>
     
-    <a href="/tags/koa2/" style="font-size: 13.545747880918297px;" class="tag-cloud-link">koa2</a>
+    <a href="/tags/koa2/" style="font-size: 10.579544223199107px;" class="tag-cloud-link">koa2</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
@@ -890,5 +899,27 @@ Promise
 <script src="/js/oni.js"></script>
 
 
+
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Sun May 13 2018 00:09:05 GMT+0800'
+      window.commentConfig.owner = 'JINxo-geek'
+      window.commentConfig.repo = 'gitment'
+      window.commentConfig.client_id = '733b57bf5a3f7cc78267'
+      window.commentConfig.client_secret = '9085fe3811d87076ac50f48586deb6940c7192f5'
+      window.commentConfig.redirect_uri = 'null'
+    } else {
+      window.commentConfig = {
+      	id: 'Sun May 13 2018 00:09:05 GMT+0800',
+        owner: 'JINxo-geek',
+        repo: 'gitment',
+        client_id: '733b57bf5a3f7cc78267',
+        client_secret: '9085fe3811d87076ac50f48586deb6940c7192f5',
+        redirect_uri: 'null'
+      }
+    }
+</script>
+<script src="/js/comment/gitment.js"></script>
 
 </html>
