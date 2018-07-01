@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="JINXO">
+    
+    <meta name="description" content="全栈">
+    
+    
+    
+    
+    
+    
+    <title>Promise对象 | JINXO</title>
+    <link href=”JINxo-geek.github.io“ rel=”prefetch” />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="JINxo-geek.github.io" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="JINxo-geek.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">JINXO</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/习惯/">习惯</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/ES6/">ES6</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/node/">node</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/前端工具/">前端工具</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/前端/">前端</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/后端/">后端</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/habit/">habit</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/ES6/">ES6</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Electron/">Electron</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/node/">node</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/工具使用/">工具使用</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Node/">Node</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="JINxo-geek.github.io">JINXO</a>
+        >
+        <span>Promise对象</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2017/05/05/ES6today2/">Promise对象</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/ES6/">ES6</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2017-05-05
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2017/05/05/ES6today2/">Promise对象</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2017-05-05
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/ES6/">ES6</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            JINXO
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>全栈</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/30/ES6三/">字符扩展</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/30/es6二/">解构赋值</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/04/vue-router基础使用/">vue-router基础使用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/02/箭头函数柯里化/">箭头函数柯里化</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/29/封装一个vue component/">封装vue组件</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/27/ES2017异步函数/">异步函数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/26/koa介绍，廖雪峰/">koa2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/26/koa项目搭建/"></a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/26/koa基本介绍/">koa基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/20/vue实例的属性和方法/">vue属性和方法</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/05/05/ES6四/">数值扩展</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/30/Electron/">Electron搭建node桌面应用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/30/es6二/">解构赋值</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/26/koa基本介绍/">koa基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/04/vue-router基础使用/">vue-router基础使用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/20/vue实例的属性和方法/">vue属性和方法</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/15/前端思维数据驱动/">数据驱动</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/13/大白话讲解Promise/"></a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/05/29/封装一个vue component/">封装vue组件</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/24/数据结构队列篇/">数据结构</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/2017/05/05/ES6today2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/2017/05/05/ES6today2/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/2017/05/05/ES6today2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/habit/" style="font-size: 14.555484099025104px;" class="tag-cloud-link">habit</a>
+    
+    <a href="/tags/ES6/" style="font-size: 12.897752766433957px;" class="tag-cloud-link">ES6</a>
+    
+    <a href="/tags/Electron/" style="font-size: 14.777375084017155px;" class="tag-cloud-link">Electron</a>
+    
+    <a href="/tags/node/" style="font-size: 16.32320854725156px;" class="tag-cloud-link">node</a>
+    
+    <a href="/tags/工具使用/" style="font-size: 14.612591421458532px;" class="tag-cloud-link">工具使用</a>
+    
+    <a href="/tags/Node/" style="font-size: 14.551055105359584px;" class="tag-cloud-link">Node</a>
+    
+    <a href="/tags/前端/" style="font-size: 14.270341623384809px;" class="tag-cloud-link">前端</a>
+    
+    <a href="/tags/element/" style="font-size: 8.696584493833464px;" class="tag-cloud-link">element</a>
+    
+    <a href="/tags/koa/" style="font-size: 19.488372458575338px;" class="tag-cloud-link">koa</a>
+    
+    <a href="/tags/工具/" style="font-size: 11.355342796219489px;" class="tag-cloud-link">工具</a>
+    
+    <a href="/tags/数据库/" style="font-size: 11.39516445303732px;" class="tag-cloud-link">数据库</a>
+    
+    <a href="/tags/javascript/" style="font-size: 15.87680516473442px;" class="tag-cloud-link">javascript</a>
+    
+    <a href="/tags/vue/" style="font-size: 15.456107970122693px;" class="tag-cloud-link">vue</a>
+    
+    <a href="/tags/JQuery/" style="font-size: 18.547484165087898px;" class="tag-cloud-link">JQuery</a>
+    
+    <a href="/tags/算法/" style="font-size: 15.240598765338039px;" class="tag-cloud-link">算法</a>
+    
+    <a href="/tags/数据结构/" style="font-size: 16.123458495593166px;" class="tag-cloud-link">数据结构</a>
+    
+    <a href="/tags/硬件/" style="font-size: 15.09394570342275px;" class="tag-cloud-link">硬件</a>
+    
+    <a href="/tags/koa2/" style="font-size: 14.762026533932758px;" class="tag-cloud-link">koa2</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 JINXO Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
+
+
+
+</html>
