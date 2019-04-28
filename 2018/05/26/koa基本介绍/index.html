@@ -1,298 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="JINXO">
-    
-    <meta name="description" content="全栈">
-    
-    
-    
-    
-    
-    
-    <title>koa基础 | JINXO</title>
-    <link href=”JINxo-geek.github.io“ rel=”prefetch” />
-
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/aos.css">
-<link rel="stylesheet" href="/css/style.css">
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/aos.js"></script>
-    <script src="/js/highslide/highslide-full.min.js"></script>
-    <link rel="stylesheet" href="/js/highslide/highslide.css">
-    <style type="text/css">
-        @media (max-width: 768px) {
-            body {
-                background-color: #f0f0f0;
-                background: url('/imgs/xsbg.gif');
-                background-attachment: fixed;
-            }
-        }
-    </style>
-    
-    <!--<script type="text/javascript">
-      if (document.images) {
-        var avatar = new Image();
-        avatar.src = '/imgs/avatar.jpg'
-        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
-        var previewsPreLoad = []
-        for(var i = 0; i < length; i++) {
-          previewsPreLoad.push(new Image())
-          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
-        }
-      }
-    </script>-->
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-<body>
-    <!-- 背景轮播图功能 -->
-    <section class="hidden-xs">
-    <ul class="cb-slideshow">
-        <li><span>天若</span></li>
-        <li><span>有情</span></li>
-        <li><span>天亦老</span></li>
-        <li><span>我为</span></li>
-        <li><span>长者</span></li>
-        <li><span>续一秒</span></li>
-    </ul>
-</section>
-    <!-- 欧尼酱功能, 谁用谁知道 -->
-    
-    <div class="gal-menu gal-dropdown">
-    <div class="circle" id="gal">
-        <div class="ring">
-            <a href="JINxo-geek.github.io" class="menuItem" style="left: 50%; top: 15%;">首页</a>
-            
-            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
-            
-            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
-            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
-            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
-            
-            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
-            
-        </div>
-        <audio id="audio" src="/imgs/oni.mp3"></audio>
-    </div>
-</div>
-    
-    <header class="navbar navbar-inverse" id="gal-header">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed"
-                    data-toggle="collapse" data-target=".bs-navbar-collapse"
-                    aria-expanded="false">
-                <span class="fa fa-lg fa-reorder"></span>
-            </button>
-            <a href="JINxo-geek.github.io">
-                
-                <style>
-                    #gal-header .navbar-brand {
-                        height: 54px;
-                        line-height: 24px;
-                        font-size: 28px;
-                        opacity: 1;
-                        background-color: rgba(0,0,0,0);
-                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
-                    }
-                </style>
-                <!-- 这里使用文字(navbar_text or config.title) -->
-                <div class="navbar-brand">JINXO</div>
-                
-            </a>
-        </div>
-        <div class="collapse navbar-collapse bs-navbar-collapse">
-            <ul class="nav navbar-nav" id="menu-gal">
-                
-                
-                <li class="">
-                    <a href="/">
-                        <i class="fa fa-home"></i>首页
-                    </a>
-                </li>
-                
-                
-                
-                <li class="">
-                    <a href="/archives">
-                        <i class="fa fa-archive"></i>归档
-                    </a>
-                </li>
-                
-                
-                
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-list"></i>分类
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/categories/习惯/">习惯</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/ES6/">ES6</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/node/">node</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/前端工具/">前端工具</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/前端/">前端</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/后端/">后端</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/categories">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-tags"></i>标签
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/tags/habit/">habit</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/ES6/">ES6</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/Electron/">Electron</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/node/">node</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/工具使用/">工具使用</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/Node/">Node</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/tags">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
-                <li class="">
-                    <a href="/about">
-                        <i class="fa fa-user"></i>关于我
-                    </a>
-                </li>
-                
-                
-            </ul>
-        </div>
-    </div>
-</header>
-    <div id="gal-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 gal-right" id="mainstay">
-                    
-<article class="article well article-body" id="article">
-    <div class="breadcrumb">
-        <i class="fa fa-home"></i>
-        <a href="JINxo-geek.github.io">JINXO</a>
-        >
-        <span>koa基础</span>
-    </div>
-    <!-- 大型设备详细文章 -->
-    <div class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2018/05/26/koa基本介绍/">koa基础</a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/node/">node</a>, 
-                
-                <a href="/tags/前端/">前端</a>, 
-                
-                <a href="/tags/koa/">koa</a>
-                
-            </span>
-            
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2018-05-26
-            </span>
-            
-        </div>
-    </div>
-    <!-- 小型设备详细文章 -->
-    <div class="visible-xs">
-        <center>
-            <div class="title-article">
-                <h4>
-                    <a href="/2018/05/26/koa基本介绍/">koa基础</a>
-                </h4>
-            </div>
-            <p>
-                <i class="fa fa-calendar"></i> 2018-05-26
-            </p>
-            <p>
-                
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/node/">node</a>, 
-                
-                <a href="/tags/前端/">前端</a>, 
-                
-                <a href="/tags/koa/">koa</a>
-                
-                
-                
-            </p>
-        </center>
-    </div>
-    <div class="content-article">
-        <p>koa基础介绍<br><a id="more"></a></p>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="koa基础"><meta name="keywords" content="node,前端,koa"><meta name="author" content="JINXO"><meta name="copyright" content="JINXO"><title>koa基础 | JINXO</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.6.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.6.1"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#要点"><span class="toc-number">1.</span> <span class="toc-text">要点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本用法"><span class="toc-number">3.</span> <span class="toc-text">基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#架设HTTP服务器"><span class="toc-number">3.1.</span> <span class="toc-text">架设HTTP服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Context对象"><span class="toc-number">3.2.</span> <span class="toc-text">Context对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#处理http请求"><span class="toc-number">3.2.1.</span> <span class="toc-text">处理http请求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP-Response-的类型"><span class="toc-number">3.3.</span> <span class="toc-text">HTTP Response 的类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网页模板"><span class="toc-number">3.4.</span> <span class="toc-text">网页模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由"><span class="toc-number">3.5.</span> <span class="toc-text">路由</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#koa-route-模块"><span class="toc-number">4.</span> <span class="toc-text">koa-route 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#静态资源"><span class="toc-number">4.1.</span> <span class="toc-text">静态资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重定向"><span class="toc-number">4.2.</span> <span class="toc-text">重定向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中间件"><span class="toc-number">4.3.</span> <span class="toc-text">中间件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中间件栈"><span class="toc-number">4.4.</span> <span class="toc-text">中间件栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异步中间件"><span class="toc-number">4.5.</span> <span class="toc-text">异步中间件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中间件的合成"><span class="toc-number">4.6.</span> <span class="toc-text">中间件的合成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误处理"><span class="toc-number">4.7.</span> <span class="toc-text">错误处理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#处理错误的中间件。"><span class="toc-number">5.</span> <span class="toc-text">处理错误的中间件。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#error事件的监听"><span class="toc-number">6.</span> <span class="toc-text">error事件的监听</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#释放error事件"><span class="toc-number">7.</span> <span class="toc-text">释放error事件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Web-App的功能"><span class="toc-number">8.</span> <span class="toc-text">Web App的功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#表单"><span class="toc-number">9.</span> <span class="toc-text">表单</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件上传"><span class="toc-number">10.</span> <span class="toc-text">文件上传</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">JINXO</div><div class="author-info__description text-center">全栈</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">46</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">19</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">JINXO</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">koa基础</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-05-26</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/后端/">后端</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p>koa基础介绍<br><a id="more"></a></p>
 <h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
 <li>什么是叫中间件？处在 HTTP Request 和 HTTP Response 中间，用来实现某种中间功能。<code>app.use()</code>用来加载中间件。 </li>
 <li></li>
@@ -305,201 +20,80 @@
 </blockquote>
 <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>首先，检查 Node 版本。</p>
 <blockquote>
-<pre class="line-numbers language-bash"><code class="language-bash">$ node -v
-v8.0.0
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; $ node -v</div><div class="line">&gt; v8.0.0</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </blockquote>
 <p>Koa 必须使用 7.6 以上的版本。如果你的版本低于这个要求，就要先升级 Node。</p>
 <p>然后，克隆本文的配套<a href="https://github.com/ruanyf/koa-demos" target="_blank" rel="external">示例库</a>。（如果不方便使用 Git，也可以下载 <a href="https://github.com/ruanyf/koa-demos/archive/master.zip" target="_blank" rel="external">zip 文件</a>解压。）</p>
 <blockquote>
-<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">git</span> clone https://github.com/ruanyf/koa-demos.git
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; $ git <span class="built_in">clone</span> https://github.com/ruanyf/koa-demos.git</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </blockquote>
 <p>接着，进入示例库，安装依赖。</p>
 <blockquote>
-<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">cd</span> koa-demos
-$ <span class="token function">npm</span> <span class="token function">install</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; $ <span class="built_in">cd</span> koa-demos</div><div class="line">&gt; $ npm install</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </blockquote>
 <p>所有示例源码，都在 <a href="https://github.com/ruanyf/koa-demos/tree/master/demos" target="_blank" rel="external">demos</a> 目录下面。</p>
 <h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><h2 id="架设HTTP服务器"><a href="#架设HTTP服务器" class="headerlink" title="架设HTTP服务器"></a>架设HTTP服务器</h2><p>只要三行代码，就可以用Koa架设一个HTTP服务器。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//app.js</span>
-<span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//app.js</span></div><div class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"></div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
 <p>运行</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token variable">$node</span> app
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$node</span> app</div></pre></td></tr></table></figure>
 <p>打开浏览器，访问 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> 。你会看到页面显示”Not Found”，表示没有发现任何内容。这是因为我们并没有告诉 Koa 应该显示什么内容。 </p>
 <h2 id="Context对象"><a href="#Context对象" class="headerlink" title="Context对象"></a>Context对象</h2><p>Koa提供一个Context对象，表示一次对话的上下文包括了HTTP请求和恢复。通过加工这个对象，就可以控制返回给用户的内容。<br>Context.response.body 属性就是发送给用户的内容。</p>
 <blockquote>
 <p>（在处理http请求时，Node提供了request和response两个对象，Koa把两者封装到了同一个对象中，即context，缩写为ctx 。在context中封装了许多方法，大部分都是从原生的request/response 对象使用委托方式得来的，虽然ctx封装了reqest和response对象的方法，但这并不代表ctx.Request就和原生的request对象完全相同.  尤其是ctx.response的结构，和原生的request对象还是有很大区别的，ctx.response对象只是一个单纯的字符串，上面没有注册任何事件。   ）</p>
 <h3 id="处理http请求"><a href="#处理http请求" class="headerlink" title="处理http请求"></a>处理http请求</h3><p>koa的ctx对象中封装了request以及response对象，那么在处理http请求中，使用ctx对象就可以完成所有的处理。</p>
-<pre class="line-numbers language-js"><code class="language-js">ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> “Hello World”；
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; ctx.body = “Hello World”；</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
 <p>相当于 http模块 中</p>
-<pre class="line-numbers language-js"><code class="language-js">res<span class="token punctuation">.</span>statusCode <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">;</span> 
-res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>“Hello World”<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; res.statusCode = <span class="number">200</span>; </div><div class="line">&gt; res.end(“Hello World”);</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
 <p><strong>ctx.body也可以写成ctx.response.body，ctx相当于ctx.request/response的别名。</strong></p>
 </blockquote>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">requrie</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span>；
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Koa = requrie(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</div><div class="line">    ctx.response.body = <span class="string">'Hello World'</span>;</div><div class="line">&#125;</div><div class="line">app.use(main)；</div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
 <p>上面代码中，<code>main</code>函数用来设置<code>ctx.response.body</code>。然后，使用<code>app.use</code>方法加载<code>main</code>函数。</p>
 <p>你可能已经猜到了，<code>ctx.response</code>代表 HTTP Response。同样地，<code>ctx.request</code>代表 HTTP Request。</p>
 <p>运行这个 demo。 访问 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，现在就可以看到”Hello World”了。 </p>
 <h2 id="HTTP-Response-的类型"><a href="#HTTP-Response-的类型" class="headerlink" title="HTTP Response 的类型"></a>HTTP Response 的类型</h2><p>koa默认返回的类型是text/plain,如果想要返回其他类型的内容，可以先用ctx.request.accepts判断下，客户端希望接受什么数据（根据HTTP Request的Accept字段），然后使用ctx.response.type指定返回类型。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">accepts</span><span class="token punctuation">(</span><span class="token string">'xml'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">'xml'</span><span class="token punctuation">;</span>
-    ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'&lt;data>Hello World&lt;/data>'</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">accepts</span><span class="token punctuation">(</span><span class="token string">'json'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">'json'</span><span class="token punctuation">;</span>
-    ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token punctuation">{</span> data<span class="token punctuation">:</span> <span class="token string">'Hello World'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">accepts</span><span class="token punctuation">(</span><span class="token string">'html'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">'html'</span><span class="token punctuation">;</span>
-    ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'&lt;p>Hello World&lt;/p>'</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-    ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">'text'</span><span class="token punctuation">;</span>
-    ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">if</span> (ctx.request.accepts(<span class="string">'xml'</span>)) &#123;</div><div class="line">    ctx.response.type = <span class="string">'xml'</span>;</div><div class="line">    ctx.response.body = <span class="string">'&lt;data&gt;Hello World&lt;/data&gt;'</span>;</div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ctx.request.accepts(<span class="string">'json'</span>)) &#123;</div><div class="line">    ctx.response.type = <span class="string">'json'</span>;</div><div class="line">    ctx.response.body = &#123; <span class="attr">data</span>: <span class="string">'Hello World'</span> &#125;;</div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ctx.request.accepts(<span class="string">'html'</span>)) &#123;</div><div class="line">    ctx.response.type = <span class="string">'html'</span>;</div><div class="line">    ctx.response.body = <span class="string">'&lt;p&gt;Hello World&lt;/p&gt;'</span>;</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    ctx.response.type = <span class="string">'text'</span>;</div><div class="line">    ctx.response.body = <span class="string">'Hello World'</span>;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">app.use(main);</div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
 <p>运行这个 demo。 访问 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，现在看到的就是一个 XML 文档了。 </p>
 <h2 id="网页模板"><a href="#网页模板" class="headerlink" title="网页模板"></a>网页模板</h2><p>实际开发中，返回给用户的网页往往都写成模板文件。我们可以先让Koa读取模板文件，然后将这个模板返给用户。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">'html'</span><span class="token punctuation">;</span>
-  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span><span class="token string">'./demos/template.html'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//fs.createReadStream从指定路径读取了模板文件</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</div><div class="line">  ctx.response.type = <span class="string">'html'</span>;</div><div class="line">  ctx.response.body = fs.createReadStream(<span class="string">'./demos/template.html'</span>);</div><div class="line">&#125;;</div><div class="line"><span class="comment">//fs.createReadStream从指定路径读取了模板文件</span></div></pre></td></tr></table></figure>
 <p>运行这个 Demo。 访问 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，看到的就是<a href="https://github.com/ruanyf/koa-demos/blob/master/demos/template.html" target="_blank" rel="external">模板文件</a>的内容了。 （渲染好的）</p>
 <h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>讲到路由，先说说原生的路由，通过<code>ctx.request.path</code> 可以获取到用户请求的路径，由此实现简单的路由。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//核心代码</span>
-<span class="token keyword">const</span> main <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>path <span class="token operator">!==</span> <span class="token string">'/'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">'html'</span><span class="token punctuation">;</span>
-        ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'&lt;a href = '</span><span class="token operator">/</span><span class="token string">'>Index page&lt;/a>'</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">{</span>
-        ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'Hello World '</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//核心代码</span></div><div class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span>(ctx.request.path !== <span class="string">'/'</span>) &#123;</div><div class="line">        ctx.response.type = <span class="string">'html'</span>;</div><div class="line">        ctx.response.body = <span class="string">'&lt;a href = '</span>/<span class="string">'&gt;Index page&lt;/a&gt;'</span>;</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>&#123;</div><div class="line">        ctx.response.body = <span class="string">'Hello World '</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>运行这个 demo。 访问 <a href="http://127.0.0.1:3000/about" target="_blank" rel="external">http://127.0.0.1:3000/about</a> ，可以看到一个链接，点击后就跳到首页。 </p>
 <h1 id="koa-route-模块"><a href="#koa-route-模块" class="headerlink" title="koa-route 模块"></a>koa-route 模块</h1><p>原生路由用起来不方便，我们可以使用封装好的koa-route模块。</p>
-<pre class="line-numbers language-js"><code class="language-js">
-<span class="token comment" spellcheck="true">// demos/06.js</span>
-<span class="token keyword">const</span> route <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-route'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> about <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">'html'</span><span class="token punctuation">;</span>
-  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'&lt;a href="/">Index Page&lt;/a>'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>route<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> main<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>route<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/about'</span><span class="token punctuation">,</span> about<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// demos/06.js</span></div><div class="line"><span class="keyword">const</span> route = <span class="built_in">require</span>(<span class="string">'koa-route'</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> about = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</div><div class="line">  ctx.response.type = <span class="string">'html'</span>;</div><div class="line">  ctx.response.body = <span class="string">'&lt;a href="/"&gt;Index Page&lt;/a&gt;'</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</div><div class="line">  ctx.response.body = <span class="string">'Hello World'</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">app.use(route.get(<span class="string">'/'</span>, main));</div><div class="line">app.use(route.get(<span class="string">'/about'</span>, about));</div></pre></td></tr></table></figure>
 <p>上面代码中，根路径<code>/</code>的处理函数是<code>main</code>，<code>/about</code>路径的处理函数是<code>about</code>。</p>
 <p>运行这个 demo。访问 <a href="http://127.0.0.1:3000/about" target="_blank" rel="external">http://127.0.0.1:3000/about</a> ，效果与上一个例子完全相同。 </p>
 <p><code>app.use()</code>这个就是中间件的标志做法。</p>
 <h2 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h2><p>如果网站提供静态资源（图片，字体，样式表，脚本等等）为它们写一个个路由就很麻烦，也没必要，<code>koa-static</code> 模块封装了这部分的请求。</p>
-<pre class="line-numbers language-js"><code class="language-js">
-<span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> serve <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-static'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> <span class="token function">serve</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">const</span> serve = <span class="built_in">require</span>(<span class="string">'koa-static'</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = serve(path.join(__dirname));</div><div class="line"></div><div class="line">app.use(main);</div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
 <p>运行这个 Demo。如果目录下有个12.js文件。那 访问 <a href="http://127.0.0.1:3000/12.js，在浏览器里就可以看到这个脚本的内容。" target="_blank" rel="external">http://127.0.0.1:3000/12.js，在浏览器里就可以看到这个脚本的内容。</a> （和使用了Nginx形成了网站的功能一样）。</p>
 <h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2><p>有些场合，服务器需要重定向redirect 访问请求。比如用户登入以后，将他重定向到登入前的页面。<code>ctx.resposne.redirect()</code> 方法可以发出一个302跳转，将用户导向另一个路由。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token number">18</span> lines <span class="token punctuation">(</span><span class="token number">13</span> sloc<span class="token punctuation">)</span>  <span class="token number">319</span> Bytes
-<span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> route <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-route'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> redirect <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">redirect</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//跳转转到指定路由</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>route<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> main<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>route<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/redirect'</span><span class="token punctuation">,</span> redirect<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="number">18</span> lines (<span class="number">13</span> sloc)  <span class="number">319</span> Bytes</div><div class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> route = <span class="built_in">require</span>(<span class="string">'koa-route'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"></div><div class="line"><span class="keyword">const</span> redirect = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</div><div class="line">  ctx.response.redirect(<span class="string">'/'</span>);<span class="comment">//跳转转到指定路由</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</div><div class="line">  ctx.response.body = <span class="string">'Hello World'</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">app.use(route.get(<span class="string">'/'</span>, main));</div><div class="line">app.use(route.get(<span class="string">'/redirect'</span>, redirect));</div><div class="line"></div><div class="line">app.use(main);</div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
 <p>访问 <a href="http://127.0.0.1:3000/redirect" target="_blank" rel="external">http://127.0.0.1:3000/redirect</a> ，浏览器会将用户导向根路由。 </p>
 <h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><ul>
 <li>Logger功能（打印日志）</li>
 </ul>
 <p>Koa的最大特色，也就是最重要的设计，就是中间件（middleware） 。为了理解中间件，我们先看看Logger(打印日志)<br>最简单的写法就是在main函数里面增加一行。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>method<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//手动写的字符串模板</span>
-  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">Date</span>.now()&#125;</span> <span class="subst">$&#123;ctx.request.method&#125;</span> <span class="subst">$&#123;ctx.request.url&#125;</span>`</span>);<span class="comment">//手动写的字符串模板</span></div><div class="line">  ctx.response.body = <span class="string">'Hello World'</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">app.use(main);</div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
 <p>访问 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，命令行就会输出日志。</p>
 <blockquote>
-<pre><code>1502144902843 GET /
-</code></pre></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; 1502144902843 GET /</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
 <p>上面例子里面的Logger功能，可以拆分成一个独立函数。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> logger <span class="token operator">=</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>method<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>logger<span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"></div><div class="line"><span class="keyword">const</span> logger = <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">Date</span>.now()&#125;</span> <span class="subst">$&#123;ctx.request.method&#125;</span> <span class="subst">$&#123;ctx.request.url&#125;</span>`</span>);</div><div class="line">  next();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</div><div class="line">  ctx.response.body = <span class="string">'Hello World'</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">app.use(logger);</div><div class="line">app.use(main);</div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
 <p>像上面的代码中logger函数就叫做中间件，因为它处于HTTP Request和HTTP Response中间，用来实现某种中间功能，</p>
 <p><code>app.use()</code>用来加载中间件。</p>
 <p>基本上，Koa所有的功能都是通过中间件实现的，前面的例子里面main也是中间件，每个中间件默认接受了两个参数，第一个参数是Context对象，第个参数是next函数，只要调用next函数，就可以把执行权转交给下一个中间间。</p>
 <p>运行这个 demo。</p>
 <blockquote>
-<pre><code>$ node demos/08.js
-</code></pre></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; $ node demos/08.js</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
 <p>访问 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，命令行窗口会显示与上一个例子相同的日志输出。</p>
 <h2 id="中间件栈"><a href="#中间件栈" class="headerlink" title="中间件栈"></a>中间件栈</h2><p>多个中间件会形成一个栈结构（middle stack），以”先进后出”（first-in-last-out）的顺序执行。<br>(按廖雪峰的koa介绍里面是说koa将中间件连成一个处理链，先app.use的在链的开头,也就是这里的最外层中间件)</p>
 <blockquote>
@@ -514,590 +108,53 @@ app<span class="token punctuation">.</span><span class="token function">listen</
 </ol>
 </blockquote>
 <p><img src="http://oocfz31zv.bkt.clouddn.com/bV6D5Z.png" alt="bV6D5Z"></p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> one <span class="token operator">=</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'>> one'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//1.</span>
-  <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'&lt;&lt; one'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//6</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">const</span> two <span class="token operator">=</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'>> two'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//2.</span>
-  <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'&lt;&lt; two'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//5</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">const</span> three <span class="token operator">=</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'>> three'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//3.</span>
-  <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//发现没有下一个中间件了，是最内层中间件。</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'&lt;&lt; three'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//4</span>
-<span class="token punctuation">}</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>one<span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>two<span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>three<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//这种执行顺序被比喻为洋葱模型。</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"></div><div class="line"><span class="keyword">const</span> one = <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'&gt;&gt; one'</span>);<span class="comment">//1.</span></div><div class="line">  next();</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'&lt;&lt; one'</span>);<span class="comment">//6</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> two = <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'&gt;&gt; two'</span>);<span class="comment">//2.</span></div><div class="line">  next();</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'&lt;&lt; two'</span>);<span class="comment">//5</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> three = <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'&gt;&gt; three'</span>);<span class="comment">//3.</span></div><div class="line">  next();<span class="comment">//发现没有下一个中间件了，是最内层中间件。</span></div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'&lt;&lt; three'</span>);<span class="comment">//4</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">app.use(one);</div><div class="line">app.use(two);</div><div class="line">app.use(three);</div><div class="line"></div><div class="line">app.listen(<span class="number">3000</span>);</div><div class="line"><span class="comment">//这种执行顺序被比喻为洋葱模型。</span></div></pre></td></tr></table></figure>
 <p>访问 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，命令行窗口会有如下输出。</p>
 <blockquote>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token operator">>></span> one
-<span class="token operator">>></span> two
-<span class="token operator">>></span> three
-<span class="token operator">&lt;&lt;</span> three
-<span class="token operator">&lt;&lt;</span> two
-<span class="token operator">&lt;&lt;</span> one
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; &gt;&gt; one</div><div class="line">&gt; &gt;&gt; two</div><div class="line">&gt; &gt;&gt; three</div><div class="line">&gt; &lt;&lt; three</div><div class="line">&gt; &lt;&lt; two</div><div class="line">&gt; &lt;&lt; one</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </blockquote>
 <p>如果中间件内部没有调用<code>next</code>函数，那么执行权就不会传递下去。 </p>
 <h2 id="异步中间件"><a href="#异步中间件" class="headerlink" title="异步中间件"></a>异步中间件</h2><p>迄今为止，所有的例子的中间件都是同步的，不包含异步操作，如果异步操作（如读取数据库）。中间件就必须写成<br>async 函数 （Generator 函数的语法糖。 最大特点就是可以交出<em>函数</em>的执行权(即暂停执行) </p>
-<pre class="line-numbers language-js"><code class="language-js">
-<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs.promised'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//async函数</span>
-  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">'html'</span><span class="token punctuation">;</span>
-  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token keyword">await</span> fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'./demos/template.html'</span><span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这一步 await</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs.promised'</span>);</div><div class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params">ctx, next</span>) </span>&#123;<span class="comment">//async函数</span></div><div class="line">  ctx.response.type = <span class="string">'html'</span>;</div><div class="line">  ctx.response.body = <span class="keyword">await</span> fs.readFile(<span class="string">'./demos/template.html'</span>, <span class="string">'utf8'</span>);<span class="comment">//这一步 await</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">app.use(main);</div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
 <p>上面代码中，<code>fs.readFile</code>是一个异步操作，必须写成<code>await fs.readFile()</code>，然后中间件必须写成 async 函数。</p>
 <p>运行这个 demo。</p>
 <p>访问 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，就可以看到模板文件的内容。 </p>
 <h2 id="中间件的合成"><a href="#中间件的合成" class="headerlink" title="中间件的合成"></a>中间件的合成</h2><p><code>koa-compose</code> 模块可以将多个中间件合成为一个，请看下面的例子。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> compose <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-compose'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> logger <span class="token operator">=</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>method<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> middlewares <span class="token operator">=</span> <span class="token function">compose</span><span class="token punctuation">(</span><span class="token punctuation">[</span>logger<span class="token punctuation">,</span> main<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>middlewares<span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">/*原先的时候是分开写成app.use(logger);
-app.use(main);*/</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> compose = <span class="built_in">require</span>(<span class="string">'koa-compose'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"></div><div class="line"><span class="keyword">const</span> logger = <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">Date</span>.now()&#125;</span> <span class="subst">$&#123;ctx.request.method&#125;</span> <span class="subst">$&#123;ctx.request.url&#125;</span>`</span>);</div><div class="line">  next();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</div><div class="line">  ctx.response.body = <span class="string">'Hello World'</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> middlewares = compose([logger, main]);</div><div class="line"></div><div class="line">app.use(middlewares);</div><div class="line">app.listen(<span class="number">3000</span>);</div><div class="line"><span class="comment">/*原先的时候是分开写成app.use(logger);</span></div><div class="line">app.use(main);*/</div></pre></td></tr></table></figure>
 <p>运行这个 demo。</p>
 <p>访问 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，就可以在命令行窗口看到日志信息。</p>
 <h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><p>如果代码运行过程中发生错误，我们需要把错误信息返回给用户。</p>
 <p><strong>HTTP协议约定</strong>这时要返回<strong>500状态码</strong>。Koa提供了<code>ctx.throw()</code> 方法，用来抛出错误，<code>ctx.throw(500)</code>就是抛出500错误。 </p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  ctx<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</div><div class="line">  ctx.throw(<span class="number">500</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">app.use(main);</div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
 <p><strong>400状态码</strong> ，如果将<code>ctx.resposne.status</code> 设置成404，就相当于<code>ctx.throw(404)</code>,返回404错误。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>status <span class="token operator">=</span> <span class="token number">404</span><span class="token punctuation">;</span>
-  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'Page Not Found'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</div><div class="line">  ctx.response.status = <span class="number">404</span>;</div><div class="line">  ctx.response.body = <span class="string">'Page Not Found'</span>;</div><div class="line">&#125;;</div><div class="line">app.use(main);</div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
 <p>访问 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，你就看到一个404页面”Page Not Found”。 </p>
 <h1 id="处理错误的中间件。"><a href="#处理错误的中间件。" class="headerlink" title="处理错误的中间件。"></a>处理错误的中间件。</h1><p>为了方便处理u从无，最好使用<code>try...catch</code> 将其捕获，但是每个为每个中间件都写<code>try...catch</code> 太麻烦，我们可以让最外层的中间件负责所有中间件的错误处理。<br>(可能和Promise对象有关？)</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> handler <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  <span class="token keyword">try</span> <span class="token punctuation">{</span>
-    <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">err</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>status <span class="token operator">=</span> err<span class="token punctuation">.</span>statusCode <span class="token operator">||</span> err<span class="token punctuation">.</span>status <span class="token operator">||</span> <span class="token number">500</span><span class="token punctuation">;</span>
-    ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token punctuation">{</span>
-      message<span class="token punctuation">:</span> err<span class="token punctuation">.</span>message
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  ctx<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//内层中间件抛出错误</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> handler = <span class="keyword">async</span> (ctx, next) =&gt; &#123;</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">await</span> next();</div><div class="line">  &#125; <span class="keyword">catch</span> (err) &#123;</div><div class="line">    ctx.response.status = err.statusCode || err.status || <span class="number">500</span>;</div><div class="line">    ctx.response.body = &#123;</div><div class="line">      <span class="attr">message</span>: err.message</div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</div><div class="line">  ctx.throw(<span class="number">500</span>);<span class="comment">//内层中间件抛出错误</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">app.use(handler);</div><div class="line">app.use(main);</div></pre></td></tr></table></figure>
 <p>运行这个Demo访问 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，你会看到一个500页，里面有报错提示 <code>{&quot;message&quot;:&quot;Internal Server Error&quot;}</code>。 </p>
 <h1 id="error事件的监听"><a href="#error事件的监听" class="headerlink" title="error事件的监听"></a>error事件的监听</h1><p>运行过程中一旦出错，Koa会触发一个<code>error</code> 事件，监听这个事件，也可以处理错误。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  ctx<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> ctx<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'server error'</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</div><div class="line">  ctx.throw(<span class="number">500</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">app.on(<span class="string">'error'</span>, (err, ctx) =&gt; &#123;</div><div class="line">  <span class="built_in">console</span>.error(<span class="string">'server error'</span>, err);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.use(main);</div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
 <p>运行这个Demo，访问 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，你会在命令行窗口看到”server error xxx”。 </p>
 <h1 id="释放error事件"><a href="#释放error事件" class="headerlink" title="释放error事件"></a>释放error事件</h1><p>需要注意的是，如果错误被<code>try...catch</code> 捕获就不会触发<code>error</code> 事件，这时，必须调用<code>ctx.app.emit()</code> 手动释放<code>error</code> 事件，才能让监听函数生效。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> handler <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  <span class="token keyword">try</span> <span class="token punctuation">{</span>
-    <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">err</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>status <span class="token operator">=</span> err<span class="token punctuation">.</span>statusCode <span class="token operator">||</span> err<span class="token punctuation">.</span>status <span class="token operator">||</span> <span class="token number">500</span><span class="token punctuation">;</span>
-    ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">'html'</span><span class="token punctuation">;</span>
-    ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">'&lt;p>Something wrong, please contact administrator.&lt;/p>'</span><span class="token punctuation">;</span>
-    ctx<span class="token punctuation">.</span>app<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> err<span class="token punctuation">,</span> ctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> ctx <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  ctx<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'logging error '</span><span class="token punctuation">,</span> err<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> handler = <span class="keyword">async</span> (ctx, next) =&gt; &#123;</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">await</span> next();</div><div class="line">  &#125; <span class="keyword">catch</span> (err) &#123;</div><div class="line">    ctx.response.status = err.statusCode || err.status || <span class="number">500</span>;</div><div class="line">    ctx.response.type = <span class="string">'html'</span>;</div><div class="line">    ctx.response.body = <span class="string">'&lt;p&gt;Something wrong, please contact administrator.&lt;/p&gt;'</span>;</div><div class="line">    ctx.app.emit(<span class="string">'error'</span>, err, ctx);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</div><div class="line">  ctx.throw(<span class="number">500</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">app.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'logging error '</span>, err.message);</div><div class="line">  <span class="built_in">console</span>.log(err);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>上面代码中，<code>main</code>函数抛出错误，被<code>handler</code>函数捕获。<code>catch</code>代码块里面使用<code>ctx.app.emit()</code>手动释放<code>error</code>事件，才能让监听函数监听到。</p>
 <p>运行这个 demo。访问 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，你会在命令行窗口看到<code>logging error</code>。 </p>
 <h1 id="Web-App的功能"><a href="#Web-App的功能" class="headerlink" title="Web App的功能"></a>Web App的功能</h1><p><strong>Cookies</strong></p>
 <p><code>ctx.cookies</code> 用来读写<code>Cookie</code> 。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> Koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> n <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'view'</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-  ctx<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'view'</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  ctx<span class="token punctuation">.</span>response<span class="token punctuation">.</span>body <span class="token operator">=</span> n <span class="token operator">+</span> <span class="token string">' views'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="function"><span class="keyword">function</span>(<span class="params">ctx</span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> n = <span class="built_in">Number</span>(ctx.cookies.get(<span class="string">'view'</span>) || <span class="number">0</span>) + <span class="number">1</span>;</div><div class="line">  ctx.cookies.set(<span class="string">'view'</span>, n);</div><div class="line">  ctx.response.body = n + <span class="string">' views'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">app.use(main);</div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
 <p>运行这个 demo。 访问 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，你会看到<code>1 views</code>。刷新一次页面，就变成了<code>2 views</code>。再刷新，每次都会计数增加1。 </p>
 <h1 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h1><p>Web 应用离不开处理表单，本质上，表单就是POST方法发送到服务器的键值对。<br><code>koa-body</code> 模块可以用来从POST请求数据体里面提取键值对。请看下面的例子。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> koa <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> koaBody <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-body'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Koa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> body <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body<span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>body<span class="token punctuation">.</span>name<span class="token punctuation">)</span> ctx<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span><span class="token string">'.name required'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">koaBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</div><div class="line"><span class="keyword">const</span> koaBody = <span class="built_in">require</span>(<span class="string">'koa-body'</span>);</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params">ctx</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> body = ctx.request.body;</div><div class="line">    <span class="keyword">if</span>(!body.name) ctx.throw(<span class="number">400</span>,<span class="string">'.name required'</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">app.use(koaBody());</div><div class="line">app.use(main);</div><div class="line">app.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
 <p>运行这个 demo。 </p>
 <p>打开另一个命令行窗口，运行下面的命令。</p>
-<pre class="line-numbers language-shell"><code class="language-shell">$ curl -X POST --data "name=Jack" 127.0.0.1:3000
-{"name":"Jack"}
-
-$ curl -X POST --data "name" 127.0.0.1:3000
-name required
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> curl -X POST --data <span class="string">"name=Jack"</span> 127.0.0.1:3000</span></div><div class="line">&#123;"name":"Jack"&#125;</div><div class="line"><span class="meta"></span></div><div class="line">$<span class="bash"> curl -X POST --data <span class="string">"name"</span> 127.0.0.1:3000</span></div><div class="line">name required</div></pre></td></tr></table></figure>
 <p>上面代码使用POST方法向服务器发送一个键值对，会被正确解析，如果发送的数据不正确，就会收到错误的提示。</p>
 <h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p> <code>koa-body</code> 模块还可以用来开处理文件上传。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> os <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'os'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> koaBody <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'koa-body'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> main <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> tmpdir <span class="token operator">=</span> os<span class="token punctuation">.</span><span class="token function">tmpdir</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> filePaths <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> files <span class="token operator">=</span> ctx<span class="token punctuation">.</span>request<span class="token punctuation">.</span>body<span class="token punctuation">.</span>files <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">for</span>  <span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> files<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> file <span class="token operator">=</span> files<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> filePath <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>tmpdir<span class="token punctuation">,</span>file<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> reader <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> writer <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    reader<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>writer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    filePaths<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-ctx<span class="token punctuation">.</span>body <span class="token operator">=</span> filePaths<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">koaBody</span><span class="token punctuation">(</span><span class="token punctuation">{</span>multipart<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">'os'</span>);</div><div class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">const</span> koaBody = <span class="built_in">require</span>(<span class="string">'koa-body'</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> main = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params">ctx</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> tmpdir = os.tmpdir();</div><div class="line">    <span class="keyword">const</span> filePaths = [];</div><div class="line">    <span class="keyword">const</span> files = ctx.request.body.files || &#123;&#125;;</div><div class="line"></div><div class="line"><span class="keyword">for</span>  (<span class="keyword">let</span> key <span class="keyword">in</span> files) &#123;</div><div class="line">    <span class="keyword">const</span> file = files[key];</div><div class="line">    <span class="keyword">const</span> filePath = path.join(tmpdir,file.name);</div><div class="line">    <span class="keyword">const</span> reader = fs.createReadStream(file.path);</div><div class="line">    <span class="keyword">const</span> writer = fs.createWriteStream(filePath);</div><div class="line">    reader.pipe(writer);</div><div class="line">    filePaths.push(filePath);</div><div class="line">&#125;</div><div class="line">ctx.body = filePaths;</div><div class="line">&#125;;</div><div class="line">app.use(koaBody(&#123;<span class="attr">multipart</span>: <span class="literal">true</span>&#125;));</div></pre></td></tr></table></figure>
 <p>运行这个demo。</p>
 <p>打开另一个命令行窗口，运行下面的命令，上传一个文件。注意，<code>/path/to/file</code>要更换为真实的文件路径。</p>
-<pre class="line-numbers language-shell"><code class="language-shell">$ curl --form upload=@/path/to/file http://127.0.0.1:3000
-["/tmp/file"]
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-    </div>
-</article>
-
-
-                </div>
-                <aside class="col-md-4 gal-left" id="sidebar">
-    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
-<aside id="sidebar-search">
-    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <form class="form-inline clearfix" id="search-form" method="get"
-              action="/search/index.html">
-            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
-            <button class="btn btn-danger btn-gal" type="submit">
-                <i class="fa fa-search"></i>
-            </button>
-        </form>
-    </div>
-</aside>
-    <aside id="sidebar-author">
-    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
-        <div class="panel-heading" style="text-align: center">
-            <i class="fa fa-quote-left"></i>
-            JINXO
-            <i class="fa fa-quote-right"></i>
-        </div>
-        <div class="author-panel text-center">
-            <img src="/imgs/avatar.jpg" width="140" height="140"
-                 alt="个人头像" class="author-image">
-            <p class="author-description"><p>全栈</p>
-</p>
-        </div>
-    </div>
-</aside>
-    
-    <aside id="sidebar-recent_comments">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-comments"></i>
-            最新评论
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush"></ul>
-    </div>
-</aside>
-    
-    <!-- 要配置好leancloud才能开启此小工具 -->
-    
-    
-    <aside id="sidebar-recent_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            近期文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/07/27/canvas/">canvas</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/07/25/代码查找-md/">如何在网上搜索代码</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/07/15/element远程选择器/">element远程选择器</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/06/30/ES6三/">字符扩展</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/06/30/es6二/">解构赋值</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/06/04/vue-router基础使用/">vue-router基础使用</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/06/02/箭头函数柯里化/">箭头函数柯里化</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/05/29/封装一个vue component/">封装vue组件</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/05/27/ES2017异步函数/">异步函数</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/05/26/koa介绍，廖雪峰/">koa2</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
-    
-    <aside id="sidebar-rand_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            随机文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2017/05/05/ES6/">Proxy</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2017/05/05/ES6七/">数组扩展</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2017/05/05/ES6today2/">Promise对象</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/07/27/canvas/">canvas</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/05/26/koa项目搭建/"></a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/05/08/vim配置/">适合前端的vim配置</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/05/16/vue基础学习/">vue</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/05/29/封装一个vue component/">封装vue组件</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2017/05/05/虚拟内存/">虚拟内存</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/05/26/koa介绍，廖雪峰/">koa2</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
-    
-    <aside id="gal-sets">
-        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-            <ul class="nav nav-pills pills-gal">
-                <li class="">
-                    <a href="/2018/05/26/koa基本介绍/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
-                </li>
-                <li class="">
-                    <a href="/2018/05/26/koa基本介绍/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
-                </li>
-                <li class="">
-                    <a href="/2018/05/26/koa基本介绍/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
-    
-    <a href="/tags/habit/" style="font-size: 8.869400934371582px;" class="tag-cloud-link">habit</a>
-    
-    <a href="/tags/ES6/" style="font-size: 14.405102701284136px;" class="tag-cloud-link">ES6</a>
-    
-    <a href="/tags/Electron/" style="font-size: 12.947920206284063px;" class="tag-cloud-link">Electron</a>
-    
-    <a href="/tags/node/" style="font-size: 8.949022287443052px;" class="tag-cloud-link">node</a>
-    
-    <a href="/tags/工具使用/" style="font-size: 10.31582654386402px;" class="tag-cloud-link">工具使用</a>
-    
-    <a href="/tags/Node/" style="font-size: 13.554583325344954px;" class="tag-cloud-link">Node</a>
-    
-    <a href="/tags/前端/" style="font-size: 17.658101843532176px;" class="tag-cloud-link">前端</a>
-    
-    <a href="/tags/element/" style="font-size: 19.4175298473074px;" class="tag-cloud-link">element</a>
-    
-    <a href="/tags/vue-js/" style="font-size: 13.896495110271356px;" class="tag-cloud-link">vue.js</a>
-    
-    <a href="/tags/koa/" style="font-size: 13.30594745006547px;" class="tag-cloud-link">koa</a>
-    
-    <a href="/tags/工具/" style="font-size: 16.54849369661422px;" class="tag-cloud-link">工具</a>
-    
-    <a href="/tags/数据库/" style="font-size: 11.606693924196367px;" class="tag-cloud-link">数据库</a>
-    
-    <a href="/tags/javascript/" style="font-size: 9.600095014787076px;" class="tag-cloud-link">javascript</a>
-    
-    <a href="/tags/vue/" style="font-size: 18.465265699800703px;" class="tag-cloud-link">vue</a>
-    
-    <a href="/tags/JQuery/" style="font-size: 15.980102926952636px;" class="tag-cloud-link">JQuery</a>
-    
-    <a href="/tags/数据结构/" style="font-size: 18.14860193011142px;" class="tag-cloud-link">数据结构</a>
-    
-    <a href="/tags/算法/" style="font-size: 13.761998512358236px;" class="tag-cloud-link">算法</a>
-    
-    <a href="/tags/硬件/" style="font-size: 14.742322551537978px;" class="tag-cloud-link">硬件</a>
-    
-    <a href="/tags/koa2/" style="font-size: 9.638702519614869px;" class="tag-cloud-link">koa2</a>
-    
-</div>
-                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
-    
-    <li>
-        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
-    </li>
-    
-    <li>
-        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
-    </li>
-    
-    <li>
-        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
-    </li>
-    
-</div>
-                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
-    
-    <li>
-        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
-    </li>
-    
-    <li>
-        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
-    </li>
-    
-    <li>
-        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
-    </li>
-    
-</div>
-            </div>
-        </div>
-    </aside>
-    
-</aside>
-            </div>
-        </div>
-    </div>
-    <footer id="gal-footer">
-    <div class="container">
-       JINXO Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-</footer>
-
-<!-- 回到顶端 -->
-<div id="gal-gotop">
-    <i class="fa fa-angle-up"></i>
-</div>
-</body>
-<script src="/js/activate-power-mode.js"></script>
-<script>
-
-    // 配置highslide
-	hs.graphicsDir = '/js/highslide/graphics/'
-    hs.outlineType = "rounded-white";
-    hs.dimmingOpacity = 0.8;
-    hs.outlineWhileAnimating = true;
-    hs.showCredits = false;
-    hs.captionEval = "this.thumb.alt";
-    hs.numberPosition = "caption";
-    hs.align = "center";
-    hs.transitions = ["expand", "crossfade"];
-    hs.lang.number = '共%2张图, 当前是第%1张';
-    hs.addSlideshow({
-      interval: 5000,
-      repeat: true,
-      useControls: true,
-      fixedControls: "fit",
-      overlayOptions: {
-        opacity: 0.75,
-        position: "bottom center",
-        hideOnMouseOut: true
-      }
-    })
-
-    // 初始化aos
-    AOS.init({
-      duration: 1000,
-      delay: 0,
-      easing: 'ease-out-back'
-    });
-
-</script>
-<script>
-	POWERMODE.colorful = 'true';    // make power mode colorful
-	POWERMODE.shake = 'true';       // turn off shake
-	// TODO 这里根据具体情况修改
-	document.body.addEventListener('input', POWERMODE);
-</script>
-<script>
-    window.slideConfig = {
-      prefix: '/imgs/slide/background',
-      ext: 'jpg',
-      maxCount: '6'
-    }
-</script>
-<script src="/js/hs.js"></script>
-<script src="/js/blog.js"></script>
-
-<script src="/js/oni.js"></script>
-
-
-
-</html>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> curl --form upload=@/path/to/file http://127.0.0.1:3000</span></div><div class="line">["/tmp/file"]</div></pre></td></tr></table></figure>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">JINXO</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="/JINxo-geek.github.io/2018/05/26/koa基本介绍/">JINxo-geek.github.io/2018/05/26/koa基本介绍/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/node/">node</a><a class="post-meta__tags" href="/tags/前端/">前端</a><a class="post-meta__tags" href="/tags/koa/">koa</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2018/05/26/koa项目搭建/"><i class="fa fa-chevron-left">  </i><span></span></a></div><div class="next-post pull-right"><a href="/2018/05/20/vue实例的属性和方法/"><span>vue属性和方法</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2019 By JINXO</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+}</script></body></html>
